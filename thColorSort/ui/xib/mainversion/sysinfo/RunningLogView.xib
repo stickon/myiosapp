@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RunningLogView">
+            <connections>
+                <outlet property="logTextView" destination="Zpm-LU-bQ9" id="tU7-Y9-gaS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpm-LU-bQ9">
+                    <rect key="frame" x="20" y="32" width="335" height="615"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-dQ-k3n">
+                    <rect key="frame" x="323" y="0.0" width="32" height="32"/>
+                    <state key="normal" image="clean"/>
+                    <connections>
+                        <action selector="cleanLogs:" destination="-1" eventType="touchUpInside" id="HHb-py-zug"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Zpm-LU-bQ9" firstAttribute="top" secondItem="GR0-dQ-k3n" secondAttribute="bottom" id="0vY-In-vvY"/>
+                <constraint firstItem="Zpm-LU-bQ9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="kAV-ku-cOI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GR0-dQ-k3n" secondAttribute="trailing" constant="20" id="leI-YZ-7zo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Zpm-LU-bQ9" secondAttribute="bottom" constant="20" id="naV-ZY-JCo"/>
+                <constraint firstItem="GR0-dQ-k3n" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="u1u-IM-znA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Zpm-LU-bQ9" secondAttribute="trailing" constant="20" id="wNj-uL-d69"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="clean" width="32" height="32"/>
+    </resources>
+</document>
