@@ -33,7 +33,12 @@
 
 -(void)setPages{
     if (kDataModel.currentDevice->screenProtocolType == 0) {
-        if (kDataModel.currentDevice->screenProtocolMainVersion == 2&&kDataModel.currentDevice->screenProtocolMinVersion ==0) {
+        if (kDataModel.currentDevice->screenProtocolMainVersion == 0) {
+            if (kDataModel.currentDevice->screenProtocolMinVersion == 0) {
+             
+            }
+        }
+        else if (kDataModel.currentDevice->screenProtocolMainVersion == 2&&kDataModel.currentDevice->screenProtocolMinVersion ==0) {
             _curVersionViewPages = [[Version21ViewPages alloc] init];
         }else if (kDataModel.currentDevice->screenProtocolMainVersion == 3){
             if (kDataModel.currentDevice->screenProtocolMinVersion ==0) {

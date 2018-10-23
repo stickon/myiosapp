@@ -37,13 +37,12 @@ typedef struct
     
     Byte useLevel; ///用户权限  0 user 1:工程师 2:厂家
     Byte pixelType;//像素类型，在画相机校准线时用到
-
-
     //方案参数
-    Byte			sortModeBig;     //大模式
-    SignedByte 			sortModeSmall;   //小模式
-    char            modeName[100];    //当前方案名称
-    Byte            useHsv;            //是否使用hsv
+    Byte sortModeBig;     //大模式
+    Byte sortModeSmall;   //小模式
+    char  modeName[100];    //当前方案名称
+    Byte reserver[100];      //保留
+
 }MachineData;
 typedef struct ColorAlgorithm
 {

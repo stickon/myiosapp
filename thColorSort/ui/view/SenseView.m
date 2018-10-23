@@ -84,11 +84,7 @@
                 return 0;
             }
         }
-        if (indexPath.row == 4) {
-            if (device->machineData.useHsv == 0) {
-                return 0;
-            }
-        }
+    
     }
     return 50;
 }
@@ -164,13 +160,7 @@
         cell.textLabel.text = kLanguageForKey(338);
         cell.textLabel.font = SYSTEMFONT_15f;
         cell.textLabel.textColor = [UIColor TaiheColor];
-        if (device->machineData.useHsv) {
-            cell.hidden = NO;
-        }else{
-            cell.hidden = YES;
-            cell.frame = CGRectZero;
-        }
-        
+    
         return cell;
     }
     UITableViewCell *defaultCell = [[UITableViewCell alloc]init];

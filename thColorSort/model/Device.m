@@ -73,7 +73,7 @@
     return self;
 }
 -(void)dealloc{
-    if (self->data1) {
+    if (self->data1 != NULL) {
         free(self->data1);
     }
     if (self->data2) {

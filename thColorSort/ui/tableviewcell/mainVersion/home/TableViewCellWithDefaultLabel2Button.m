@@ -16,6 +16,8 @@
     self.textLabel.font = [UIFont systemFontOfSize:14.0];
     self.applyBtn.layer.cornerRadius = 3.0f;
     self.configBtn.layer.cornerRadius = 3.0f;
+    self.configBtn.hidden = YES;
+    self.applyBtn.hidden = YES;
     // Initialization code
 }
 

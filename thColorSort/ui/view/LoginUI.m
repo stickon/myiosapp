@@ -42,7 +42,7 @@ static NSString *udpMachinePwd = @"udpMachinePwd";//密码
     self=[super init];
     if(self){
         UIView *subView=[[[NSBundle mainBundle] loadNibNamed:@"loginUi" owner:self options:nil] firstObject];
-        [self init2LoginTextField];
+        [self updateLoginView:1];
         [self addSubview:subView];
         [self autoLayout:subView superView:self];
     }
@@ -138,9 +138,6 @@ static NSString *udpMachinePwd = @"udpMachinePwd";//密码
 
 
 - (void)updateLoginView:(NSInteger)index{
-    if (index == 0) {
-        [self init2LoginTextField];
-    }else{
         [self.loginBtn setTitle:kLanguageForKey(5) forState:UIControlStateNormal];
         self.passwordTextField.keyboardType = UIKeyboardTypeNumberPad;
         self.userNameImageView.hidden = YES;
@@ -153,7 +150,6 @@ static NSString *udpMachinePwd = @"udpMachinePwd";//密码
             self.loginTextField.placeholder = kLanguageForKey(233);
         }
         self.passwordTextField.placeholder = kLanguageForKey(263);
-    }
 }
 -(void)networkError:(NSError *)error{
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -199,11 +195,10 @@ static NSString *udpMachinePwd = @"udpMachinePwd";//密码
     unsigned const char *a = headerData.bytes;
     if(a[0] == 0xc2 && a[1] == 1){
         NSLog(@"c2 01");
-        [self checkAppUpdate];
+//        [self checkAppUpdate];
         return;
     }
-    if (self.loginTypeSegmentedControl.selectedSegmentIndex == 1) {
-        
+   
         if (headerData.length>0) {
             const unsigned char*a = headerData.bytes;
             if (a[0]== 0x01 && a[1] == 0x01) {
@@ -241,20 +236,21 @@ static NSString *udpMachinePwd = @"udpMachinePwd";//密码
             }
             
         }
-    }else{
-        if (kDataModel.getDeviceCount>0) {
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:self.loginTextField.text forKey:udpMachineID];
-            [defaults setObject:self.passwordTextField.text forKey:udpMachinePwd];
-            [self.paraNextView setObject:kLanguageForKey(15) forKey:@"title"];
-            [gMiddeUiManager ChangeViewWithName:@"DeviceListUI" Para:self.paraNextView];
-        }
-        else
-        {
-            [self makeToast:kLanguageForKey(11) duration:2.0 position:CSToastPositionCenter];
-            [[NetworkFactory sharedNetWork]disconnect];
-        }
-    }
+//    }
+//else{
+//        if (kDataModel.getDeviceCount>0) {
+//            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//            [defaults setObject:self.loginTextField.text forKey:udpMachineID];
+//            [defaults setObject:self.passwordTextField.text forKey:udpMachinePwd];
+//            [self.paraNextView setObject:kLanguageForKey(15) forKey:@"title"];
+//            [gMiddeUiManager ChangeViewWithName:@"DeviceListUI" Para:self.paraNextView];
+//        }
+//        else
+//        {
+//            [self makeToast:kLanguageForKey(11) duration:2.0 position:CSToastPositionCenter];
+//            [[NetworkFactory sharedNetWork]disconnect];
+//        }
+//    }
 }
 
 - (IBAction)LoginTypeChanged:(UISegmentedControl *)sender {
@@ -265,33 +261,14 @@ static NSString *udpMachinePwd = @"udpMachinePwd";//密码
 }
 - (IBAction)login:(id)sender {
     [self endEditing:YES];
-#ifdef Engineer
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *registerInfo = [defaults valueForKey:registerInfoKey];
-    if (registerInfo.length == 0) {
-        [self.window makeToast:kLanguageForKey(239)  duration:2.0 position:CSToastPositionCenter];
-    }else{
-#endif
-        if(self.loginTypeSegmentedControl.selectedSegmentIndex == 0){
-            [NetworkFactory createNetworkWithType:1];
-            if([gNetwork open]){
-                [self loginWithNetworkString:@"udp"];
-            }else{
-                [hudLoading hideAnimated:YES];
-                [self makeToast:kLanguageForKey(9) duration:2.0 position:CSToastPositionCenter];
-            }
-        }else{
-            [NetworkFactory createNetworkWithType:0];
-            [self loginWithNetworkString:@"tcp"];
-        }
-#ifdef Engineer
-    }
-#endif
+    [NetworkFactory createNetworkWithType:0];
+    [self loginWithNetworkString:@"tcp"];
 }
 -(void)loginWithNetworkString:(NSString*)loginString
 {
     NSString *nameStr = self.loginTextField.text;
-    NSString *pwdStr = self.passwordTextField.text;
+//    NSString *pwdStr = self.passwordTextField.text;
+    NSString *pwdStr = @"1234";
     if ([loginString isEqualToString:@"udp"]) {
         if (nameStr.length == 0 || pwdStr.length == 0) {
             [self makeToast:kLanguageForKey(7) duration:2.0 position:CSToastPositionCenter];

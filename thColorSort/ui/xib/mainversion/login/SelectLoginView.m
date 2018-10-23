@@ -49,7 +49,7 @@
     return self;
 }
 - (IBAction)remoteLoginClicked:(id)sender {
-    [self.paraNextView setObject:kLanguageForKey(15) forKey:@"title"];
+    [self.paraNextView setObject:kLanguageForKey(232) forKey:@"title"];
     [gMiddeUiManager ChangeViewWithName:@"LoginUI" Para:self.paraNextView];
 }
 

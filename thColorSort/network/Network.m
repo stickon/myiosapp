@@ -559,15 +559,11 @@
 }
 
 -(void)useModeWithIndex:(Byte)smallModeIndex BigModeIndex:(Byte)bigModeIndex{
-    Device *device = kDataModel.currentDevice;
-    NSMutableArray *smallModeList = device.bigModeList[bigModeIndex];
-    NSMutableDictionary *dict = [smallModeList objectAtIndex:smallModeIndex];
-    NSString *modeIndex = [dict valueForKey:@"modeRealIndex"];
     [self initSocketHeader];
-    socketHeader.type = 0x0d;
-    socketHeader.extendType = 0x05;
-    socketHeader.data1[0] = modeIndex.intValue;
-    socketHeader.data1[1] = bigModeIndex+1;
+    socketHeader.type = 0x04;
+    socketHeader.extendType = 0x02;
+    socketHeader.data1[0] = smallModeIndex;
+    socketHeader.data1[1] = bigModeIndex;
     [self netWorkSendData];
 }
 -(void)getModeSettingWithIndex:(Byte)smallModeIndex BigModeIndex:(Byte)bigModeIndex{
@@ -604,8 +600,8 @@
 
 -(void)saveCurrentMode{
     [self initSocketHeader];
-    socketHeader.type = 0x0d;
-    socketHeader.extendType = 0x06;
+    socketHeader.type = 0x04;
+    socketHeader.extendType = 0x03;
     [self netWorkSendData];
 
 }
