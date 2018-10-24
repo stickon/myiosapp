@@ -45,39 +45,18 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 4;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Device *device = kDataModel.currentDevice;
     if (device) {
-        if (indexPath.row == 3) {
-            if (device->machineData.machineType != MACHINE_TYPE_WHEEL && device->machineData.machineType != MACHINE_TYPE_WHEEL_2) {
+        if (indexPath.row == 2 || indexPath.row == 3) {
+            if (device->machineData.useLevel == 0) {
                 return 0;
             }
+            return 50;
         }
-        if (indexPath.row == 5) {
-            if (device->screenProtocolType) {
-#ifdef Engineer
-                return 50;
-#else
-                return 0;
-#endif
-            }else{
-                return 0;
-            }
-        }
-#ifdef Engineer
-        return 50;
-#else
-        if (indexPath.row == 0) {
-            return 0;
-        }
-        if (indexPath.row == 1){
-            return 0;
-        }
-        return 50;
-#endif
     }
     return 50;
 }
@@ -87,86 +66,68 @@
     NSString *defaultTableViewCell = @"defaultcell";
     if (indexPath.row == 0) {
         UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
-        cell.imageView.image = [UIImage imageNamed:@"icon_signal"];
+//        cell.imageView.image = [UIImage imageNamed:@"icon_version"];
+        cell.textLabel.text = kLanguageForKey(77) ;
+        cell.textLabel.font = SYSTEMFONT_15f;
+        cell.textLabel.textColor = [UIColor TaiheColor];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row == 1) {
+        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
+//        cell.imageView.image = [UIImage imageNamed:@"icon_valve"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.text = kLanguageForKey(149) ;
+        cell.textLabel.font = SYSTEMFONT_15f;
+        cell.textLabel.textColor = [UIColor TaiheColor];
+        return cell;
+    }
+    if (indexPath.row == 2) {
+        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
+//        cell.imageView.image = [UIImage imageNamed:@"icon_signal"];
         cell.textLabel.text = kLanguageForKey(96);
         cell.textLabel.font = SYSTEMFONT_15f;
         cell.textLabel.textColor = [UIColor TaiheColor];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-#ifdef Engineer
-        cell.hidden = NO;
-#else
-        cell.hidden = YES;
-#endif
+        if (device->machineData.useLevel == 0) {
+            cell.hidden = YES;
+            cell.frame = CGRectZero;
+        }else{
+            cell.hidden = NO;
+        }
         return cell;
     }
-    if (indexPath.row == 1) {
+    if (indexPath.row == 3) {
         UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
-        cell.imageView.image = [UIImage imageNamed:@"icon_light_adjust"];
+//        cell.imageView.image = [UIImage imageNamed:@"icon_light_adjust"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = kLanguageForKey(196);
         cell.textLabel.font = SYSTEMFONT_15f;
         cell.textLabel.textColor = [UIColor TaiheColor];
-#ifdef Engineer
-        cell.hidden = NO;
-#else
-        cell.hidden = YES;
-#endif
-        return cell;
-    }
-    
-    if (indexPath.row == 2) {
-        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
-        cell.imageView.image = [UIImage imageNamed:@"icon_clean"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = kLanguageForKey(21) ;
-        cell.textLabel.font = SYSTEMFONT_15f;
-        cell.textLabel.textColor = [UIColor TaiheColor];
-        return cell;
-    }
-    if (indexPath.row == 3) {
-        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
-        cell.imageView.image = [UIImage imageNamed:@"icon_wheel"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = kLanguageForKey(145) ;
-        cell.textLabel.font = SYSTEMFONT_15f;
-        cell.textLabel.textColor = [UIColor TaiheColor];
-        if (device->machineData.machineType == MACHINE_TYPE_WHEEL || device->machineData.machineType == MACHINE_TYPE_WHEEL_2) {
-            cell.hidden = NO;
-        }else{
+        if (device->machineData.useLevel == 0) {
             cell.hidden = YES;
+            cell.frame = CGRectZero;
+        }else{
+            cell.hidden = NO;
         }
         return cell;
     }
-    if (indexPath.row == 4) {
-        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
-        cell.imageView.image = [UIImage imageNamed:@"icon_feeder"];
+    if (indexPath.row == 4){
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
+//        cell.imageView.image = [UIImage imageNamed:@"appLogs"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = kLanguageForKey(23) ;
+        cell.textLabel.text = kLanguageForKey(1012);
         cell.textLabel.font = SYSTEMFONT_15f;
         cell.textLabel.textColor = [UIColor TaiheColor];
-        return cell;
-    }
-    if (indexPath.row == 5) {
-        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
-        cell.imageView.image = [UIImage imageNamed:@"icon_camera_adjust"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = kLanguageForKey(400) ;
-        cell.textLabel.font = SYSTEMFONT_15f;
-        cell.textLabel.textColor = [UIColor TaiheColor];
-        if (device->screenProtocolType) {
-#ifdef Engineer
-            cell.hidden = NO;
-#else
+        if (device->machineData.useLevel == 0) {
             cell.hidden = YES;
-#endif
         }else{
-            cell.hidden = YES;
+            cell.hidden = NO;
         }
         return cell;
     }
@@ -178,23 +139,17 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
+        [self.paraNextView setObject:kLanguageForKey(77) forKey:@"title"];
+        [gMiddeUiManager ChangeViewWithName:@"SoftwareVersionView" Para:self.paraNextView];
+    }else if (indexPath.row == 1){
+        [self.paraNextView setObject:kLanguageForKey(149) forKey:@"title"];
+        [gMiddeUiManager ChangeViewWithName:@"ValveShowInfoView" Para:self.paraNextView];
+    }else if (indexPath.row == 2) {
         [self.paraNextView setObject:kLanguageForKey(96) forKey:@"title"];
         [gMiddeUiManager ChangeViewWithName:@"SignalSettingView" Para:self.paraNextView];
-    }else if (indexPath.row == 1){
+    }else if (indexPath.row == 3){
         [self.paraNextView setObject:kLanguageForKey(174) forKey:@"title"];
         [gMiddeUiManager ChangeViewWithName:@"CalibrationView" Para:self.paraNextView];
-    }else if (indexPath.row == 2){
-        [self.paraNextView setObject:kLanguageForKey(21) forKey:@"title"];
-        [gMiddeUiManager ChangeViewWithName:@"CleanSetView" Para:self.paraNextView];
-    }else if (indexPath.row == 3){
-        [self.paraNextView setObject:kLanguageForKey(145) forKey:@"title"];
-        [gMiddeUiManager ChangeViewWithName:@"CaterpillarView" Para:self.paraNextView];
-    }else if (indexPath.row == 4){
-        [self.paraNextView setObject:kLanguageForKey(23) forKey:@"title"];
-        [gMiddeUiManager ChangeViewWithName:@"FeedSetView" Para:self.paraNextView];
-    }else if (indexPath.row == 5){
-        [self.paraNextView setObject:kLanguageForKey(400) forKey:@"title"];
-        [gMiddeUiManager ChangeViewWithName:@"CameraCalibrationView" Para:self.paraNextView];
     }
 }
 

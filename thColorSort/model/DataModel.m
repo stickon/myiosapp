@@ -542,7 +542,7 @@ static DataModel *model = nil;
             }
         }
             break;
-        case 0x0a:
+        case 0x0c:
         {
             Device *device = kDataModel.currentDevice;
             if(a[1] == 0x01)
@@ -559,10 +559,7 @@ static DataModel *model = nil;
                 if (position>0) {
                     NSData *displayScreenVersion = [deviceData subdataWithRange:NSMakeRange(0, position)];
                     device.displayScreenVersion = [[NSString alloc] initWithData:displayScreenVersion encoding:NSUTF8StringEncoding];
-//                    [NSMutableString stringWithUTF8String:displayScreenVersion.bytes];
-//                    if ([device.displayScreenVersion containsString:@"\0"]) {
-//                        [device.displayScreenVersion replaceOccurrencesOfString:@"\0" withString:@"" options:NSBackwardsSearch range:NSMakeRange(0, device.displayScreenVersion.length)];
-//                    }
+
                     DDLogInfo(@"display:%@",device.displayScreenVersion);
                     memcpy(&device->baseVersion, Data+position+1, sizeof(BaseVersion)-1);
                 }
@@ -648,7 +645,7 @@ static DataModel *model = nil;
             }
         }
             break;
-        case 0x0b://灯光
+        case 0x0f://灯光
         {
             Device *device = kDataModel.currentDevice;
             if (a[1] == 0x01) {
@@ -671,7 +668,7 @@ static DataModel *model = nil;
             }
         }
             break;
-        case 0x0c://相机增益
+        case 0x3c://相机增益
         {
             Device *device = kDataModel.currentDevice;
             if (a[1] == 0x01 || a[1] == 0x03) {
@@ -782,7 +779,7 @@ static DataModel *model = nil;
                 memcpy(device->valveFrequency, a+15, a[2]*a[3]*2);
             }
             break;
-        case 0x0f:
+        case 0x3f:
         {
             Device *device = kDataModel.currentDevice;
             if (a[1] == 0x01) {

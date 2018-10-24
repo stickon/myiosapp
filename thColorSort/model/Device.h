@@ -121,11 +121,10 @@ typedef struct ValvePara
 typedef struct BaseVersion
 {
     Byte control[2];
-    Byte convert[2];
     Byte led[2];
     Byte sensor[2];
     Byte wheel[2];
-    Byte loaded;
+    Byte timeLed[2];
 }BaseVersion;
 
 typedef struct ColorBoardVersion

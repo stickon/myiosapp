@@ -54,7 +54,9 @@
     self.chuteNumLabel.text =  kLanguageForKey(41);
     self.chuteNumTextField.text = [NSString stringWithFormat:@"%d",kDataModel.currentDevice.currentSorterIndex];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(valvetimeout) userInfo:nil repeats:YES];
-    
+    self.chuteNumLabel.textColor = [UIColor blackColor];
+    self.frontViewLabel.textColor = [UIColor blackColor];
+    self.rearViewLabel.textColor = [UIColor blackColor];
     [self initLanguage];
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "LGJFoldHeaderView.h"
-
+#import "types.h"
 @implementation LGJFoldHeaderView
 {
     BOOL _created;/**< 是否创建过 */
@@ -58,7 +58,7 @@
     self.separateView.backgroundColor = [UIColor colorWithRed:210.0/255.0 green:210.0/255.0 blue:210.0/255.0 alpha:1.0];
     //标题
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 90, 30)];
-    _titleLabel.textColor = [UIColor colorWithRed:1.0/255.0 green:181.0/255.0 blue:178.0/255.0 alpha:1.0];
+    _titleLabel.textColor = [UIColor TaiheColor];
 //    _titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
     _titleLabel.font = [UIFont systemFontOfSize:16];
     [self.contentView addSubview:_titleLabel];

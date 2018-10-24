@@ -75,7 +75,7 @@ static NSString *InvisiableTitleCellIdentifier = @"InvisiableTitleCellIdentifier
 -(void)updateWithHeader:(NSData*)headerData
 {
     const char *a = headerData.bytes;
-    if (a[0] == 0x0a) {
+    if (a[0] == 0x0c) {
         int section = 0;
         if (a[1] == 1) {
             section = 0;
@@ -139,7 +139,7 @@ static NSString *InvisiableTitleCellIdentifier = @"InvisiableTitleCellIdentifier
     
     Device *device = kDataModel.currentDevice;
     if (section == 0) {
-        return folded?6:0;
+        return folded?5:0;
     }
     if (section == 1) {
         if (device->colorBoardVersion) {
@@ -246,10 +246,6 @@ static NSString *InvisiableTitleCellIdentifier = @"InvisiableTitleCellIdentifier
                 cell.hidden = YES;
                 cell.frame = CGRectZero;
             }
-        }else if (indexPath.row == 5){
-            cell.baseVersionTypeLabel.text = kLanguageForKey(78);
-            float baseVersionSensor =((float)(device->baseVersion.convert[0])*256+(float)(device->baseVersion.convert[1]))/100.0;
-            cell.baseVersionValueLabel.text = [NSString stringWithFormat:@"%.2f",baseVersionSensor];
         }
         return cell;
     }

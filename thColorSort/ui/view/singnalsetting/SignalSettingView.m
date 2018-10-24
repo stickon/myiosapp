@@ -27,7 +27,6 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *signalTypeSegmentedControl;
 
 @property (nonatomic,assign) Byte signalType;//light or cameragain
 @property (nonatomic,assign) Byte ajustType;//0:single 1:all
@@ -80,16 +79,11 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
     self.ajustType = 0;//default ajusttype
     
     
-    [self.signalTypeSegmentedControl setSelectedSegmentIndex:0];
-    [self.signalTypeSegmentedControl addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventValueChanged];
     
     [self requestData];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeout) userInfo:nil repeats:YES];
 }
 - (void)initLanguage{
-    [self.signalTypeSegmentedControl setTitle:kLanguageForKey(102) forSegmentAtIndex:0];
-    [self.signalTypeSegmentedControl setTitle:kLanguageForKey(103) forSegmentAtIndex:1];
-    
     self.title = kLanguageForKey(96);
 }
 -(void)updateWithHeader:(NSData *)headerData
@@ -107,7 +101,7 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
             [cell bindWaveDataType:a[1] irUseType:device->machineData.useIR WaveCount:device->waveDataCount];
         }
     }
-    if (a[0] == 0x0c || a[0]== 0x0b) {
+    if (a[0]== 0x0f) {
         dataLoaded = true;
         [self.tableView reloadData];
     }
@@ -449,14 +443,6 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
     return cell;
 }
 
-- (IBAction)segmentedControlChanged:(UISegmentedControl *)sender {
-    if (sender.tag == 100) {
-        _signalType = _signalTypeSegmentedControl.selectedSegmentIndex;
-        [self requestData];
-    }
-}
-
-
 #pragma mark tableviewcellChangedDelegate
 -(void)cellValueChangedWithSection:(long)section row:(long)row tag:(long)index value:(NSInteger)value{
     Device *device = kDataModel.currentDevice;
@@ -542,10 +528,7 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
 }
 
 - (void)requestData{
-    if (_signalType == 0) {
         [[NetworkFactory sharedNetWork] getLight];
-    }else
-        [[NetworkFactory sharedNetWork] getCameraGain];
 }
 
 @end

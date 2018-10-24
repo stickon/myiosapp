@@ -430,7 +430,7 @@
 -(void)getLight{
     Device *device = kDataModel.currentDevice;
     [self initSocketHeader];
-    socketHeader.type = 0x0b;
+    socketHeader.type = 0x0f;
     socketHeader.extendType = 0x01;
     socketHeader.data1[0] = device.currentLayerIndex;
     [self netWorkSendData];
@@ -438,7 +438,7 @@
 -(void)setLightWithType:(Byte)type AndValue:(Byte)value{
     Device *device = kDataModel.currentDevice;
     [self initSocketHeader];
-    socketHeader.type = 0x0b;
+    socketHeader.type = 0x0f;
     socketHeader.extendType = 0x02;
     socketHeader.data1[0] = device.currentLayerIndex;
     socketHeader.data1[1] = device.currentViewIndex;
@@ -488,12 +488,10 @@
 {
     Device *device = kDataModel.currentDevice;
     [self initSocketHeader];
-    socketHeader.type = 0x0a;
+    socketHeader.type = 0x0C;
     socketHeader.extendType = extendtype;
-    socketHeader.data1[0] = device.currentLayerIndex;
-    if (extendtype == 0x03) {
-        socketHeader.data1[1] = cameraType;
-    }
+    socketHeader.data1[0] = device.currentLayerIndex-1;
+    socketHeader.data1[1] = cameraType;
     [self netWorkSendData];
 }
 

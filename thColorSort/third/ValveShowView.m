@@ -60,7 +60,7 @@
     
     if(frontValveFrequency){
          CGContextBeginPath(currentContext);
-        [[UIColor blueColor] setStroke];
+        [[UIColor redColor] setStroke];
         int index = 0;
         for (int i = 1; i<=_valveNum; i++) {
             CGFloat byteHeight = (CGFloat)(frontValveFrequency[index]*256+frontValveFrequency[index+1]);
@@ -78,7 +78,7 @@
         CGContextStrokePath(currentContext);
         
         CGContextBeginPath(currentContext);
-        [[UIColor blueColor] setFill];
+        [[UIColor redColor] setFill];
         index = 0;
         for (int i = 1; i<=_valveNum; i++) {
             CGFloat byteHeight = (CGFloat)(frontValveFrequency[index]*256+frontValveFrequency[index+1]);
@@ -95,7 +95,7 @@
     if (rearValveFrequency) {
         if (_frontRear) {
              CGContextBeginPath(currentContext);
-            [[UIColor redColor] setStroke];
+            [[UIColor greenColor] setStroke];
             int index = 0;
             for (int i = 1; i<=_valveNum; i++) {
                 CGFloat byteHeight = (CGFloat)(rearValveFrequency[index]*256+rearValveFrequency[index+1]);
@@ -111,7 +111,7 @@
             CGContextStrokePath(currentContext);
             
             CGContextBeginPath(currentContext);
-            [[UIColor redColor] setFill];
+            [[UIColor greenColor] setFill];
             index = 0;
             for (int i = 1; i<=_valveNum; i++) {
                 CGFloat byteHeight = (CGFloat)(rearValveFrequency[index]*256+rearValveFrequency[index+1]);
@@ -125,7 +125,7 @@
         }
     }
 
-    UIColor *stringColor = [UIColor colorWithRed:1.0/255.0 green:181.0/255.0 blue:178.0/255.0 alpha:1.0];  //设置文本的颜色
+    UIColor *stringColor = [UIColor blackColor];  //设置文本的颜色
     
     NSDictionary* attrs =@{NSForegroundColorAttributeName:stringColor,
                            NSFontAttributeName:[UIFont fontWithName:@"AmericanTypewriter"size:10],
