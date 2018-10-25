@@ -390,7 +390,7 @@ static DataModel *model = nil;
             }
         }
             break;
-        case 0x05:
+        case 0x0b:
         {
             Device *device = self.currentDevice;
             if (device) {
@@ -440,15 +440,7 @@ static DataModel *model = nil;
         case 0x08:
         {
             Device *device = kDataModel.currentDevice;
-            if (a[1] == 0x01) {
-                device->machineData.vibIn = a[2];
-            }else if (a[1] == 0x02){
-                device->machineData.vibOut = a[2];
-            }else if (a[1] == 0x04){
-                if (a[3] == 0) {
-                    device->machineData.fristVib = a[2];
-                }
-            }else if (a[1] == 0x05){
+       if (a[1] == 0x05){
                 memcpy(&device->vibSet,a+Socket_Header_Length,sizeof(VibSet));
                 if (device->vibdata == NULL) {
                     device->vibdata = malloc(device->vibSet.ch);
@@ -842,7 +834,7 @@ static DataModel *model = nil;
                 device->waveDiffData = a[3];
             }
             break;
-        case 0x12:{
+        case 0x32:{
             Device *device = kDataModel.currentDevice;
             if (a[1] == 1) {
                 memcpy(&device->cashew, a+15, sizeof(CashewSet));
@@ -1063,12 +1055,9 @@ static DataModel *model = nil;
                 device->brokenRice.buttonUse = a[4];
             }
         }
-        case 0xa0:{
+        case 0x12:{
             Device *device = kDataModel.currentDevice;
-            if (a[1] == 0x02) {
-                device.sysCheckInfo = [[NSString alloc]initWithBytes:a+Socket_Header_Length length:data.length-Socket_Header_Length encoding:NSUTF8StringEncoding];
-                DDLogInfo(@"checkinfo:%@",device.sysCheckInfo);
-            }else if(a[1] == 0x03){
+            if (a[1] == 0x01) {
                 memcpy(&device->workTime, a+15, sizeof(WorkTime));
             }
             break;

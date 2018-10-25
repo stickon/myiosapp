@@ -123,11 +123,6 @@
         self.rejectBtn.selected = false;
         self.rejectBtn.backgroundColor = [UIColor TaiheColor];
     }
-    if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-        self.rearViewBtn.hidden = NO;
-    }else{
-        self.rearViewBtn.hidden = YES;
-    }
 }
 -(void)initLanguage{
     [self.frontViewBtn setTitle:kLanguageForKey(75) forState:UIControlStateNormal];

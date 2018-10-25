@@ -40,13 +40,7 @@
     unsigned const char*header = headerData.bytes;
     if (header[0] == 0xa0) {
         Device *device = kDataModel.currentDevice;
-        if (header[1] == 0x03) {
-            self.machineOpenTimeLabel.text = [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d",device->workTime.year[0]*256+device->workTime.year[1],device->workTime.month,device->workTime.day,device->workTime.hour,device->workTime.minute,device->workTime.second];
-            NSUInteger totalWorkTime = device->workTime.totalTime[0] *256*256*256+device->workTime.totalTime[1]*256*256+device->workTime.totalTime[2]*256+device->workTime.totalTime[3];
-            self.machineTotalWorkTimeLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)totalWorkTime];
-            NSUInteger currentWorkTime = device->workTime.workTime[0] *256*256*256+device->workTime.workTime[1]*256*256+device->workTime.workTime[2]*256+device->workTime.workTime[3];
-            self.machineCurrentWorkTimeLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)currentWorkTime];
-        }
+        
     }else if (header[0] == 0x55){
         [super updateWithHeader:headerData];
     }

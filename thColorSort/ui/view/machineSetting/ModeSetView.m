@@ -235,10 +235,7 @@ static NSString *defaultTitleWith1SwitchTableViewCell = @"TableViewCellWithDefau
     
     Device *device = kDataModel.currentDevice;
     if (section == 0) {
-        if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
             return 5;
-        }else
-            return 3;
     }else if(section == 1){
         return folded?17:0;
     }else if (section == 2 ){
@@ -303,16 +300,11 @@ static NSString *defaultTitleWith1SwitchTableViewCell = @"TableViewCellWithDefau
             TableViewCellWith1Segment1Label *frontRearViewCell = [tableView dequeueReusableCellWithIdentifier:segmentedTableViewCellIdentifier forIndexPath:indexPath];
             frontRearViewCell.delegate = self;
             frontRearViewCell.indexPath = indexPath;
-            if (device->machineData.hasRearView[device.currentLayerIndex-1]) {//前后视都有
                 [frontRearViewCell.frontRearViewSegmentedControl setHidden:NO];
                 [frontRearViewCell.frontViewLabel setHidden:YES];
                 [frontRearViewCell.frontRearViewSegmentedControl setTitle:kLanguageForKey(75) forSegmentAtIndex:0];
                 [frontRearViewCell.frontRearViewSegmentedControl setTitle:kLanguageForKey(76) forSegmentAtIndex:1];
-            }else{//没有后视
-                [frontRearViewCell.frontRearViewSegmentedControl setHidden:YES];
-                [frontRearViewCell.frontViewLabel setHidden:NO];
-                frontRearViewCell.frontViewLabel.text = kLanguageForKey(75);
-            }
+          
             frontRearViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
             return frontRearViewCell;
         }else if (indexPath.row == 1 ||indexPath.row == 5 ||indexPath.row ==9|| indexPath.row == 12 || indexPath.row == 15 ) {

@@ -129,7 +129,7 @@ static NSString *caterpillarTimer = @"Caterpillar";
 - (void)mytextfieldDidEnd:(BaseUITextField *)sender{
     Byte highByte = sender.text.integerValue/256;
     Byte lowByte =sender.text.integerValue%256;
-    [[NetworkFactory sharedNetWork] setCaterpillarSpeedByte1:highByte byte2:lowByte];
+//    [[NetworkFactory sharedNetWork] setCaterpillarSpeedByte1:highByte byte2:lowByte];
 }
 
 - (void)caterpillarTimerout{

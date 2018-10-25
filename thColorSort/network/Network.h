@@ -90,6 +90,33 @@ typedef struct WaveSendType
     Byte type; //波形的类形
 }WaveSendType;
 
+typedef struct waveTypeCalibration
+{
+    Byte Algorithm;   //色选算法
+    Byte layer;
+    Byte view;
+    Byte ch;
+    Byte waveType;      //波形的类形  08: 原始数据 09: 校正数据  0a：测试数据
+    Byte dataType;     //数据类型 0：详细数据 1：压缩数据  2：相机调整
+    Byte postion;      // 0-100
+}waveTypeCalibration;
+
+typedef struct WaveHsv
+{
+    Byte Algorithm;   //保留
+    Byte layer;
+    Byte view;
+    Byte group;       //组
+}WaveHsv;
+
+typedef struct WaveTypeAlg
+{
+    Byte Algorithm;   //色选算法
+    Byte layer;
+    Byte view;
+    Byte ch;
+}WaveTypeAlg;
+
 @interface Network : NSObject
 {
     @public
@@ -162,6 +189,9 @@ typedef struct WaveSendType
 -(void)setIRSharpenWithAlrotithmType:(Byte)irAlgorithmType Type:(Byte)type Value:(Byte)value;
 #pragma mark 波形
 -(void)sendToGetWaveDataWithAlgorithmType:(Byte)type AndWaveType:(Byte)waveType AndDataType:(Byte)dataType Position:(Byte)position;
+-(void)sendToGetCalibrationWave:(waveTypeCalibration*)wavetype Type:(Byte)type;
+-(void)sendToGetWaveHsv:(WaveHsv*)wavetype Type:(Byte)type;
+-(void)sendToGetWaveTypeAlg:(WaveTypeAlg*)wavetype Type:(Byte)type;
 #pragma mark thirdViewController
 #pragma mark lightsettingviewcontroller
 -(void)getLight;
@@ -195,7 +225,7 @@ typedef struct WaveSendType
 #pragma mark 履带
 -(void)switchCaterpillar:(Byte)value withLayerIndex:(Byte)index;
 -(void)getCaterpillarSpeed;
--(void)setCaterpillarSpeedByte1:(Byte)highByte byte2:(Byte)lowByte;
+-(void)setCaterpillarSpeedByte1:(Byte)highByte Byte2:(Byte)lowByte;
 -(void)getCaterpillarSettingSpeed;
 #pragma mark svm
 -(void)getSvmPara;

@@ -78,11 +78,11 @@
 -(void)updateView{
     Device *device = kDataModel.currentDevice;
     BOOL hiddenRear = YES;
-    if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-        hiddenRear = NO;
-        self.rearSenseTextField.text = [NSString stringWithFormat:@"%d",device->horseBean.textView[3]];
-        self.rearControlTextField.text = [NSString stringWithFormat:@"%d",device->horseBean.textView[2]];
-    }
+//    if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
+//        hiddenRear = NO;
+//        self.rearSenseTextField.text = [NSString stringWithFormat:@"%d",device->horseBean.textView[3]];
+//        self.rearControlTextField.text = [NSString stringWithFormat:@"%d",device->horseBean.textView[2]];
+//    }
     self.rearViewTitleLabel.hidden = hiddenRear;
     self.rearSenseTextField.hidden = hiddenRear;
     self.rearControlTextField.hidden = hiddenRear;

@@ -13,6 +13,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.backgroundLightTitleLabel.textColor = [UIColor TaiheColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

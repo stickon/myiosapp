@@ -298,19 +298,6 @@ static NSString *InvisiableTitleCellIdentifier = @"InvisiableTitleCellIdentifier
             cell.chuteTitleLabel.text = kLanguageForKey(41);
             cell.frontTitleLabel.text = kLanguageForKey(75);
             
-            if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-                cell.rearTitleLabel.hidden = NO;
-                cell.rearSoftwareTitleLabel.hidden = NO;
-                cell.rearHardwareTitleLabel.hidden = NO;
-                cell.rearTitleLabel.text = kLanguageForKey(76);
-                
-                cell.rearSoftwareTitleLabel.text = kLanguageForKey(77);
-                cell.rearHardwareTitleLabel.text = kLanguageForKey(74);
-            }else{
-                cell.rearTitleLabel.hidden = YES;
-                cell.rearSoftwareTitleLabel.hidden = YES;
-                cell.rearHardwareTitleLabel.hidden = YES;
-            }
             cell.frontSoftwareTitleLabel.text = kLanguageForKey(77);
             cell.frontHardwareTitleLabel.text = kLanguageForKey(74);
             cell.chuteTitleLabel.textColor = [UIColor TaiheColor];
@@ -339,15 +326,7 @@ static NSString *InvisiableTitleCellIdentifier = @"InvisiableTitleCellIdentifier
             cell.chuteIndexLabel.text = [NSString stringWithFormat:@"%d",index];
             cell.label1.text = [NSString stringWithFormat:@"%d",device->normalCameraVersion[index-1].front_software[1]];
             cell.label2.text = [NSString stringWithFormat:@"%x%x",device->normalCameraVersion[index-1].front_hardware[0],device->normalCameraVersion[index-1].front_hardware[1]];
-            if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-                cell.label3.hidden = NO;
-                cell.label4.hidden = NO;
-                cell.label3.text = [NSString stringWithFormat:@"%d",device->normalCameraVersion[index-1].rear_software[1]];
-                cell.label4.text = [NSString stringWithFormat:@"%x%x",device->normalCameraVersion[index-1].rear_hardware[0],device->normalCameraVersion[index-1].rear_hardware[1]];
-            }else{
-                cell.label3.hidden = YES;
-                cell.label4.hidden = YES;
-            }
+           
             return cell;
         }
         

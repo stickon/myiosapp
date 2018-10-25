@@ -235,9 +235,6 @@
 -(void)didSelectLayerIndex:(Byte)layerIndex{
     Device *device = kDataModel.currentDevice;
     device.currentLayerIndex = layerIndex;
-    if (device->machineData.hasRearView[layerIndex-1]==0) {
-        device.currentViewIndex = 0;
-    }
     [self initCurrentLayerLabel];
     [[NetworkFactory sharedNetWork] changeLayerAndView];
     NSLog(@"select layer:%d",layerIndex);

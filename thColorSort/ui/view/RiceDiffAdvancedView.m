@@ -326,14 +326,7 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
             
             cell.delegate = self;
             cell.indexPath = indexPath;
-            
-            if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-                cell.frontRearTitleLabel.hidden = NO;
-                cell.frontRearCheckbtn.hidden = NO;
-            }else{
-                cell.frontRearTitleLabel.hidden = YES;
-                cell.frontRearCheckbtn.hidden = YES;
-            }
+          
             cell.frontRearTitleLabel.text = kLanguageForKey(43) ;
             if (device->sense.fSameR) {
                 cell.frontRearCheckbtn.selected = YES;

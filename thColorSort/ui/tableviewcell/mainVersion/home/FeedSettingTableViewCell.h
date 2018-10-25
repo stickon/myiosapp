@@ -13,5 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *feedCellTitle;
 @property (strong, nonatomic) IBOutlet BaseUITextField *feedNumTextField;
 @property (strong, nonatomic) IBOutlet UISwitch *feedSwitch;
+@property (strong, nonatomic) IBOutlet UIButton *minusBtn;
+@property (strong, nonatomic) IBOutlet UIButton *plusBtn;
 
 @end

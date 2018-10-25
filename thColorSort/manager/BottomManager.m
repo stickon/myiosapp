@@ -78,8 +78,8 @@
            NSDictionary *para = @{@"title":kLanguageForKey(14)};
             [[MiddleManager shareInstance] ChangeViewWithName:@"SenseView" Para:para];
         }else if (btn.tag == 1002){
-            NSDictionary *para = @{@"title":kLanguageForKey(16)};
-            [[MiddleManager shareInstance] ChangeViewWithName:@"SysinfoView" Para:para];
+            NSDictionary *para = @{@"title":kLanguageForKey(23)};
+            [[MiddleManager shareInstance] ChangeViewWithName:@"FeedSetView" Para:para];
         }else if (btn.tag == 1003){
             NSDictionary *para = @{@"title":kLanguageForKey(17)};
             [[MiddleManager shareInstance] ChangeViewWithName:@"SettingView" Para:para];
@@ -104,7 +104,7 @@
             [self.tabBarItem1 setSelected:YES];
         }else if ([viewId isEqualToString:@"SenseView"]){
             [self.tabBarItem2 setSelected:YES];
-        }else if ([viewId isEqualToString:@"SysinfoView"]){
+        }else if ([viewId isEqualToString:@"FeedSetView"]){
             [self.tabBarItem3 setSelected:YES];
         }else if ([viewId isEqualToString:@"SettingView"]){
             [self.tabBarItem4 setSelected:YES];

@@ -90,7 +90,7 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
 {
     Device *device = kDataModel.currentDevice;
     const unsigned char*a = headerData.bytes;
-    if (a[0] == 0x05) {
+    if (a[0] == 0x0b) {
         dataLoaded = true;
         if(a[1] == 0x03 ||a[1] == 0x04 || a[1] == 0x05){
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
@@ -127,7 +127,12 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
 -(void)timeout{
     Device *device = kDataModel.currentDevice;
     if (_signalType == 0) {
-        [[NetworkFactory sharedNetWork]sendToGetWaveDataWithAlgorithmType:0 AndWaveType:wave_background AndDataType:0 Position:0];
+        WaveTypeAlg wavetype;
+        wavetype.Algorithm = 0;
+        wavetype.layer = device.currentLayerIndex-1;
+        wavetype.view = device.currentViewIndex;
+        wavetype.ch = device.currentSorterIndex-1;
+        [gNetwork sendToGetWaveTypeAlg:&wavetype Type:wave_background];
     }
     else{
         if (device.addDigitGain) {
@@ -201,6 +206,7 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
             cell.delegate = self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.chuteNumCount = device->machineData.chuteNumber;
+            cell.chuteTextField.text = [NSString stringWithFormat:@"%d",device.currentSorterIndex];
             for (int i = 0; i<device->waveDataCount; i++) {
                 [cell bindWaveData:device->waveData[i] withIndex:i];
             }
@@ -238,17 +244,7 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
                 cell.rearRedTextField.enabled = enable;
                 cell.rearGreenTextField.enabled = enable;
                 cell.rearBlueTextField.enabled = enable;
-                if (device->machineData.hasRearView[device.currentLayerIndex-1]==0) {
-                    [cell.rearTitleLabel setHidden:YES];
-                    [cell.rearRedTextField setHidden:YES];
-                    [cell.rearGreenTextField setHidden:YES];
-                    [cell.rearBlueTextField setHidden:YES];
-                }else{
-                    [cell.rearTitleLabel setHidden:NO];
-                    [cell.rearRedTextField setHidden:NO];
-                    [cell.rearGreenTextField setHidden:NO];
-                    [cell.rearBlueTextField setHidden:NO];
-                }
+        
                 if (device->screenProtocolType == 2) {//1R大米机
                     cell.RedTitleLabel.hidden = YES;
                     cell.GreenTitleLabel.hidden = YES;
@@ -342,17 +338,7 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
                     [cell.ir2CameraTextField setHidden:true];
                     [cell.rearIR1TextField setHidden:true];
                     [cell.rearIR2TextField setHidden:true];
-                    if (device->machineData.hasRearView[device.currentLayerIndex-1]==0) {
-                        [cell.rearTitleLabel setHidden:YES];
-                        [cell.rearRedTextField setHidden:YES];
-                        [cell.rearGreenTextField setHidden:YES];
-                        [cell.rearBlueTextField setHidden:YES];
-                    }else{
-                        [cell.rearTitleLabel setHidden:NO];
-                        [cell.rearRedTextField setHidden:NO];
-                        [cell.rearGreenTextField setHidden:NO];
-                        [cell.rearBlueTextField setHidden:NO];
-                    }
+                  
                 }else if (device->machineData.useIR == 1) {
                     [cell.irCameraLabel1 setHidden:NO];
                     [cell.irCameraLabel2 setHidden:YES];
@@ -509,7 +495,25 @@ static NSString *WaveDataTableViewCellIdentify = @"WaveDataTableViewCell";
     }
     [[NetworkFactory sharedNetWork] changeLayerAndView];
 }
-
+-(void)cellBtnClicked:(long)section row:(long)row tag:(long)tag value:(NSInteger)value bSend:(BOOL)bsend{
+    Device *device = kDataModel.currentDevice;
+    if (device) {
+        if (section == 0) {
+            if (row == 0) {
+                if (tag == 1) {
+                    if (device.currentSorterIndex>1) {
+                        device.currentSorterIndex--;
+                    }
+                }else if (tag == 2){
+                    if (device.currentSorterIndex<device->machineData.chuteNumber) {
+                        device.currentSorterIndex++;
+                    }
+                }
+            }
+        }
+    }
+    [self.tableView reloadData];
+}
 #pragma mark -baseviewcontroller
 
 - (void)networkError:error{

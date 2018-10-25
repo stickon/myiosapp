@@ -103,12 +103,7 @@ static NSString *waveTimer = @"calibrationWaveTimer";
     self.originDataBtn.tag = 10;
     self.calibrationDataBtn.tag = 11;
     self.testDataBtn.tag = 12;
-   
-    if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-        self.rearViewBtn.hidden = NO;
-    }else{
-        self.rearViewBtn.hidden = YES;
-    }
+
     if (device.currentViewIndex == 0) {
         self.frontViewBtn.backgroundColor = [UIColor greenColor];
         self.rearViewBtn.backgroundColor = [UIColor TaiheColor];

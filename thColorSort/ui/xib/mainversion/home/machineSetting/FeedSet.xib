@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedSetView">
             <connections>
+                <outlet property="chuteTypeChange" destination="xrc-vs-ISt" id="akx-pX-F8j"/>
                 <outlet property="tableView" destination="77u-nD-AEJ" id="mg5-f3-9Gy"/>
             </connections>
         </placeholder>
@@ -20,19 +21,37 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xrc-vs-ISt">
+                    <rect key="frame" x="2" y="20" width="371" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="IbV-8L-VBd"/>
+                    </constraints>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                    <connections>
+                        <action selector="feedTypeChanged:" destination="-1" eventType="valueChanged" id="EYL-zT-KLL"/>
+                    </connections>
+                </segmentedControl>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="77u-nD-AEJ">
-                    <rect key="frame" x="6" y="26" width="363" height="635"/>
+                    <rect key="frame" x="6" y="72" width="363" height="589"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="77u-nD-AEJ" secondAttribute="bottom" constant="6" id="0c8-Eq-HAK"/>
+                <constraint firstItem="xrc-vs-ISt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2Xi-Lw-I4w"/>
+                <constraint firstItem="xrc-vs-ISt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="2" id="9iZ-eT-yDn"/>
+                <constraint firstItem="77u-nD-AEJ" firstAttribute="top" secondItem="xrc-vs-ISt" secondAttribute="bottom" constant="2" id="AZC-fs-89G"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="77u-nD-AEJ" secondAttribute="trailing" constant="6" id="a69-0s-eUV"/>
-                <constraint firstItem="77u-nD-AEJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="he0-VP-Zrs"/>
+                <constraint firstItem="xrc-vs-ISt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gXs-An-CAD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xrc-vs-ISt" secondAttribute="trailing" constant="2" id="pU6-Ga-d5z"/>
                 <constraint firstItem="77u-nD-AEJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="vPh-A8-nnc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="317" y="60"/>
         </view>
     </objects>
 </document>

@@ -12,8 +12,9 @@
 #define GridVirtualHeight 256.0  //表格模拟显示高度
 #define GridVirtualHeightOffset 6.0/256.0*self.gridHeight //表格虚线偏移量
 #import "WaveDataView.h"
-static int heightX1[5] = {15, 149, 255, 361, 495};
-static int heightX2[5] = {3+4, 87, 255, 423, 507-4};
+#import "DataModel.h"
+static int heightX1[2][5] = {{31, 149, 255, 361, 480},{0, 149, 255, 361, 511}};
+static int heightX2[2][5] = {{3+4, 90, 255, 420, 503},{0, 85, 255, 427, 511}};
 @implementation WaveDataView
 
 -(void)initGridView{
@@ -241,11 +242,14 @@ static int heightX2[5] = {3+4, 87, 255, 423, 507-4};
     {
         if (self.waveDataType == wave_origin ||self.waveDataType == wave_calibration || self.waveDataType == wave_test_data){
             CGContextSetLineWidth(currentContext,0.8);
+            Device* device = kDataModel.currentDevice;
+            Byte pixelType = device->machineData.pixelType;
+            
             if (self.dataType == 2) {
                 CGContextBeginPath(currentContext);
                 for (int i = 0; i < 5; i++)
                 {
-                    CGFloat x = heightX1[i]/compressNum+SPACESIDE;
+                    CGFloat x = heightX1[pixelType][i]/compressNum+SPACESIDE;
                     CGContextMoveToPoint(currentContext, x, HeightOffSet);
                     //                    NSLog(@"%f",x);
                     CGContextAddLineToPoint(currentContext, x, self.gridHeight+HeightOffSet);
@@ -257,7 +261,7 @@ static int heightX2[5] = {3+4, 87, 255, 423, 507-4};
                 CGContextBeginPath(currentContext);
                 for (int i = 0; i < 5; i++)
                 {
-                    CGFloat x = heightX2[i]/compressNum+SPACESIDE;
+                    CGFloat x = heightX2[pixelType][i]/compressNum+SPACESIDE;
                     CGContextMoveToPoint(currentContext, x, HeightOffSet);
                     
                     CGContextAddLineToPoint(currentContext, x, self.gridHeight+HeightOffSet);

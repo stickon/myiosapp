@@ -107,8 +107,8 @@
 
 -(void)getVibSettingValue{
     [self initSocketHeader];
-    socketHeader.type = 0x08;
-    socketHeader.extendType = 0x05;
+    socketHeader.type = 0x05;
+    socketHeader.extendType = 0x01;
     [self netWorkSendData];
 }
 -(void)setVibInOut:(Byte)type Value:(Byte)value{
@@ -432,7 +432,7 @@
     [self initSocketHeader];
     socketHeader.type = 0x0f;
     socketHeader.extendType = 0x01;
-    socketHeader.data1[0] = device.currentLayerIndex;
+    socketHeader.data1[0] = device.currentLayerIndex-1;
     [self netWorkSendData];
 }
 -(void)setLightWithType:(Byte)type AndValue:(Byte)value{
@@ -440,7 +440,7 @@
     [self initSocketHeader];
     socketHeader.type = 0x0f;
     socketHeader.extendType = 0x02;
-    socketHeader.data1[0] = device.currentLayerIndex;
+    socketHeader.data1[0] = device.currentLayerIndex-1;
     socketHeader.data1[1] = device.currentViewIndex;
     socketHeader.data1[2] = type;
     socketHeader.data1[3] = value;
@@ -503,8 +503,8 @@
 }
 -(void)getSysWorkTimeInfo{
     [self initSocketHeader];
-    socketHeader.type = 0xa0;
-    socketHeader.extendType = 0x03;
+    socketHeader.type = 0x12;
+    socketHeader.extendType = 0x01;
     [self netWorkSendData];
 }
 #pragma mark 波形
@@ -512,8 +512,8 @@
 {
     Device *device = kDataModel.currentDevice;
     [self initSocketHeader];
-    socketHeader.type = 0x05;
-    socketHeader.extendType = 0x01;
+    socketHeader.type = 0x0B;
+    socketHeader.extendType = waveType;
     socketHeader.data1[0] = type;
     socketHeader.data1[1] = device.currentLayerIndex;
     socketHeader.data1[2] = device.currentViewIndex;
@@ -524,6 +524,29 @@
         socketHeader.data1[6] = position;
     }
     [self netWorkSendData];
+}
+
+-(void)sendToGetCalibrationWave:(waveTypeCalibration*)wavetype Type:(Byte)type{
+    [self initSocketHeader];
+    socketHeader.type = 0x0b;
+    socketHeader.extendType = type;
+    memcpy((Byte*)(&socketHeader)+2, (Byte*)wavetype, sizeof(wavetype));
+    [self netWorkSendData];
+}
+-(void)sendToGetWaveHsv:(WaveHsv*)wavetype Type:(Byte)type{
+    [self initSocketHeader];
+    socketHeader.type = 0x0b;
+    socketHeader.extendType = type;
+    memcpy((Byte*)(&socketHeader)+2, (Byte*)wavetype, sizeof(wavetype));
+    [self netWorkSendData];
+}
+-(void)sendToGetWaveTypeAlg:(WaveTypeAlg*)wavetype Type:(Byte)type{
+    [self initSocketHeader];
+    socketHeader.type = 0x0b;
+    socketHeader.extendType = type;
+    memcpy((Byte*)(&socketHeader)+2,(char*)wavetype, sizeof(wavetype));
+    [self netWorkSendData];
+
 }
 #pragma mark 方案
 -(void)getSmallModeNameListWithBigModeIndex:(Byte)bigModeIndex{
@@ -610,7 +633,7 @@
     [self initSocketHeader];
     socketHeader.type = 0x0e;
     socketHeader.extendType = 0x01;
-    socketHeader.data1[0] = device.currentLayerIndex;
+    socketHeader.data1[0] = device.currentLayerIndex-1;
     socketHeader.data1[1] = device.currentSorterIndex-1;
     [self netWorkSendData];
 }

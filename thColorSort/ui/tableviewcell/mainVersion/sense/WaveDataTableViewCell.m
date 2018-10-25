@@ -8,6 +8,8 @@
 
 #import "WaveDataTableViewCell.h"
 @interface WaveDataTableViewCell()<MyTextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UIButton *minusBtn;
+@property (strong, nonatomic) IBOutlet UIButton *plusBtn;
 @end
 @implementation WaveDataTableViewCell
 
@@ -19,6 +21,13 @@
     sender.mydelegate = self;
     [sender initKeyboardWithMax:self.chuteNumCount Min:1 Value:sender.text.integerValue];
 }
+- (IBAction)btnClicked:(UIButton *)sender {
+    if (sender == self.minusBtn) {
+        [super cellEditValueChangedWithTag:sender.tag AndValue:1 bSend:YES];
+    }else if (sender == self.plusBtn){
+        [super cellEditValueChangedWithTag:sender.tag AndValue:2 bSend:YES];
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -26,7 +35,10 @@
     CGFloat height = (width-40)*0.618+20;
     self.waveDataView.frame = CGRectMake(3, 10, width,height);
     self.chuteTextField.text = @"1";
+    self.chuteTitleLabel.textColor = [UIColor TaiheColor];
     [self.waveDataView initGridView];
+    self.minusBtn.tag = 1;
+    self.plusBtn.tag = 2;
     // Initialization code
 }
 

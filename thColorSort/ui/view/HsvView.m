@@ -258,11 +258,6 @@ int temphsvSend;
         self.hsv2Btn.backgroundColor = [UIColor greenColor];
         self.hsv2Btn.userInteractionEnabled = NO;
     }
-    if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-        self.rearViewBtn.hidden = NO;
-    }else{
-        self.rearViewBtn.hidden = YES;
-    }
 }
 - (void)initLanguage{
     [self.frontViewBtn setTitle:kLanguageForKey(75) forState:UIControlStateNormal];

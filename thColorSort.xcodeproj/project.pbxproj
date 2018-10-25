@@ -1306,8 +1306,6 @@
 			isa = PBXGroup;
 			children = (
 				F0C37C5E200D84F600C4BAFA /* 3-1version */,
-				F01E7E81200494F8002769DE /* FeedSetView.h */,
-				F01E7E82200494F8002769DE /* FeedSetView.m */,
 				F01E7E892005D578002769DE /* CleanSetView.h */,
 				F01E7E8A2005D578002769DE /* CleanSetView.m */,
 				F045DF6A20070D4D00C82CA8 /* ModeListView.h */,
@@ -1951,6 +1949,8 @@
 		F090521B1FFB4C69003CEE84 /* sysinfo */ = {
 			isa = PBXGroup;
 			children = (
+				F01E7E81200494F8002769DE /* FeedSetView.h */,
+				F01E7E82200494F8002769DE /* FeedSetView.m */,
 				F090520A1FFB4A08003CEE84 /* SysinfoView.m */,
 				F09051F91FFB4A06003CEE84 /* SysinfoView.h */,
 				F0ACB110200C8658005B538D /* software */,

@@ -103,11 +103,6 @@ const int kMaxGroupNum = 4;
         self.rejectBtn.selected = false;
         self.rejectBtn.backgroundColor = [UIColor TaiheColor];
     }
-    if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-        self.rearViewBtn.hidden = NO;
-    }else{
-        self.rearViewBtn.hidden = YES;
-    }
     [self updateGroupBtnHidden];
 }
 -(void)updateGroupBtnHidden{

@@ -26,13 +26,7 @@ typedef struct
     Byte useIR;                     //是否使用红外
     Byte useSvm;                    //是否使用SVM
     Byte useColor;           //色选算法的个数，0：未使用
-
-    Byte hasRearView[6];     //每层是否有后视
-
-    Byte fristVib;	     //第一通道给料量
-    
-    Byte vibIn;              //进料开关状态        //>1,不显示
-    Byte vibOut;             //出料开关状态        //>1,不显示
+    Byte useHsv;             //是否使用hsv算法
     Byte useSensor;          //使用料位传器
     
     Byte useLevel; ///用户权限  0 user 1:工程师 2:厂家
@@ -286,16 +280,12 @@ typedef struct{
     Byte text2View[4][2];
 }BrokenRice;
 
-typedef struct{
-    Byte year[2];
-    Byte month;
-    Byte day;
-    Byte hour;
-    Byte minute;
-    Byte second;
-    Byte totalTime[4];
-    Byte workTime[4];
-}WorkTime;//机器工作时间
+typedef struct
+{
+    Byte totalTime[4];   //总工作时间                   高位在前（和原来一样）  （分钟）
+    Byte todayTime[4];   //本次工作时间 （分钟）
+    Byte resever[8];     //预留
+}WorkTime;
 
 typedef struct{
     Byte ch;

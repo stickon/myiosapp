@@ -26,6 +26,7 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
     Byte vibOutState;
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
 
 @end
 @implementation HomeView
@@ -62,11 +63,11 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
 }
 - (void)refreshCurrentView{
     [[NetworkFactory sharedNetWork] getCurrentDeviceInfo];
+    [gNetwork getSysWorkTimeInfo];
 }
 -(void)updateWithHeader:(NSData*)headerData
 {
     const unsigned char *a = headerData.bytes;
-    
     if (a[0] == 3 || a[0] == 8 || a[0] == 0x0f || (a[0] == 0xa1 && a[1] == 1)||a[0] == 1) {
         [self.tableView reloadData];
         if ((a[1] == 3 && a[2] != 2) || (a[1] == 4 && a[2] == 0)) {
@@ -85,6 +86,18 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
             }
         }else{
             [self.tableView reloadData];
+        }
+    }else if (a[0] == 0x12){
+        Device *device = kDataModel.currentDevice;
+        if (a[1] == 1) {
+                NSUInteger totalWorkTime = device->workTime.totalTime[0] *256*256*256+device->workTime.totalTime[1]*256*256+device->workTime.totalTime[2]*256+device->workTime.totalTime[3];
+                NSString *totalWorkstr= [NSString stringWithFormat:@"%lu",(unsigned long)totalWorkTime];
+                NSString *totalWorkTitle =[NSString stringWithFormat:@"%@(%@)", kLanguageForKey(308),kLanguageForKey(309)];
+            NSString *currentWorkTitle = [NSString stringWithFormat:@"%@(%@)", kLanguageForKey(307),kLanguageForKey(309)];
+                NSUInteger currentWorkTime = device->workTime.todayTime[0] *256*256*256+device->workTime.todayTime[1]*256*256+device->workTime.todayTime[2]*256+device->workTime.todayTime[3];
+                NSString *todayWorkstr= [NSString stringWithFormat:@"%lu",(unsigned long)currentWorkTime];
+            self.textView.text = [NSString stringWithFormat:@"%@:%@",totalWorkTitle,totalWorkstr];
+         
         }
     }
 }
@@ -108,7 +121,7 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
     Device *device = kDataModel.currentDevice;
     if (device) {
         if (section == 0) {
-            return 7;
+            return 2;
         }
         if (section == 1) {
             return 2;
@@ -127,13 +140,9 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
     if (device) {
         if (indexPath.section == 0) {
             if (indexPath.row == 3) {
-                if (device->machineData.vibIn>1) {
                     return 0;
-                }
             }else if (indexPath.row == 4){
-                if (device->machineData.vibOut>1) {
                     return 0;
-                }
             }
             else if (indexPath.row == 5){
                 if (device->machineData.machineType != MACHINE_TYPE_WHEEL&& device->machineData.machineType != MACHINE_TYPE_WHEEL_2) {
@@ -159,7 +168,7 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
             if (indexPath.row == 0) {
                 TableViewCellWithDefaultTitleLabel1Switch *tableCell = [tableView dequeueReusableCellWithIdentifier:commonCellIdentifier forIndexPath:indexPath];
                 
-                tableCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                tableCell.accessoryType = UITableViewCellAccessoryNone;
                 tableCell.selectionStyle = UITableViewCellSelectionStyleNone;
                 tableCell.textLabel.text = kLanguageForKey(19) ;
                 tableCell.textLabel.font = [UIFont systemFontOfSize:14.0];
@@ -194,122 +203,6 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
                 tableCell.delegate = self;
                 tableCell.indexPath = indexPath;
                 return tableCell;
-            }else if (indexPath.row == 2){
-                TableViewCellWithDefaultTitleLabel1TextField *tableviewCell = [tableView dequeueReusableCellWithIdentifier:feedSettingCellIdentifier forIndexPath:indexPath];
-                tableviewCell.textField.tag = 804;
-                tableviewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-                tableviewCell.accessoryType = UITableViewCellAccessoryNone;
-                tableviewCell.textLabel.text = kLanguageForKey(23) ;
-                tableviewCell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                tableviewCell.textLabel.textColor = [UIColor TaiheColor];
-                tableviewCell.textField.text = [NSString stringWithFormat:@"%d",device->machineData.fristVib];
-                [tableviewCell.textField initKeyboardWithMax:99 Min:1 Value:tableviewCell.textField.text.integerValue];
-                tableviewCell.delegate = self;
-                tableviewCell.indexPath = indexPath;
-                tableviewCell.cellType = TableViewCellType_Feeding;
-                return tableviewCell;
-            }else if (indexPath.row == 3){
-                TableViewCellWithDefaultTitleLabel1Switch *tableCell = [tableView dequeueReusableCellWithIdentifier:commonCellIdentifier forIndexPath:indexPath];
-                tableCell.switchBtn.tag = 801;
-                tableCell.accessoryType = UITableViewCellAccessoryNone;
-                tableCell.selectionStyle = UITableViewCellSelectionStyleNone;
-                tableCell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                tableCell.textLabel.textColor = [UIColor TaiheColor];
-                if (device->machineData.vibIn>1) {
-                    tableCell.hidden = YES;
-                    tableCell.frame = CGRectZero;
-                }else{
-                    if(device->machineData.vibIn){
-                        tableCell.textLabel.text = kLanguageForKey(87);
-                        [tableCell.switchBtn setOn:true];
-                    }else{
-                        tableCell.textLabel.text = kLanguageForKey(86);
-                        [tableCell.switchBtn setOn:false];
-                    }
-                    tableCell.hidden = NO;
-                }
-                tableCell.delegate = self;
-                tableCell.indexPath = indexPath;
-                return tableCell;
-            }else if (indexPath.row == 4){
-                TableViewCellWithDefaultTitleLabel1Switch *tableCell = [tableView dequeueReusableCellWithIdentifier:commonCellIdentifier forIndexPath:indexPath];
-                tableCell.switchBtn.tag = 802;
-                tableCell.accessoryType = UITableViewCellAccessoryNone;
-                tableCell.selectionStyle = UITableViewCellSelectionStyleNone;
-                tableCell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                tableCell.textLabel.textColor = [UIColor TaiheColor];
-                if (device->machineData.vibOut>1) {
-                    tableCell.hidden = YES;
-                    tableCell.frame = CGRectZero;
-                }else{
-                    if (device->machineData.vibOut) {
-                        tableCell.textLabel.text = kLanguageForKey(89);
-                        [tableCell.switchBtn setOn:true];
-                    }else{
-                        tableCell.textLabel.text = kLanguageForKey(88);
-                        [tableCell.switchBtn setOn:false];
-                    }
-                    tableCell.hidden = NO;
-                }
-                tableCell.delegate = self;
-                tableCell.indexPath = indexPath;
-                return tableCell;
-            }else if (indexPath.row == 5){
-                TableViewCellWithDefaultTitleLabel1Switch *tableCell = [tableView dequeueReusableCellWithIdentifier:commonCellIdentifier forIndexPath:indexPath];
-                tableCell.switchBtn.tag = 1000;
-                tableCell.accessoryType = UITableViewCellAccessoryNone;
-                tableCell.selectionStyle = UITableViewCellSelectionStyleNone;
-                tableCell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                tableCell.textLabel.textColor = [UIColor TaiheColor];
-                if (device->machineData.machineType== MACHINE_TYPE_WHEEL||device->machineData.machineType== MACHINE_TYPE_WHEEL_2) {
-//                    if (device->machineData.wheel[0]) {
-//                        [tableCell.switchBtn setOn:true];
-//                        if (device->machineData.machineType == MACHINE_TYPE_WHEEL) {
-//                            tableCell.textLabel.text = kLanguageForKey(137) ;
-//                        }else if (device->machineData.machineType == MACHINE_TYPE_WHEEL_2){
-//                            tableCell.textLabel.text = kLanguageForKey(133) ;
-//                        }
-//
-//                    }else{
-//                        [tableCell.switchBtn setOn:false];
-//                        if (device->machineData.machineType == MACHINE_TYPE_WHEEL) {
-//                            tableCell.textLabel.text = kLanguageForKey(136) ;
-//                        }else if (device->machineData.machineType == MACHINE_TYPE_WHEEL_2){
-//                            tableCell.textLabel.text = kLanguageForKey(132) ;
-//                        }
-//                    }
-                    tableCell.hidden = YES;
-                }else{
-                    tableCell.hidden = YES;
-                    tableCell.frame = CGRectZero;
-                }
-                tableCell.delegate = self;
-                tableCell.indexPath = indexPath;
-                return tableCell;
-            }else if (indexPath.row == 6){
-                TableViewCellWithDefaultTitleLabel1Switch *tableCell = [tableView dequeueReusableCellWithIdentifier:commonCellIdentifier forIndexPath:indexPath];
-                tableCell.switchBtn.tag = 1001;
-                tableCell.accessoryType = UITableViewCellAccessoryNone;
-                tableCell.selectionStyle = UITableViewCellSelectionStyleNone;
-                tableCell.textLabel.font = [UIFont systemFontOfSize:14.0];
-                tableCell.textLabel.textColor = [UIColor TaiheColor];
-                if (device->machineData.machineType== MACHINE_TYPE_WHEEL_2) {
-//                    if (device->machineData.wheel[1]) {
-//                        [tableCell.switchBtn setOn:true];
-//                        tableCell.textLabel.text = kLanguageForKey(135) ;
-//                    }else{
-//                        [tableCell.switchBtn setOn:false];
-//                        tableCell.textLabel.text = kLanguageForKey(134) ;
-//                    }
-                    tableCell.hidden = NO;
-                }else{
-                    tableCell.hidden = YES;
-                    tableCell.frame = CGRectZero;
-                }
-                tableCell.delegate = self;
-                tableCell.indexPath = indexPath;
-                return tableCell;
-                
             }
             
         }
@@ -330,7 +223,7 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
                     tableViewCell.button.backgroundColor = [UIColor greenColor];
                     [tableViewCell.button setUserInteractionEnabled:NO];
                 }
-                tableViewCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                tableViewCell.accessoryType = UITableViewCellAccessoryNone;
             }else if (indexPath.row == 1){
                 tableViewCell.accessoryType = UITableViewCellAccessoryNone;
                 tableViewCell.button.tag = 201;
@@ -484,7 +377,6 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
         [[NetworkFactory sharedNetWork]setDeviceRunState:value withType:type];
     }else if(tag<1000)
     {
-        Device *device = kDataModel.currentDevice;
         if (tag == 801) {
             type = 1;
             [[NetworkFactory sharedNetWork] setVibInOutSwitchStateWithType:type];
@@ -493,13 +385,6 @@ static NSString* buttonCellIdentifier = @"TableViewCellWith1button";
             [[NetworkFactory sharedNetWork] setVibInOutSwitchStateWithType:type];
         }else if (tag == 804){
             type = 4;
-            if (device->machineData.fristVib>value) {
-                value = device->machineData.fristVib-value;
-                [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:value withType:type addOrDel:0 IsAll:1];
-            }else{
-                value = value-device->machineData.fristVib;
-                [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:value withType:type addOrDel:1 IsAll:1];
-            }
         }
         
         

@@ -14,6 +14,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.mainLightLabel.textColor = [UIColor TaiheColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

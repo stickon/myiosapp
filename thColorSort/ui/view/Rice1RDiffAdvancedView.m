@@ -313,14 +313,7 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
             cell.lengthTextField.text=[NSString stringWithFormat:@"%d", device->groupSenseLength[currentGroup]];
             cell.widthTextField.text = [NSString stringWithFormat:@"%d",device->groupSenseWidth[currentGroup]];
             cell.sizeTextField.text = [NSString stringWithFormat:@"%d",device->groupSenseSize[currentGroup][0]*256+device->groupSenseSize[currentGroup][1]];
-            
-            if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-                cell.frontRearTitleLabel.hidden = NO;
-                cell.frontRearCheckbtn.hidden = NO;
-            }else{
-                cell.frontRearTitleLabel.hidden = YES;
-                cell.frontRearCheckbtn.hidden = YES;
-            }
+          
             cell.frontRearTitleLabel.text = kLanguageForKey(43) ;
             if (device->sense.fSameR) {
                 cell.frontRearCheckbtn.selected = YES;

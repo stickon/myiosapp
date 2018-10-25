@@ -404,13 +404,9 @@ static NSString *buttonCellIdentifier = @"TableViewCellWith2Button";
             cell.delegate = self;
             cell.indexPath = indexPath;
             
-            if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
                 cell.frontRearViewSameLabel.hidden = NO;
                 cell.frontRearViewSameSwitch.hidden = NO;
-            }else{
-                cell.frontRearViewSameLabel.hidden = YES;
-                cell.frontRearViewSameSwitch.hidden = YES;
-            }
+            
             cell.frontRearViewSameLabel.text = kLanguageForKey(43) ;
             if (device->sense.fSameR) {
                 cell.frontRearViewSameSwitch.on = YES;

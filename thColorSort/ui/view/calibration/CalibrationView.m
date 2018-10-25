@@ -27,16 +27,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *cameraSetTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *detailDataTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *compressDataTitleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *waveAvgTitleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *lightDiffTitleLabel;
-@property (strong, nonatomic) IBOutlet UITextField *waveAvgTextFeild;
-@property (strong, nonatomic) IBOutlet UITextField *lightDiffTextFeild;
 @property (strong, nonatomic) IBOutlet UIButton *originDataBtn;
 @property (strong, nonatomic) IBOutlet UIButton *calibrationDataBtn;
 @property (strong, nonatomic) IBOutlet UIButton *testDataBtn;
-@property (strong, nonatomic) IBOutlet UIButton *irCalibrationBtn;
-@property (strong, nonatomic) IBOutlet UIButton *lightCalibrationBtn;
-@property (strong, nonatomic) IBOutlet UIButton *lowPowerCalibrationBtn;
 @property (strong, nonatomic) IBOutlet UIButton *frontViewBtn;
 @property (strong, nonatomic) IBOutlet UIButton *rearViewBtn;
 @property (assign, nonatomic) WaveDataType waveType;//波形的类形  08: 原始数据09: 校正数据  0a：测试数据
@@ -107,21 +100,13 @@ static NSString *waveTimer = @"calibrationWaveTimer";
     self.originDataBtn.layer.cornerRadius = 3.0f;
     self.calibrationDataBtn.layer.cornerRadius = 3.0f;
     self.testDataBtn.layer.cornerRadius = 3.0f;
-    self.irCalibrationBtn.layer.cornerRadius = 3.0f;
-    self.lightCalibrationBtn.layer.cornerRadius = 3.0f;
-    self.lowPowerCalibrationBtn.layer.cornerRadius = 3.0f;
     self.originDataBtn.tag = 10;
     self.calibrationDataBtn.tag = 11;
     self.testDataBtn.tag = 12;
-    self.irCalibrationBtn.tag =22;
-    self.lightCalibrationBtn.tag = 21;
-    self.lowPowerCalibrationBtn.tag = 23;
     
-    if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-        self.rearViewBtn.hidden = NO;
-    }else{
-        self.rearViewBtn.hidden = YES;
-    }
+    self.calibrationDataBtn.backgroundColor = [UIColor TaiheColor];
+    self.testDataBtn.backgroundColor = [UIColor TaiheColor];
+    
     if (device.currentViewIndex == 0) {
         self.frontViewBtn.backgroundColor = [UIColor greenColor];
         self.rearViewBtn.backgroundColor = [UIColor TaiheColor];
@@ -132,13 +117,6 @@ static NSString *waveTimer = @"calibrationWaveTimer";
         self.rearViewBtn.backgroundColor = [UIColor greenColor];
         self.rearViewBtn.userInteractionEnabled = false;
         self.frontViewBtn.userInteractionEnabled = true;
-    }
-    if(device->machineData.useIR>0){
-        self.irCalibrationBtn.hidden = false;
-        self.lowPowerCalibrationBtn.hidden = false;
-    }else{
-        self.irCalibrationBtn.hidden = true;
-        self.lowPowerCalibrationBtn.hidden = true;
     }
     self.chuteNumTextField.text = [NSString stringWithFormat:@"%d",device.currentSorterIndex];
     [[NetworkFactory sharedNetWork] getCalibrationPara];
@@ -153,11 +131,7 @@ static NSString *waveTimer = @"calibrationWaveTimer";
     if(device->machineData.startState!=1){
         enable = YES;
     }
-    self.irCalibrationBtn.enabled = enable;
-    self.lowPowerCalibrationBtn.enabled = enable;
-    self.lightCalibrationBtn.enabled = enable;
-    self.waveAvgTextFeild.enabled = enable;
-    self.lightDiffTextFeild.enabled = enable;
+   
 }
 - (void)initLanguage
 {
@@ -167,14 +141,10 @@ static NSString *waveTimer = @"calibrationWaveTimer";
     self.cameraSetTitleLabel.text = kLanguageForKey(187);
     self.detailDataTitleLabel.text = kLanguageForKey(188);
     self.compressDataTitleLabel.text = kLanguageForKey(189);
-    self.waveAvgTitleLabel.text = kLanguageForKey(190);
-    self.lightDiffTitleLabel.text = kLanguageForKey(191);
+   
     [self.originDataBtn setTitle:kLanguageForKey(192) forState:UIControlStateNormal];
     [self.calibrationDataBtn setTitle:kLanguageForKey(193) forState:UIControlStateNormal];
     [self.testDataBtn setTitle:kLanguageForKey(194) forState:UIControlStateNormal];
-    [self.irCalibrationBtn setTitle:kLanguageForKey(195) forState:UIControlStateNormal];
-    [self.lightCalibrationBtn setTitle:kLanguageForKey(196) forState:UIControlStateNormal];
-    [self.lowPowerCalibrationBtn setTitle:kLanguageForKey(197) forState:UIControlStateNormal];
     self.title = kLanguageForKey(174);
 }
 
@@ -211,11 +181,7 @@ static NSString *waveTimer = @"calibrationWaveTimer";
         [self.slider setHidden:true];
     }
 }
-- (IBAction)calibrationBtnClicked:(UIButton *)sender {
-    calibrationType = sender.tag%20;
-    [self.tipsView showInView:self.window withFrame:CGRectMake(0, (self.frame.size.height-400)/2, self.frame.size.width, 400)];
-    
-}
+
 - (IBAction)changeWaveBtnClicked:(UIButton *)sender {
     if (sender.tag == 10) {
         self.waveType = wave_origin;
@@ -247,8 +213,7 @@ static NSString *waveTimer = @"calibrationWaveTimer";
 
 -(void)updateViewData{
     Device *device = kDataModel.currentDevice;
-    self.waveAvgTextFeild.text =[NSString stringWithFormat:@"%d",device->waveAvgData];
-    self.lightDiffTextFeild.text = [NSString stringWithFormat:@"%d",device->waveDiffData];
+    
 }
 -(void)updateWithHeader:(NSData *)headerData{
     const unsigned char*a = headerData.bytes;
@@ -316,11 +281,10 @@ static NSString *waveTimer = @"calibrationWaveTimer";
                     break;
             }
             if (self.timerSuspend) {
-                [self setCalibrationBtnUserInterfaceEnbled:YES];
                 [self resumeTimer];
             }
         }
-    }else if (a[0] == 0x05){
+    }else if (a[0] == 0x0b){
         Device *device = kDataModel.currentDevice;
         self.waveView.irUseType = device->machineData.useIR;
         [self.waveView setWaveDataType:a[1]];
@@ -380,7 +344,17 @@ static NSString *waveTimer = @"calibrationWaveTimer";
 }
 
 -(void)waveTimerOut{
-    [[NetworkFactory sharedNetWork] sendToGetWaveDataWithAlgorithmType:0 AndWaveType:self.waveType AndDataType:self.dataType Position:self.position];
+    Device *device = kDataModel.currentDevice;
+    waveTypeCalibration wavetype;
+    wavetype.Algorithm = 0;
+    wavetype.layer = device.currentLayerIndex-1;
+    wavetype.view = device.currentViewIndex;
+    wavetype.ch = device.currentSorterIndex-1;
+    wavetype.waveType = self.waveType;
+    wavetype.dataType = self.dataType;
+    wavetype.postion = self.position;
+    [gNetwork sendToGetCalibrationWave:&wavetype Type:wave_calibration];
+    
 }
 -(void)pauseTimer{
     self.timerSuspend = 1;
@@ -418,17 +392,12 @@ static NSString *waveTimer = @"calibrationWaveTimer";
     [self stopTimer];
     return [super Back];
 }
--(void)setCalibrationBtnUserInterfaceEnbled:(BOOL)enabled{
-    self.lightCalibrationBtn.userInteractionEnabled = enabled;
-    self.irCalibrationBtn.userInteractionEnabled = enabled;
-    self.lowPowerCalibrationBtn.userInteractionEnabled = enabled;
-}
 #pragma mark tipsviewDelegate
 -(void)tipsViewResult:(Byte)value{
     if (value) {
         if (calibrationType != 3) {
             [self pauseTimer];
-            [self setCalibrationBtnUserInterfaceEnbled:NO];//防止由于tcp连接时状态返回较慢导致多次点击
+//            [self setCalibrationBtnUserInterfaceEnbled:NO];//防止由于tcp连接时状态返回较慢导致多次点击
         }
         
         [[NetworkFactory sharedNetWork] calibrateWithType:calibrationType];

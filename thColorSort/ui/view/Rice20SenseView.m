@@ -67,11 +67,7 @@
         self.frontViewBtn.userInteractionEnabled = YES;
         self.rearViewBtn.userInteractionEnabled = NO;
     }
-    if (device->machineData.hasRearView[device.currentLayerIndex-1]) {
-        self.rearViewBtn.hidden = NO;
-    }else{
-        self.rearViewBtn.hidden = YES;
-    }
+
 }
 
 -(void)refreshCurrentView{

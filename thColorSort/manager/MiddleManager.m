@@ -31,7 +31,7 @@
         sharedInstance.viewHistoryArray = [NSMutableArray array];
         sharedInstance.viewParaHistoryArray = [NSMutableArray array];
         sharedInstance.viewNameToObjectDictionary = [NSMutableDictionary dictionary];
-        sharedInstance.tabViewArray = [NSArray arrayWithObjects:@"HomeView",@"SenseView",@"SysinfoView",@"SettingView", nil];
+        sharedInstance.tabViewArray = [NSArray arrayWithObjects:@"HomeView",@"SenseView",@"FeedSetView",@"SettingView", nil];
         
     });
     return sharedInstance;
