@@ -89,8 +89,8 @@
 -(void)setDeviceFeedInOutState:(Byte)value withType:(Byte)index addOrDel:(Byte)isAdd IsAll:(Byte)all
 {
     [self initSocketHeader];
-    socketHeader.type = 0x08;
-    socketHeader.extendType = 0x04;
+    socketHeader.type = 0x05;
+    socketHeader.extendType = 0x02;
     if (all) {
         socketHeader.data1[0] = isAdd;
         socketHeader.data1[1] = 0;

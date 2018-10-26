@@ -34,6 +34,10 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *chuteTypeChange;//分组或者分料槽
 @property (strong, nonatomic) FeedSetModel *model;
+@property (strong, nonatomic) IBOutlet UILabel *FeedAllLabel;
+@property (strong, nonatomic) IBOutlet UIButton *minusAllBtn;
+@property (strong, nonatomic) IBOutlet UIButton *plusAllBtn;
+@property (strong, nonatomic) IBOutlet BaseUITextField *FeedAllTextField;
 
 @end
 @implementation FeedSetView
@@ -158,22 +162,9 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
 {
     Device *device = kDataModel.currentDevice;
     if (section == 0) {
-        if (row > 0 && row <= device->vibSet.ch) {
-            if (index == 1) {
                 [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:value withType:row-1 addOrDel:0 IsAll:0];
-            }else if (index == 2){
-                [[NetworkFactory sharedNetWork] setVibNum:row-1 Switch:value];
-            }
-        }else if (row == device->vibSet.ch+1){
-            [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:1 withType:0 addOrDel:index IsAll:1];
-        }
-    }
-    if (section == 1) {
-        if (index == 1) {//改变入料出料量
-            [[NetworkFactory sharedNetWork] setVibInOut:row+1 Value:value];
-        }else if (index == 2){//入料出料开关
-            [[NetworkFactory sharedNetWork] setVibInOutSwitchStateWithType:row+1];
-        }
+        
+      
     }
 }
 
@@ -215,5 +206,12 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
         rowArray  = [rowArray arrayByAddingObject:indexPath];
     }
     [self.tableView reloadRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationNone];
+}
+- (IBAction)changeFeedbtnClicked:(UIButton *)sender {
+    if (sender == self.minusAllBtn) {
+         [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:1 withType:0 addOrDel:2 IsAll:1];
+    }else if (sender == self.plusAllBtn){
+        [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:1 withType:0 addOrDel:1 IsAll:1];
+    }
 }
 @end
