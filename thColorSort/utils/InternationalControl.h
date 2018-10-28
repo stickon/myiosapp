@@ -10,7 +10,7 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 @interface InternationalControl : NSObject
 +(NSDictionary *)languageDictionary;//获取当前资源文件
-+(NSString *)getNameByIndex:(NSString*)index;
++(NSString *)getNameByIndex:(int)index;
 +(void)initUserLanguage;//初始化语言文件
 
 +(NSString *)userLanguage;//获取应用当前语言

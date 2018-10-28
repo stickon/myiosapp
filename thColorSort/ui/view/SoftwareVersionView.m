@@ -297,9 +297,11 @@ static NSString *InvisiableTitleCellIdentifier = @"InvisiableTitleCellIdentifier
             TableViewCellWith7Label *cell = [tableView dequeueReusableCellWithIdentifier:VisiableTitleCellIdentifier forIndexPath:indexPath];
             cell.chuteTitleLabel.text = kLanguageForKey(41);
             cell.frontTitleLabel.text = kLanguageForKey(75);
-            
+            cell.rearTitleLabel.text = kLanguageForKey(76);
             cell.frontSoftwareTitleLabel.text = kLanguageForKey(77);
             cell.frontHardwareTitleLabel.text = kLanguageForKey(74);
+            cell.rearSoftwareTitleLabel.text = kLanguageForKey(77);
+            cell.rearHardwareTitleLabel.text = kLanguageForKey(74);
             cell.chuteTitleLabel.textColor = [UIColor TaiheColor];
             cell.frontTitleLabel.textColor = [UIColor TaiheColor];
             cell.rearTitleLabel.textColor = [UIColor TaiheColor];
@@ -326,7 +328,8 @@ static NSString *InvisiableTitleCellIdentifier = @"InvisiableTitleCellIdentifier
             cell.chuteIndexLabel.text = [NSString stringWithFormat:@"%d",index];
             cell.label1.text = [NSString stringWithFormat:@"%d",device->normalCameraVersion[index-1].front_software[1]];
             cell.label2.text = [NSString stringWithFormat:@"%x%x",device->normalCameraVersion[index-1].front_hardware[0],device->normalCameraVersion[index-1].front_hardware[1]];
-           
+            cell.label3.text = [NSString stringWithFormat:@"%d",device->normalCameraVersion[index-1].rear_software[1]];
+            cell.label4.text = [NSString stringWithFormat:@"%x%x",device->normalCameraVersion[index-1].rear_hardware[0],device->normalCameraVersion[index-1].rear_hardware[1]];
             return cell;
         }
         

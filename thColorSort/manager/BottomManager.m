@@ -47,8 +47,8 @@
     if(self){
         UIView *subView=[[[NSBundle mainBundle]loadNibNamed:@"BottomView" owner:self options:nil] firstObject];
         self.tabBarItemArray = [NSArray arrayWithObjects:self.tabBarItem1,self.tabBarItem2,self.tabBarItem3,self.tabBarItem4, nil];
-        NSArray *selectedArr = @[@"tab_home1",@"tab_sensitive1",@"tab_sysinfo1",@"tab_settings1"];
-        NSArray *unSeleceArr = @[@"tab_home0",@"tab_sensitive0",@"tab_sysinfo0",@"tab_settings0"];
+        NSArray *selectedArr = @[@"tab_home1",@"tab_sense1",@"tab_feeder1",@"tab_more1"];
+        NSArray *unSeleceArr = @[@"tab_home0",@"tab_sense0",@"tab_feeder0",@"tab_more0"];
     
         NSArray *titleArr = @[kLanguageForKey(13),kLanguageForKey(14),kLanguageForKey(16),kLanguageForKey(17)] ;
         for (TabBarItem*obj in self.tabBarItemArray) {

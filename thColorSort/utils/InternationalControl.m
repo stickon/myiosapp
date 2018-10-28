@@ -19,8 +19,8 @@ static NSArray *languageList = nil;
 {
     return languageDictionary;
 }
-+(NSString *)getNameByIndex:(NSString*)index{
-    NSString *string = [languageDictionary valueForKey:index];
++(NSString *)getNameByIndex:(int)index{
+    NSString *string = [languageDictionary valueForKey:[NSString stringWithFormat:@"%d",index]];
     if (string == nil) {
         string = @"";
         [[MiddleManager shareInstance] tipsUpdateLanguage];

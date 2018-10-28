@@ -130,7 +130,8 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
     cell.minusBtn.tag = 3;
     cell.plusBtn.tag = 4;
     if (self.chuteTypeChange.selectedSegmentIndex == 0) {
-        cell.feedCellTitle.text = kLanguageForKey(400+indexPath.row);
+        int index = indexPath.row+401;
+        cell.feedCellTitle.text = kLanguageForKey(index);
         cell.feedNumTextField.text = [NSString stringWithFormat:@"%d",self.model->vib.groupData[indexPath.row]];
         if (self.model->vib.groupOpen[indexPath.row]) {
             cell.feedSwitch.on = YES;

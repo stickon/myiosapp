@@ -7,7 +7,7 @@
 //
 
 #import "TabBarItem.h"
-
+#import "types.h"
 @implementation TabBarItem
 
 //选中的时候icon和文字颜色正选和反选状态
@@ -22,7 +22,7 @@
         if (selected)
         {
             imageView.image = self.selectedImg ;
-            label.textColor = [UIColor colorWithRed:0.0/255.0 green:152.0/255.0 blue:157.0/255.0 alpha:1.0];
+            label.textColor = [UIColor TabColor];
         }
         else
         {
@@ -113,14 +113,14 @@
 
     //标题
     self.tabBarItemTitle.text = tabbarTitle ;
-    self.tabBarItemTitle.font = [UIFont systemFontOfSize:10];
+    self.tabBarItemTitle.font = [UIFont systemFontOfSize:16];
     self.tabBarItemTitle.textColor = [UIColor blackColor];
     self.tabBarItemTitle.textAlignment = NSTextAlignmentCenter ;
     self.tabBarItemTitle.tag = 102 ;
     
     //icon 图标
     self.tabBarItemImageView.image = self.unSelectedImg;
-    self.tabBarItemImageView.frame = CGRectMake(0, 0, 25, 25) ;
+    self.tabBarItemImageView.frame = CGRectMake(0, 0, 30, 30) ;
     self.tabBarItemImageView.center  =CGPointMake(self.tabBarItemTitle.center.x, self.tabBarItemTitle.center.y-22);
     self.tabBarItemImageView.tag = 101 ;
     

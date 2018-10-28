@@ -12,7 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.feedCellTitle.textAlignment = NSTextAlignmentCenter;
     self.textLabel.hidden = YES;
     self.feedNumTextField.tag = 1;
     self.feedSwitch.tag = 2;

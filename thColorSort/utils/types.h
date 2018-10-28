@@ -13,11 +13,12 @@
 #define WaveLength 256
 #define CalibrationWaveLength 512
 #define TaiheColor colorWithRed:46.0/255.0 green:135.0/255.0 blue:255.0/255.0 alpha:1.0
+#define TabColor colorWithRed:25.0/255.0 green:119.0/255.0 blue:204.0/255.0 alpha:1.0
 #define Group1Color colorWithRed:255.0/255.0 green:153.0/255.0 blue:18.0/255.0 alpha:1.0
 #define Group2Color colorWithRed:6.0/255.0 green:128.0/255.0 blue:67.0/255.0 alpha:1.0
 #define Group3Color colorWithRed:1.0/255.0 green:90.0/255.0 blue:225.0/255.0 alpha:1.0
 #define Group4Color colorWithRed:186.0/255.0 green:40.0/255.0 blue:53.0/255.0 alpha:1.0
-#define kLanguageForKey(X) [InternationalControl getNameByIndex:@#X]
+#define kLanguageForKey(X) [InternationalControl getNameByIndex:X]
 #define kDataModel [DataModel globalDataModel]
 #define gNetwork [NetworkFactory sharedNetWork]
 #define gMiddeUiManager [MiddleManager shareInstance]
