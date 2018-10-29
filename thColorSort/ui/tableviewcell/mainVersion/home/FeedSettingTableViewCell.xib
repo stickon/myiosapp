@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVu-f9-wu4" customClass="BaseUITextField">
-                        <rect key="frame" x="131.5" y="2" width="60" height="41.5"/>
+                        <rect key="frame" x="131.5" y="4" width="60" height="37.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Oca-3P-dTh"/>
                         </constraints>
@@ -46,20 +46,20 @@
                             <action selector="feedSwitchValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="TUb-QJ-EMG"/>
                         </connections>
                     </switch>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lia-9Q-ztV">
-                        <rect key="frame" x="86.5" y="3" width="40" height="40"/>
-                        <state key="normal" title="-"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lia-9Q-ztV">
+                        <rect key="frame" x="80.5" y="-0.5" width="46" height="46.5"/>
+                        <state key="normal" title="-" image="minus"/>
                         <connections>
                             <action selector="btnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0iK-yE-A33"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKr-Vg-izy">
-                        <rect key="frame" x="196.5" y="2" width="40" height="40"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKr-Vg-izy">
+                        <rect key="frame" x="196.5" y="-0.5" width="46" height="46.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="Yyk-lh-8kR"/>
-                            <constraint firstAttribute="width" constant="40" id="o2C-VT-4jm"/>
+                            <constraint firstAttribute="height" constant="46" id="Yyk-lh-8kR"/>
+                            <constraint firstAttribute="width" constant="46" id="o2C-VT-4jm"/>
                         </constraints>
-                        <state key="normal" title="+"/>
+                        <state key="normal" title="+" image="plus"/>
                         <connections>
                             <action selector="btnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gNn-2h-Jel"/>
                         </connections>
@@ -72,10 +72,10 @@
                     <constraint firstItem="fNq-M4-db3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Lcg-3e-26U"/>
                     <constraint firstItem="UKr-Vg-izy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NAf-yv-Fuw"/>
                     <constraint firstItem="fNq-M4-db3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="NTI-yN-WAJ"/>
-                    <constraint firstAttribute="bottom" secondItem="hVu-f9-wu4" secondAttribute="bottom" constant="2" id="OoP-y1-Abr"/>
+                    <constraint firstAttribute="bottom" secondItem="hVu-f9-wu4" secondAttribute="bottom" constant="4" id="OoP-y1-Abr"/>
                     <constraint firstItem="hVu-f9-wu4" firstAttribute="leading" secondItem="lia-9Q-ztV" secondAttribute="trailing" constant="5" id="VQP-Or-opw"/>
                     <constraint firstItem="hVu-f9-wu4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Zmo-fI-hUj"/>
-                    <constraint firstItem="hVu-f9-wu4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="dsH-5a-ATc"/>
+                    <constraint firstItem="hVu-f9-wu4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="dsH-5a-ATc"/>
                     <constraint firstItem="lia-9Q-ztV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mcI-PB-QzS"/>
                     <constraint firstItem="UKr-Vg-izy" firstAttribute="leading" secondItem="hVu-f9-wu4" secondAttribute="trailing" constant="5" id="pCk-W8-vv3"/>
                     <constraint firstAttribute="trailing" secondItem="sqB-5V-muD" secondAttribute="trailing" constant="10" id="s7Z-7l-BhV"/>
@@ -92,4 +92,8 @@
             <point key="canvasLocation" x="142.5" y="26"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="minus" width="64" height="64"/>
+        <image name="plus" width="64" height="64"/>
+    </resources>
 </document>

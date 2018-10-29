@@ -60,7 +60,7 @@ static DataModel *model = nil;
 -(void)setData:(NSData*)data withType:(Byte)type andIPaddress:(NSString *)ip
 {
     const unsigned char *a = [data bytes];
-    if (a[0] != 5 && a[0] != 6 && a[0] != 0x52) {
+    if (a[0] != 6 && a[0] != 0x52) {
         DDLogInfo(@"receive data:type:%d,ex_type:%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d",a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8],a[9],a[10],a[11],a[12],a[13],a[14]);
     }
     

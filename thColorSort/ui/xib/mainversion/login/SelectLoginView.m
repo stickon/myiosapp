@@ -53,5 +53,8 @@
     [gMiddeUiManager ChangeViewWithName:@"LoginUI" Para:self.paraNextView];
 }
 
-
+- (IBAction)languageChangeBtnClicked:(id)sender {
+    [self.paraNextView setObject:kLanguageForKey(3) forKey:@"title"];
+    [gMiddeUiManager ChangeViewWithName:@"LanguageSettingView" Para:self.paraNextView];
+}
 @end

@@ -111,6 +111,27 @@
     socketHeader.extendType = 0x01;
     [self netWorkSendData];
 }
+
+-(void)setVibValue:(Byte)vibtype Index:(Byte)vibIndex Value:(Byte)vibValue{
+    [self initSocketHeader];
+    socketHeader.type = 0x05;
+    socketHeader.extendType = 0x02;
+    socketHeader.data1[0] = vibtype;
+    socketHeader.data1[1] = vibIndex;
+    socketHeader.data1[2] = vibValue;
+    [self netWorkSendData];
+}
+
+-(void)setVibState:(Byte)vibtype Index:(Byte)vibIndex State:(Byte)vibState{
+    [self initSocketHeader];
+    socketHeader.type = 0x05;
+    socketHeader.extendType = 0x03;
+    socketHeader.data1[0]  = vibtype;
+    socketHeader.data1[1] = vibIndex;
+    socketHeader.data1[2] = vibState;
+    [self netWorkSendData];
+}
+
 -(void)setVibInOut:(Byte)type Value:(Byte)value{
     [self initSocketHeader];
     socketHeader.type = 0x08;

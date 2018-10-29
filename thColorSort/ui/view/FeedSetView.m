@@ -38,6 +38,7 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
 @property (strong, nonatomic) IBOutlet UIButton *minusAllBtn;
 @property (strong, nonatomic) IBOutlet UIButton *plusAllBtn;
 @property (strong, nonatomic) IBOutlet BaseUITextField *FeedAllTextField;
+@property (strong, nonatomic) IBOutlet UIView *FeedAllView;
 
 @end
 @implementation FeedSetView
@@ -57,17 +58,23 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
         
         self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         self.model = [[FeedSetModel alloc] init];
+        [self initLanguage];
     }
     return self;
 }
 -(UIView *)getViewWithPara:(NSDictionary *)para{
     [[NetworkFactory sharedNetWork] changeLayerAndView];
     [self refreshCurrentView];
+    [self setFeedAllViewVisible];
     return self;
 }
 - (void)refreshCurrentView{
     dataloaded = false;
     [[NetworkFactory sharedNetWork] getVibSettingValue];
+}
+-(void)initLanguage{
+    self.FeedAllLabel.text = kLanguageForKey(333);
+    
 }
 -(void)updateWithHeader:(NSData*)headerData
 {
@@ -76,8 +83,9 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
         if (header[1] == 0x01) {
             [self.model fetchData:headerData];
             dataloaded = true;
+            self.FeedAllTextField.text = [NSString stringWithFormat:@"%d",self.model->vib.groupData[0]];
             [self.tableView reloadData];
-        }else if (header[1] == 0x02){
+        }else if (header[1] == 0x02 || header[1] == 3){
             [self refreshCurrentView];
         }
     }else if (header[0] == 0x55){
@@ -85,9 +93,16 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
     }
 }
 - (IBAction)feedTypeChanged:(UISegmentedControl *)sender {
+    [self setFeedAllViewVisible];
     [self.tableView reloadData];
 }
-
+- (void)setFeedAllViewVisible{
+    if (self.chuteTypeChange.selectedSegmentIndex == 0) {
+        self.FeedAllView.hidden = YES;
+    }else{
+        self.FeedAllView.hidden = NO;
+    }
+}
 #pragma tableview data source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -119,7 +134,7 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
+    return 54;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -161,38 +176,49 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
 #pragma tableview cell delegate
 -(void)cellValueChangedWithSection:(long)section row:(long)row tag:(long)index value:(NSInteger)value
 {
-    Device *device = kDataModel.currentDevice;
-    if (section == 0) {
-                [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:value withType:row-1 addOrDel:0 IsAll:0];
-        
-      
+    if (self.chuteTypeChange.selectedSegmentIndex == 0) {
+        if (index == 1) {
+            [gNetwork setVibValue:3 Index:row Value:value];
+        }else if (index == 2){
+            [gNetwork setVibState:3 Index:row State:value];
+        }else if (index == 3){
+            if (self.model->vib.groupData[row]>1) {
+                [gNetwork setVibValue:3 Index:row Value:self.model->vib.groupData[row]-1];
+            }
+            
+        }else if (index == 4){
+            if (self.model->vib.groupData[row]<99) {
+                [gNetwork setVibValue:3 Index:row Value:self.model->vib.groupData[row]++];
+            }
+        }
+    }else{
+        if (index == 1) {
+            [gNetwork setVibValue:1 Index:row Value:value];
+        }else if (index == 2){
+            [gNetwork setVibState:1 Index:row State:value];
+        }else if (index == 3){
+            if (self.model->vib.vibdata[row] > 1) {
+                [gNetwork setVibValue:0 Index:row Value:self.model->vib.vibdata[row]--];
+            }
+        }else if (index == 4){
+            if (self.model->vib.vibdata[row]<99) {
+                [gNetwork setVibValue:0 Index:row Value:self.model->vib.vibdata[row]++];
+            }
+        }
     }
 }
 
 
 -(void)cellBtnClicked:(long)section row:(long)row tag:(long)tag value:(NSInteger)value bSend:(BOOL)bsend{
-    Device *device = kDataModel.currentDevice;
     if (section == 0)
     {
-        if (row == device->vibSet.ch+1) {
-            if (bsend) {
-                [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:value withType:0 addOrDel:tag IsAll:1];
+        if (bsend) {
+            if (self.chuteTypeChange.selectedSegmentIndex == 0) {
+                self.model->vib.groupData[row] = value;
+                [gNetwork setVibValue:3 Index:row Value:value];
             }else{
-                if (tag == 1) {
-                    for (int i = 0; i<device->vibSet.ch; i++) {
-                        if (device->vibdata[i]<99) {
-                            device->vibdata[i]+=1;
-                        }
-                    }
-                }else if (tag == 2){
-                    for (int i = 0; i<device->vibSet.ch; i++) {
-                        if (device->vibdata[i]>2) {
-                            device->vibdata[i]-=1;
-                        }
-                    }
-                }
-                
-                [self reloadRows];
+                self.model->vib.vibdata[row] = value;
+                [gNetwork setVibValue:0 Index:row Value:value];
             }
         }
     }
@@ -200,9 +226,13 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
 
 
 -(void)reloadRows{
-    Device *device = kDataModel.currentDevice;
     NSArray *rowArray =[NSArray array];
-    for (int i= 1; i<=device->vibSet.ch;i++) {
+    int rowCount = 0;
+    if (self.chuteTypeChange.selectedSegmentIndex == 0) {
+        rowCount = self.model->vib.group;
+    }else
+        rowCount = self.model->vib.ch;
+    for (int i= 0; i<rowCount;i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         rowArray  = [rowArray arrayByAddingObject:indexPath];
     }
@@ -210,9 +240,9 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
 }
 - (IBAction)changeFeedbtnClicked:(UIButton *)sender {
     if (sender == self.minusAllBtn) {
-         [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:1 withType:0 addOrDel:2 IsAll:1];
+        [gNetwork setVibValue:2 Index:0 Value:1];
     }else if (sender == self.plusAllBtn){
-        [[NetworkFactory sharedNetWork] setDeviceFeedInOutState:1 withType:0 addOrDel:1 IsAll:1];
+        [gNetwork setVibValue:1 Index:0 Value:1];
     }
 }
 @end

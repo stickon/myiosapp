@@ -177,10 +177,7 @@ static NSString *udpMachinePwd = @"udpMachinePwd";//密码
     });
 }
 
-- (IBAction)languageChangeBtnClicked:(id)sender {
-    [self.paraNextView setObject:kLanguageForKey(3) forKey:@"title"];
-    [gMiddeUiManager ChangeViewWithName:@"LanguageSettingView" Para:self.paraNextView];
-}
+
 
 - (IBAction)registerBtnClicked:(id)sender {
     [self.paraNextView setObject:kLanguageForKey(234) forKey:@"title"];

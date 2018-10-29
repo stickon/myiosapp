@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXC-lD-OSB">
@@ -64,22 +64,26 @@
                     <state key="normal" title="语言">
                         <color key="titleColor" red="0.0023555355149999999" green="0.6950159669" blue="0.70966380829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="languageChangeBtnClicked:" destination="-1" eventType="touchUpInside" id="Qsd-Mi-lJp"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="R0y-gQ-cjy" secondAttribute="bottom" constant="10" id="5Iq-Q6-r9O"/>
+                <constraint firstAttribute="bottom" secondItem="R0y-gQ-cjy" secondAttribute="bottom" constant="10" id="5Iq-Q6-r9O"/>
                 <constraint firstItem="KKD-y8-2hZ" firstAttribute="height" secondItem="NXC-lD-OSB" secondAttribute="height" id="7ln-oN-2HN"/>
                 <constraint firstItem="R0y-gQ-cjy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8u0-mV-QoZ"/>
                 <constraint firstItem="R0y-gQ-cjy" firstAttribute="top" secondItem="pvw-c2-m9o" secondAttribute="bottom" constant="20" id="VLp-Q0-xv2"/>
                 <constraint firstItem="pvw-c2-m9o" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eWX-BQ-gZC"/>
                 <constraint firstItem="NXC-lD-OSB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hr6-SS-oj1"/>
-                <constraint firstItem="NXC-lD-OSB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="160" id="o8e-Fa-E8P"/>
+                <constraint firstItem="NXC-lD-OSB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="o8e-Fa-E8P"/>
                 <constraint firstItem="KKD-y8-2hZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qDv-YR-xOO"/>
                 <constraint firstItem="KKD-y8-2hZ" firstAttribute="width" secondItem="NXC-lD-OSB" secondAttribute="width" id="rrP-rP-fCw"/>
                 <constraint firstItem="KKD-y8-2hZ" firstAttribute="top" secondItem="NXC-lD-OSB" secondAttribute="bottom" constant="60" id="tUk-dS-Sa6"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <viewLayoutGuide key="safeArea" id="qxH-7M-4TZ"/>
+            <point key="canvasLocation" x="325" y="33"/>
         </view>
     </objects>
 </document>

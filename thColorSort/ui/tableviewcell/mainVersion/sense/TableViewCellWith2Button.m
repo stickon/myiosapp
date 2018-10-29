@@ -39,7 +39,7 @@
     
 }
 
-int valueTmp=0;
+static int valueTmp=0;
 -(void)longPress:(UILongPressGestureRecognizer *)longPressGR{
     
     UIButton *btn=(UIButton *)longPressGR.view;

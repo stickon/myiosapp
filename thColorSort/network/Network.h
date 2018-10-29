@@ -141,10 +141,16 @@ typedef struct WaveTypeAlg
 -(void)disconnnectCurrentDevice;
 -(void)setDeviceRunState:(Byte)value withType:(Byte)type;
 -(void)setDeviceFeedInOutState:(Byte)value withType:(Byte)type addOrDel:(Byte)isAdd  IsAll:(Byte)all;//isAdd 所有通道整体加还是减
--(void)getVibSettingValue;
+
 -(void)setVibInOut:(Byte)type Value:(Byte)value;
 -(void)setVibInOutSwitchStateWithType:(Byte)type;
 -(void)setVibNum:(Byte)index Switch:(Byte)switchState;
+
+#pragma mark 给料器设置
+-(void)getVibSettingValue;
+-(void)setVibValue:(Byte)vibtype Index:(Byte)vibIndex Value:(Byte)vibValue;
+-(void)setVibState:(Byte)vibtype Index:(Byte)vibIndex State:(Byte)vibState;
+
 #pragma mark cleanViewController
 
 -(void)getCleanPara;
