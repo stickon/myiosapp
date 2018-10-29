@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    self.switchBtn.onTintColor = [UIColor TaiheColor];
     // Initialization code
 }
 

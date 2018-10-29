@@ -75,7 +75,7 @@
             }
         }
         if (indexPath.row == 2) {
-            if (device->machineData.shapeType<=1) {
+            if (device->machineData.useShape<1) {
                 return 0;
             }
         }
@@ -126,10 +126,10 @@
         UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultTableViewCell];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = [self.shapeArray objectAtIndex:device->machineData.shapeType];
+        cell.textLabel.text = kLanguageForKey(30);
         cell.textLabel.font = SYSTEMFONT_15f;
         cell.textLabel.textColor = [UIColor TaiheColor];
-        if (device->machineData.shapeType>1) {
+        if (device->machineData.useShape) {
             cell.hidden = NO;
         }else{
             cell.hidden = YES;
@@ -170,7 +170,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    Device *device = kDataModel.currentDevice;
     if (indexPath.row == 0) {
         [self.paraNextView setObject:kLanguageForKey(29) forKey:@"title"];
         [gMiddeUiManager ChangeViewWithName:@"ColorAlgorithmView" Para:self.paraNextView];
@@ -180,105 +179,7 @@
         [gMiddeUiManager ChangeViewWithName:@"IRAlgorithmView" Para:self.paraNextView];
     }
     if (indexPath.row == 2) {
-        if (device) {
-            switch (device->machineData.shapeType) {
-                case SHAPE_NONE:
-                    [self makeToast:@"NO shape" duration:2.0 position:CSToastPositionCenter];
-                    break;
-                case SHAPE_TEA_TIEGUANYIN:
-                    [self.paraNextView setObject:kLanguageForKey(156) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"TeaView" Para:self.paraNextView];
-                    break;
-
-                case SHAPE_TEA_DAHONGPAO:
-                    [self.paraNextView setObject:kLanguageForKey(157) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"TeaView" Para:self.paraNextView];
-                    break;
-                case SHAPE_TEA_HONGCHA:
-                    [self.paraNextView setObject:kLanguageForKey(159) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"RedTeaView" Para:self.paraNextView];
-                    break;
-                case SHAPE_TEA_SRILANKA:
-                    [self.paraNextView setObject:kLanguageForKey(159) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"RedTeaView" Para:self.paraNextView];
-                    break;
-                case SHAPE_CASHEW:
-                    [self.paraNextView setObject:kLanguageForKey(160) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"CashewView" Para:self.paraNextView];
-                    break;
-                case SHAPE_CORN:
-                    [self.paraNextView setObject:kLanguageForKey(161) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"CornView" Para:self.paraNextView];
-                    break;
-                case SHAPE_PEANUTBUD:            //花生芽头
-                {
-                    [self.paraNextView setObject:kLanguageForKey(162) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"PeanutView" Para:self.paraNextView];
-                }
-                    break;
-                case SHAPE_WHEAT:                //小麦
-                    [self.paraNextView setObject:kLanguageForKey(163) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"WheatView" Para:self.paraNextView];
-                    break;
-                case SHAPE_SEEDRICE:            //稻种
-                    [self.paraNextView setObject:kLanguageForKey(164) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"SeedView" Para:self.paraNextView];
-                    break;
-                case SHAPE_SUN_FLOWER:            //葵花籽
-                    [self.paraNextView setObject:kLanguageForKey(165) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"SunflowerView" Para:self.paraNextView];
-                    break;
-                case SHAPE_BLACK_QOUQI:            //枸杞
-                    [self makeToast:@"In developing" duration:2.0 position:CSToastPositionCenter];
-                    break;
-                case SHAPE_TEA_LVCHA:            //绿茶
-                    [self.paraNextView setObject:kLanguageForKey(167) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"GreenTeaView" Para:self.paraNextView];
-                    break;
-                case SHAPE_PEANUT:                //花生
-                    [self makeToast:@"In developing" duration:2.0 position:CSToastPositionCenter];
-                    break;
-                case SHAPE_RICE:                //大米形选
-                    [self.paraNextView setObject:kLanguageForKey(170) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"RiceView" Para:self.paraNextView];
-                    break;
-                case SHAPE_STANDARD:            //标准形选
-                    [self.paraNextView setObject:kLanguageForKey(170) forKey:@"title"];
-                     [gMiddeUiManager ChangeViewWithName:@"StandardShapeView" Para:self.paraNextView];
-                    break;
-                case SHAPE_GENERAL_TEA:         //通用茶叶
-                     [self.paraNextView setObject:kLanguageForKey(171) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"StandardShapeView" Para:self.paraNextView];
-                    break;
-                case SHAPE_LIQUORICE:           //甘草
-                    [self.paraNextView setObject:kLanguageForKey(172) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"LicoriceView" Para:self.paraNextView];
-                    break;
-                case SHAPE_HORSEBEAN:           //蚕豆
-                    [self.paraNextView setObject:kLanguageForKey(173) forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"HorseBeanView" Para:self.paraNextView];
-                    break;
-                case SHAPE_GREENTEA_SHORTSTEM:      //绿茶短梗
-                {
-                    [self.paraNextView setObject:[NSString stringWithFormat:@"%@%@",kLanguageForKey(167),kLanguageForKey(284)] forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"GreenTeaShortStemView" Para:self.paraNextView];
-                }
-                    break;
-                case SHAPE_RICE_LENGTH:
-                {
-                    [self.paraNextView setObject:[NSString stringWithFormat:@"%@",kLanguageForKey(901)] forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"RiceLengthView" Para:self.paraNextView];
-                }
-                    break;
-                case SHAPE_RICE_BROKEN:{
-                    [self.paraNextView setObject:[NSString stringWithFormat:@"%@",kLanguageForKey(902)] forKey:@"title"];
-                    [gMiddeUiManager ChangeViewWithName:@"RiceBrokenView" Para:self.paraNextView];
-                }
-                    break;
-                default:
-                    break;
-            }
-        }
+        
     }
     if (indexPath.row == 3) {
         [self.paraNextView setObject:kLanguageForKey(31) forKey:@"title"];

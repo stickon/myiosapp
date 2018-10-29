@@ -93,7 +93,7 @@
     [self.thinstemUseBtn setTitle:kLanguageForKey(36) forState:UIControlStateNormal];
     [self.thinstemUseBtn setTitle:kLanguageForKey(35) forState:UIControlStateSelected];
     Device *device = kDataModel.currentDevice;
-    if (device->machineData.shapeType == SHAPE_STANDARD) {
+    if (device->machineData.useShape) {
         self.thicknessView.frame = CGRectZero;
         self.thicknessView.hidden = YES;
         self.thicknessheightConstraint.constant = 0.0f;

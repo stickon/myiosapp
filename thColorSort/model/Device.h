@@ -22,7 +22,7 @@ typedef struct
     Byte layerNumber;        //层数
     Byte chuteNumber;        //通道数
 
-    Byte shapeType;                 //型选类型
+    Byte useShape;                 //型选类型
     Byte useIR;                     //是否使用红外
     Byte useSvm;                    //是否使用SVM
     Byte useColor;           //色选算法的个数，0：未使用
