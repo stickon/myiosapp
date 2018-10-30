@@ -21,101 +21,8 @@
 #define HeaderLength sizeof(SocketHeader)
 static NSString *registerInfoKey = @"registerInfo";
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
-typedef struct
-{
-    Byte type;
-    Byte extendType;
-    Byte data1[8];
-    Byte number;
-    Byte len[2];
-    Byte crc[2];
-}SocketHeader;
-//灵敏度
-typedef struct SenseValue
-{
-    Byte Algorithm;   //色选算法
-    Byte adjustType;  //0:单通道，1：所有通
-    Byte layer;
-    Byte view;
-    Byte ch;
-    Byte frtSnd;
-    Byte type; //1:灵敏度，2：色差上限 3：色差下限
-    Byte data;
-}SenseValue;
-//色选使能 只需要利用前三个字节数据 不分料槽 使能自动取反
-typedef struct SenseUse
-{
-    Byte Algorithm;//色选算法
-    Byte layer;
-    Byte view;
-    Byte ch;
-    Byte data;
-}SenseUse;
 
-typedef struct RiceUserSense{
-    Byte type;
-    Byte layer;
-    Byte view;
-    Byte group;
-    Byte index;
-    Byte data[2];
-}RiceUserSense;
 
-typedef struct SenseSize
-{
-    Byte Algorithm;   //色选算法
-    Byte layer;
-    Byte view;
-    Byte fSameR;//前后视相同
-    Byte type; //长宽点(1/2/3)
-    Byte data[2];
-}SenseSize;
-
-typedef struct SenseGroupSetSize{
-    Byte algorithm;
-    Byte layer;
-    Byte view;
-    Byte group;
-    Byte fSameR;
-    Byte type;//长宽点杂质比锐化(check value)镜像(check,value)（1/2/3/4/5/6/7/8）
-    Byte data[2];
-}SenseGroupSetSize;
-
-typedef struct WaveSendType
-{
-    Byte Algorithm;   //色选算法
-    Byte layer;
-    Byte view;
-    Byte ch;
-    Byte type; //波形的类形
-}WaveSendType;
-
-typedef struct waveTypeCalibration
-{
-    Byte Algorithm;   //色选算法
-    Byte layer;
-    Byte view;
-    Byte ch;
-    Byte waveType;      //波形的类形  08: 原始数据 09: 校正数据  0a：测试数据
-    Byte dataType;     //数据类型 0：详细数据 1：压缩数据  2：相机调整
-    Byte postion;      // 0-100
-}waveTypeCalibration;
-
-typedef struct WaveHsv
-{
-    Byte Algorithm;   //保留
-    Byte layer;
-    Byte view;
-    Byte group;       //组
-}WaveHsv;
-
-typedef struct WaveTypeAlg
-{
-    Byte Algorithm;   //色选算法
-    Byte layer;
-    Byte view;
-    Byte ch;
-}WaveTypeAlg;
 
 @interface Network : NSObject
 {
@@ -165,13 +72,15 @@ typedef struct WaveTypeAlg
 //大米版本分次喷阀设置
 -(void)getGroupValvePara;
 -(void)setGroupValveParaWithData:(Byte*)valveData;
-#pragma mark SenseViewController
-//色选算法灵敏度 红外算法灵敏度
--(void)sendToGetDataIsIR:(Byte)isIR;//是否红外
--(void)sendAlgorithmSenseValueWithAjustType:(Byte)ajustType Sorter:(Byte)sorterIndex data:(Byte)dataValue algorithmType:(Byte)type FirstSecond:(Byte)index ValueType:(Byte)valueType IsIR:(Byte)isIR;
--(void)sendToChangeUseStateWithAlgorithm:(Byte)type IsIR:(Byte)isIR;
+
+#pragma mark SenseView 色选算法灵敏度 红外算法灵敏度
+-(void)getAllAlgInfoWithGroup:(Byte)group Type:(Byte)visiableOrIR;
+-(void)setAlgSenseValueWithGroup:(Byte)group View:(Byte)view Type:(Byte)type SubType:(Byte)subType ExtType:(Byte)extType Value:(int)value;
+-(void)setAlgSenseValueWithGroup:(Byte)group View:(Byte)view Type:(Byte)type SubType:(Byte)subType ExtType:(Byte)extType Used:(Byte)used;
 
 
+#pragma mark hsv hsv算法
+-(void)getHsvParaWithGroup:(Byte)group View:(Byte)view;
 //大米用户版本灵敏度
 -(void)sendToGetRiceUserSense;
 -(void)sendToSetRiceUserSenseWithType:(Byte)type GroupIndex:(Byte)group RowIndex:(Byte)index Value:(int)value;

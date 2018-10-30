@@ -7,6 +7,7 @@
 //
 
 #import "MyGroupView.h"
+#import "types.h"
 @interface MyGroupView(){
         NSInteger selectIndex;
 }
@@ -29,7 +30,7 @@
             btn.backgroundColor = [UIColor greenColor];
         }
         else{
-            btn.backgroundColor = [UIColor colorWithRed:1.0/255.0 green:181.0/255.0 blue:171.0/255.0 alpha:1.0];
+            btn.backgroundColor = [UIColor TaiheColor];
         }
         btn.tag = i;
         [self addSubview:btn];
@@ -41,7 +42,7 @@
     for (UIButton* btn in layerBtns) {
         if (btn.tag<7) {
             if (btn.tag != selectIndex) {
-                btn.backgroundColor = [UIColor colorWithRed:1.0/255.0 green:181.0/255.0 blue:171.0/255.0 alpha:1.0];
+                btn.backgroundColor = [UIColor TaiheColor];
                 btn.userInteractionEnabled = YES;
             }
             else{

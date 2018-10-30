@@ -10,7 +10,6 @@
 		52D55018B7CB4FDCA4D34B19 /* libPods-thColorSortPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8CE56C597872DCE60B6B592 /* libPods-thColorSortPro.a */; };
 		CB9DC0CF95095071A36E0991 /* libPods-thColorSort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 552FA10B75EA3CFB134803A6 /* libPods-thColorSort.a */; };
 		F01492F6201EFCE800E946F8 /* IRAlgorithmView.m in Sources */ = {isa = PBXBuildFile; fileRef = F01492F5201EFCE800E946F8 /* IRAlgorithmView.m */; };
-		F01492F8201F148E00E946F8 /* IRDiffAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01492F7201F148E00E946F8 /* IRDiffAdvancedView.xib */; };
 		F01811122178951E00EEF95C /* SelectLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01811112178951E00EEF95C /* SelectLoginView.xib */; };
 		F01811132178951E00EEF95C /* SelectLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01811112178951E00EEF95C /* SelectLoginView.xib */; };
 		F01811162178953600EEF95C /* SelectLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F01811152178953600EEF95C /* SelectLoginView.m */; };
@@ -26,14 +25,6 @@
 		F01E7E882005D2BD002769DE /* CleanSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01E7E872005D2BD002769DE /* CleanSetView.xib */; };
 		F01E7E8B2005D578002769DE /* CleanSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = F01E7E8A2005D578002769DE /* CleanSetView.m */; };
 		F01E7E912005DD6E002769DE /* SenseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F01E7E902005DD6E002769DE /* SenseViewModel.m */; };
-		F02C824A2009900F003A5A43 /* DiffAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C82492009900F003A5A43 /* DiffAdvancedView.m */; };
-		F02C824C20099052003A5A43 /* DiffAdvanced31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02C824B20099052003A5A43 /* DiffAdvanced31View.xib */; };
-		F02C824E20099541003A5A43 /* IRAdvanced31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02C824D20099541003A5A43 /* IRAdvanced31View.xib */; };
-		F02C82502009A0F2003A5A43 /* IRDiffAdvanced31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02C824F2009A0F2003A5A43 /* IRDiffAdvanced31View.xib */; };
-		F02C82532009AB88003A5A43 /* RestrainAreaAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02C82522009AB88003A5A43 /* RestrainAreaAdvancedView.xib */; };
-		F02C82562009ABAD003A5A43 /* RestrainAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C82552009ABAD003A5A43 /* RestrainAdvancedView.m */; };
-		F02C82592009ACCB003A5A43 /* IRDiffAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C82582009ACCB003A5A43 /* IRDiffAdvancedView.m */; };
-		F02C825C2009ACDA003A5A43 /* IRColorAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C825B2009ACDA003A5A43 /* IRColorAdvancedView.m */; };
 		F0320700200EEADA003EDF83 /* HsvView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03206FF200EEADA003EDF83 /* HsvView.xib */; };
 		F0320702200EEAF5003EDF83 /* SvmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0320701200EEAF5003EDF83 /* SvmView.xib */; };
 		F0320704200EEB09003EDF83 /* SvmGroup31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0320703200EEB09003EDF83 /* SvmGroup31View.xib */; };
@@ -53,8 +44,6 @@
 		F032072520107929003EDF83 /* CornView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F032072420107929003EDF83 /* CornView.xib */; };
 		F032072720107941003EDF83 /* HorseBeanView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F032072620107941003EDF83 /* HorseBeanView.xib */; };
 		F03207292010795E003EDF83 /* GreenTeaShortStemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03207282010795E003EDF83 /* GreenTeaShortStemView.xib */; };
-		F032072B20107983003EDF83 /* PeanutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F032072A20107983003EDF83 /* PeanutView.xib */; };
-		F032072F201079A5003EDF83 /* Peanut31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F032072E201079A5003EDF83 /* Peanut31View.xib */; };
 		F032073220107A32003EDF83 /* CashewView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032073120107A32003EDF83 /* CashewView.m */; };
 		F032073520107A3F003EDF83 /* RiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032073420107A3F003EDF83 /* RiceView.m */; };
 		F032073820107A51003EDF83 /* TeaView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032073720107A51003EDF83 /* TeaView.m */; };
@@ -68,8 +57,6 @@
 		F032075020107AED003EDF83 /* CornView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032074F20107AED003EDF83 /* CornView.m */; };
 		F032075320107AFF003EDF83 /* HorseBeanView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032075220107AFF003EDF83 /* HorseBeanView.m */; };
 		F032075620107B15003EDF83 /* GreenTeaShortStemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032075520107B15003EDF83 /* GreenTeaShortStemView.m */; };
-		F032075920107B45003EDF83 /* PeanutView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032075820107B45003EDF83 /* PeanutView.m */; };
-		F032075C20107B52003EDF83 /* Peanut31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F032075B20107B52003EDF83 /* Peanut31View.m */; };
 		F045DF6C20070D4D00C82CA8 /* ModeListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F045DF6B20070D4D00C82CA8 /* ModeListView.m */; };
 		F045DF6F20070D6A00C82CA8 /* ModeSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = F045DF6E20070D6A00C82CA8 /* ModeSetView.m */; };
 		F045DF7120070F7100C82CA8 /* ModeSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F045DF7020070F7100C82CA8 /* ModeSetView.xib */; };
@@ -122,7 +109,6 @@
 		F05E59AD2047CD9300181528 /* TopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F090522C1FFB4D80003CEE84 /* TopManager.m */; };
 		F05E59AE2047CD9300181528 /* RiceLengthView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0537FF02045647800E16C03 /* RiceLengthView.m */; };
 		F05E59AF2047CD9300181528 /* WheatView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032074320107AA0003EDF83 /* WheatView.m */; };
-		F05E59B02047CD9300181528 /* Peanut31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F032075B20107B52003EDF83 /* Peanut31View.m */; };
 		F05E59B12047CD9300181528 /* TableViewCellWith1Label1Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = F090516E1FFB49F9003CEE84 /* TableViewCellWith1Label1Switch.m */; };
 		F05E59B22047CD9300181528 /* SysinfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F090520A1FFB4A08003CEE84 /* SysinfoView.m */; };
 		F05E59B32047CD9300181528 /* FeedSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F090516A1FFB49F5003CEE84 /* FeedSettingTableViewCell.m */; };
@@ -138,7 +124,6 @@
 		F05E59BD2047CD9300181528 /* DownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F090515A1FFB49F4003CEE84 /* DownloadTableViewCell.m */; };
 		F05E59BE2047CD9300181528 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3E21FFC86C20056E946 /* MJRefreshBackNormalFooter.m */; };
 		F05E59BF2047CD9300181528 /* LanguageSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0ACB10A200C7523005B538D /* LanguageSettingView.m */; };
-		F05E59C02047CD9300181528 /* ColorAdvanced31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052001FFB4A07003CEE84 /* ColorAdvanced31View.m */; };
 		F05E59C12047CD9300181528 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052481FFB4DCA003CEE84 /* Network.m */; };
 		F05E59C22047CD9300181528 /* RiceUserAlgorithmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C0EB0A202AAA180091F265 /* RiceUserAlgorithmTableViewCell.m */; };
 		F05E59C32047CD9300181528 /* BottomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052281FFB4D80003CEE84 /* BottomManager.m */; };
@@ -147,7 +132,6 @@
 		F05E59C62047CD9300181528 /* RiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032073420107A3F003EDF83 /* RiceView.m */; };
 		F05E59C72047CD9300181528 /* LoginUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051FD1FFB4A07003CEE84 /* LoginUI.m */; };
 		F05E59C82047CD9300181528 /* Rice20ValveSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = F01C786D203FAE1000E8E572 /* Rice20ValveSetView.m */; };
-		F05E59C92047CD9300181528 /* DiffAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C82492009900F003A5A43 /* DiffAdvancedView.m */; };
 		F05E59CA2047CD9300181528 /* RedTeaView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032073D20107A6C003EDF83 /* RedTeaView.m */; };
 		F05E59CB2047CD9300181528 /* SenseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052021FFB4A07003CEE84 /* SenseView.m */; };
 		F05E59CC2047CD9300181528 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3C41FFC847C0056E946 /* MJRefreshConst.m */; };
@@ -168,15 +152,12 @@
 		F05E59DB2047CD9300181528 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = F090525F1FFB4DFF003CEE84 /* Device.m */; };
 		F05E59DC2047CD9300181528 /* LicoriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032074620107AAF003EDF83 /* LicoriceView.m */; };
 		F05E59DD2047CD9300181528 /* FeedSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = F01E7E82200494F8002769DE /* FeedSetView.m */; };
-		F05E59DE2047CD9300181528 /* IRColorAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C825B2009ACDA003A5A43 /* IRColorAdvancedView.m */; };
 		F05E59DF2047CD9300181528 /* WaveDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051831FFB49FA003CEE84 /* WaveDataTableViewCell.m */; };
 		F05E59E02047CD9300181528 /* valveTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F090512B1FFB49F3003CEE84 /* valveTitleTableViewCell.m */; };
 		F05E59E12047CD9300181528 /* RunningLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0ACB11E200C86CD005B538D /* RunningLogView.m */; };
-		F05E59E22047CD9300181528 /* DiffAdvanced31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EA2AAC200890AC000FD052 /* DiffAdvanced31View.m */; };
 		F05E59E32047CD9300181528 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3ED1FFC86CE0056E946 /* MJRefreshBackFooter.m */; };
 		F05E59E42047CD9300181528 /* TableViewCellWith2SegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051221FFB49F2003CEE84 /* TableViewCellWith2SegmentControl.m */; };
 		F05E59E52047CD9300181528 /* CBTableViewSectionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3A81FFC74D60056E946 /* CBTableViewSectionMaker.m */; };
-		F05E59E62047CD9300181528 /* PeanutView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032075820107B45003EDF83 /* PeanutView.m */; };
 		F05E59E72047CD9300181528 /* TCPNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052451FFB4DCA003CEE84 /* TCPNetwork.m */; };
 		F05E59E82047CD9300181528 /* TableViewCellWith7Label.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051821FFB49FA003CEE84 /* TableViewCellWith7Label.m */; };
 		F05E59E92047CD9300181528 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F090525E1FFB4DFE003CEE84 /* DataModel.m */; };
@@ -187,13 +168,11 @@
 		F05E59EE2047CD9300181528 /* Rice20SenseSizeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F06186E120412BE8001BBFE3 /* Rice20SenseSizeTableViewCell.m */; };
 		F05E59EF2047CD9300181528 /* TableViewCellWithDefaultTitleLabel1Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051791FFB49F9003CEE84 /* TableViewCellWithDefaultTitleLabel1Switch.m */; };
 		F05E59F02047CD9300181528 /* TableViewCellWith2RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051631FFB49F4003CEE84 /* TableViewCellWith2RadioButton.m */; };
-		F05E59F12047CD9300181528 /* IRColorAdvanced31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EA2AB2200890EB000FD052 /* IRColorAdvanced31View.m */; };
 		F05E59F22047CD9300181528 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3E51FFC86C30056E946 /* MJRefreshBackGifFooter.m */; };
 		F05E59F32047CD9300181528 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3BA1FFC847B0056E946 /* UIScrollView+MJExtension.m */; };
 		F05E59F42047CD9300181528 /* TableViewCellWith2Button.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051581FFB49F4003CEE84 /* TableViewCellWith2Button.m */; };
 		F05E59F52047CD9300181528 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3C51FFC847C0056E946 /* NSBundle+MJRefresh.m */; };
 		F05E59F62047CD9300181528 /* CameraGainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051661FFB49F5003CEE84 /* CameraGainTableViewCell.m */; };
-		F05E59F72047CD9300181528 /* ColorAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052061FFB4A07003CEE84 /* ColorAdvancedView.m */; };
 		F05E59F82047CD9300181528 /* ColorType0TitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F090513B1FFB49F3003CEE84 /* ColorType0TitleTableViewCell.m */; };
 		F05E59F92047CD9300181528 /* TabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052681FFB5006003CEE84 /* TabBarItem.m */; };
 		F05E59FA2047CD9300181528 /* CashewView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032073120107A32003EDF83 /* CashewView.m */; };
@@ -235,13 +214,10 @@
 		F05E5A1E2047CD9300181528 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F09050C81FFB335D003CEE84 /* ViewController.m */; };
 		F05E5A1F2047CD9300181528 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3E71FFC86C30056E946 /* MJRefreshBackStateFooter.m */; };
 		F05E5A202047CD9300181528 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3BD1FFC847C0056E946 /* UIView+MJExtension.m */; };
-		F05E5A212047CD9300181528 /* IRDiffAdvanced31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EA2AAF200890C7000FD052 /* IRDiffAdvanced31View.m */; };
 		F05E5A222047CD9300181528 /* Version21ViewPages.m in Sources */ = {isa = PBXBuildFile; fileRef = F01E7E7D20046FDC002769DE /* Version21ViewPages.m */; };
 		F05E5A232047CD9300181528 /* TableViewCellWith2Label.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051011FFB49EF003CEE84 /* TableViewCellWith2Label.m */; };
 		F05E5A242047CD9300181528 /* ColorTypeSenseValueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051421FFB49F3003CEE84 /* ColorTypeSenseValueTableViewCell.m */; };
-		F05E5A252047CD9300181528 /* IRDiffAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C82582009ACCB003A5A43 /* IRDiffAdvancedView.m */; };
 		F05E5A262047CD9300181528 /* CornView.m in Sources */ = {isa = PBXBuildFile; fileRef = F032074F20107AED003EDF83 /* CornView.m */; };
-		F05E5A272047CD9300181528 /* RestrainAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C82552009ABAD003A5A43 /* RestrainAdvancedView.m */; };
 		F05E5A282047CD9300181528 /* IRMainLightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F090517D1FFB49F9003CEE84 /* IRMainLightTableViewCell.m */; };
 		F05E5A292047CD9300181528 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3F21FFC86CE0056E946 /* MJRefreshFooter.m */; };
 		F05E5A2A2047CD9300181528 /* ValveShowInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0ACB12B200C8E46005B538D /* ValveShowInfoView.m */; };
@@ -265,7 +241,6 @@
 		F05E5A3F2047CD9300181528 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0ACB102200C6E72005B538D /* RegisterView.xib */; };
 		F05E5A402047CD9300181528 /* ModeListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F045DF7220070F7C00C82CA8 /* ModeListView.xib */; };
 		F05E5A412047CD9300181528 /* TableViewCellWithDefaultLabelAnd1UIImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051781FFB49F9003CEE84 /* TableViewCellWithDefaultLabelAnd1UIImageView.xib */; };
-		F05E5A422047CD9300181528 /* IRAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051EA1FFB49FE003CEE84 /* IRAdvancedView.xib */; };
 		F05E5A432047CD9300181528 /* ColorAlgorithmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E81FFB49FD003CEE84 /* ColorAlgorithmView.xib */; };
 		F05E5A442047CD9300181528 /* RiceSharpenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051031FFB49EF003CEE84 /* RiceSharpenTableViewCell.xib */; };
 		F05E5A452047CD9300181528 /* BottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F090522A1FFB4D80003CEE84 /* BottomView.xib */; };
@@ -283,12 +258,10 @@
 		F05E5A512047CD9300181528 /* AlgorithmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051861FFB49FA003CEE84 /* AlgorithmTableViewCell.xib */; };
 		F05E5A522047CD9300181528 /* TableViewCellWith2Button.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051211FFB49F2003CEE84 /* TableViewCellWith2Button.xib */; };
 		F05E5A532047CD9300181528 /* Rice20SenseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F068B8912029942B00D4E406 /* Rice20SenseView.xib */; };
-		F05E5A542047CD9300181528 /* IRDiffAdvanced31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02C824F2009A0F2003A5A43 /* IRDiffAdvanced31View.xib */; };
 		F05E5A552047CD9300181528 /* ColorTypeSenseValueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051571FFB49F4003CEE84 /* ColorTypeSenseValueTableViewCell.xib */; };
 		F05E5A562047CD9300181528 /* TableViewCellWith4Label.xib in Resources */ = {isa = PBXBuildFile; fileRef = F090514B1FFB49F4003CEE84 /* TableViewCellWith4Label.xib */; };
 		F05E5A572047CD9300181528 /* combobox_down_highlighed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F090529E1FFB6C05003CEE84 /* combobox_down_highlighed@2x.png */; };
 		F05E5A582047CD9300181528 /* TableViewCellWith1Label1Switch.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051411FFB49F3003CEE84 /* TableViewCellWith1Label1Switch.xib */; };
-		F05E5A592047CD9300181528 /* Peanut31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F032072E201079A5003EDF83 /* Peanut31View.xib */; };
 		F05E5A5A2047CD9300181528 /* RiceBrokenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0537FEC20455D3C00E16C03 /* RiceBrokenView.xib */; };
 		F05E5A5B2047CD9300181528 /* HsvView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03206FF200EEADA003EDF83 /* HsvView.xib */; };
 		F05E5A5C2047CD9300181528 /* MainLightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051771FFB49F9003CEE84 /* MainLightTableViewCell.xib */; };
@@ -296,7 +269,6 @@
 		F05E5A5E2047CD9300181528 /* TableViewCellWith2Label.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051431FFB49F3003CEE84 /* TableViewCellWith2Label.xib */; };
 		F05E5A5F2047CD9300181528 /* BackgroundLightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051291FFB49F3003CEE84 /* BackgroundLightTableViewCell.xib */; };
 		F05E5A602047CD9300181528 /* CornView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F032072420107929003EDF83 /* CornView.xib */; };
-		F05E5A612047CD9300181528 /* ColorAdvanced31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051DF1FFB49FC003CEE84 /* ColorAdvanced31View.xib */; };
 		F05E5A622047CD9300181528 /* FeedSet.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01E7E8520049524002769DE /* FeedSet.xib */; };
 		F05E5A632047CD9300181528 /* SvmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0320701200EEAF5003EDF83 /* SvmView.xib */; };
 		F05E5A642047CD9300181528 /* combobox_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F090529D1FFB6C05003CEE84 /* combobox_up@2x.png */; };
@@ -304,8 +276,6 @@
 		F05E5A662047CD9300181528 /* combobox_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F090529A1FFB6C05003CEE84 /* combobox_down@2x.png */; };
 		F05E5A672047CD9300181528 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E21FFB49FC003CEE84 /* SettingView.xib */; };
 		F05E5A682047CD9300181528 /* CleanSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01E7E872005D2BD002769DE /* CleanSetView.xib */; };
-		F05E5A692047CD9300181528 /* IRDiffAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01492F7201F148E00E946F8 /* IRDiffAdvancedView.xib */; };
-		F05E5A6A2047CD9300181528 /* PeanutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F032072A20107983003EDF83 /* PeanutView.xib */; };
 		F05E5A6B2047CD9300181528 /* CashewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F032071020107885003EDF83 /* CashewView.xib */; };
 		F05E5A6C2047CD9300181528 /* Rice1RColorAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0537FE22045265700E16C03 /* Rice1RColorAdvancedView.xib */; };
 		F05E5A6D2047CD9300181528 /* TableViewCellWithDefaultTitleLabelAndUICombobox.xib in Resources */ = {isa = PBXBuildFile; fileRef = F090512E1FFB49F3003CEE84 /* TableViewCellWithDefaultTitleLabelAndUICombobox.xib */; };
@@ -317,7 +287,6 @@
 		F05E5A732047CD9300181528 /* CameraGainSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F090515C1FFB49F4003CEE84 /* CameraGainSettingTableViewCell.xib */; };
 		F05E5A742047CD9300181528 /* TableViewCellWith7Label.xib in Resources */ = {isa = PBXBuildFile; fileRef = F090510F1FFB49F0003CEE84 /* TableViewCellWith7Label.xib */; };
 		F05E5A752047CD9300181528 /* CalibrationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0ACB0FE200C53FE005B538D /* CalibrationView.xib */; };
-		F05E5A762047CD9300181528 /* ColorAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E71FFB49FD003CEE84 /* ColorAdvancedView.xib */; };
 		F05E5A772047CD9300181528 /* valveTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051141FFB49F0003CEE84 /* valveTitleTableViewCell.xib */; };
 		F05E5A782047CD9300181528 /* loginUi.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E91FFB49FD003CEE84 /* loginUi.xib */; };
 		F05E5A792047CD9300181528 /* TipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F090528B1FFB6AE4003CEE84 /* TipsView.xib */; };
@@ -337,7 +306,6 @@
 		F05E5A872047CD9300181528 /* SetSenseSizeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051641FFB49F4003CEE84 /* SetSenseSizeTableViewCell.xib */; };
 		F05E5A882047CD9300181528 /* combobox_up_highlighed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F090529B1FFB6C05003CEE84 /* combobox_up_highlighed@2x.png */; };
 		F05E5A892047CD9300181528 /* SyscheckInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0ACB122200C87B2005B538D /* SyscheckInfoView.xib */; };
-		F05E5A8A2047CD9300181528 /* DiffAdvanced31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02C824B20099052003A5A43 /* DiffAdvanced31View.xib */; };
 		F05E5A8B2047CD9300181528 /* WaveDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051541FFB49F4003CEE84 /* WaveDataTableViewCell.xib */; };
 		F05E5A8C2047CD9300181528 /* IRMainLightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051701FFB49F9003CEE84 /* IRMainLightTableViewCell.xib */; };
 		F05E5A8D2047CD9300181528 /* IRSharpenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051331FFB49F3003CEE84 /* IRSharpenTableViewCell.xib */; };
@@ -363,9 +331,7 @@
 		F05E5AA12047CD9300181528 /* valveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051191FFB49F1003CEE84 /* valveTableViewCell.xib */; };
 		F05E5AA22047CD9300181528 /* GreenTeaShortStemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03207282010795E003EDF83 /* GreenTeaShortStemView.xib */; };
 		F05E5AA32047CD9300181528 /* FeedSettingTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051021FFB49EF003CEE84 /* FeedSettingTitleTableViewCell.xib */; };
-		F05E5AA42047CD9300181528 /* RestrainAreaAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02C82522009AB88003A5A43 /* RestrainAreaAdvancedView.xib */; };
 		F05E5AA52047CD9300181528 /* LayerChangedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09052881FFB6AE4003CEE84 /* LayerChangedView.xib */; };
-		F05E5AA62047CD9300181528 /* IRAdvanced31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02C824D20099541003A5A43 /* IRAdvanced31View.xib */; };
 		F05E5AA72047CD9300181528 /* SunflowerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03207222010791D003EDF83 /* SunflowerView.xib */; };
 		F05E5AA82047CD9300181528 /* ColorTypeSenseAndReverseTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051161FFB49F1003CEE84 /* ColorTypeSenseAndReverseTitleTableViewCell.xib */; };
 		F05E5AA92047CD9300181528 /* TableViewCellWith1button.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051071FFB49EF003CEE84 /* TableViewCellWith1button.xib */; };
@@ -376,7 +342,6 @@
 		F05E5AAE2047CD9300181528 /* ColorDiffTypeAndReverseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051461FFB49F3003CEE84 /* ColorDiffTypeAndReverseTableViewCell.xib */; };
 		F05E5AAF2047CD9300181528 /* CameraGainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F090512C1FFB49F3003CEE84 /* CameraGainTableViewCell.xib */; };
 		F05E5AB02047CD9300181528 /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F090511D1FFB49F1003CEE84 /* DownloadTableViewCell.xib */; };
-		F05E5AB12047CD9300181528 /* DiffAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E41FFB49FD003CEE84 /* DiffAdvancedView.xib */; };
 		F05E5AB22047CD9300181528 /* DeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F090512D1FFB49F3003CEE84 /* DeviceTableViewCell.xib */; };
 		F05E5AB32047CD9300181528 /* Rice20CalibrationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06186D920410387001BBFE3 /* Rice20CalibrationView.xib */; };
 		F05E5AB42047CD9300181528 /* LicoriceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F032071E201078FD003EDF83 /* LicoriceView.xib */; };
@@ -493,25 +458,19 @@
 		F09051DC1FFB49FB003CEE84 /* WaveDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051831FFB49FA003CEE84 /* WaveDataTableViewCell.m */; };
 		F09051DD1FFB49FB003CEE84 /* ColorTypeSenseAndReverseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051851FFB49FA003CEE84 /* ColorTypeSenseAndReverseTableViewCell.xib */; };
 		F09051DE1FFB49FB003CEE84 /* AlgorithmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051861FFB49FA003CEE84 /* AlgorithmTableViewCell.xib */; };
-		F09051EC1FFB49FE003CEE84 /* ColorAdvanced31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051DF1FFB49FC003CEE84 /* ColorAdvanced31View.xib */; };
 		F09051ED1FFB49FE003CEE84 /* SenseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E01FFB49FC003CEE84 /* SenseView.xib */; };
 		F09051EE1FFB49FE003CEE84 /* deviceListUi.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E11FFB49FC003CEE84 /* deviceListUi.xib */; };
 		F09051EF1FFB49FE003CEE84 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E21FFB49FC003CEE84 /* SettingView.xib */; };
 		F09051F01FFB49FE003CEE84 /* SysinfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E31FFB49FC003CEE84 /* SysinfoView.xib */; };
-		F09051F11FFB49FE003CEE84 /* DiffAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E41FFB49FD003CEE84 /* DiffAdvancedView.xib */; };
 		F09051F21FFB49FE003CEE84 /* IRAlgorithmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E51FFB49FD003CEE84 /* IRAlgorithmView.xib */; };
 		F09051F31FFB49FE003CEE84 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E61FFB49FD003CEE84 /* HomeView.xib */; };
-		F09051F41FFB49FE003CEE84 /* ColorAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E71FFB49FD003CEE84 /* ColorAdvancedView.xib */; };
 		F09051F51FFB49FE003CEE84 /* ColorAlgorithmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E81FFB49FD003CEE84 /* ColorAlgorithmView.xib */; };
 		F09051F61FFB49FE003CEE84 /* loginUi.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051E91FFB49FD003CEE84 /* loginUi.xib */; };
-		F09051F71FFB49FE003CEE84 /* IRAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09051EA1FFB49FE003CEE84 /* IRAdvancedView.xib */; };
 		F090520B1FFB4A08003CEE84 /* DeviceListUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051FA1FFB4A06003CEE84 /* DeviceListUI.m */; };
 		F090520C1FFB4A08003CEE84 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051FB1FFB4A06003CEE84 /* HomeView.m */; };
 		F090520D1FFB4A08003CEE84 /* LoginUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F09051FD1FFB4A07003CEE84 /* LoginUI.m */; };
-		F090520E1FFB4A08003CEE84 /* ColorAdvanced31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052001FFB4A07003CEE84 /* ColorAdvanced31View.m */; };
 		F090520F1FFB4A08003CEE84 /* SenseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052021FFB4A07003CEE84 /* SenseView.m */; };
 		F09052101FFB4A08003CEE84 /* ColorAlgorithmView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052051FFB4A07003CEE84 /* ColorAlgorithmView.m */; };
-		F09052111FFB4A08003CEE84 /* ColorAdvancedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052061FFB4A07003CEE84 /* ColorAdvancedView.m */; };
 		F09052121FFB4A08003CEE84 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052081FFB4A07003CEE84 /* SettingView.m */; };
 		F09052131FFB4A08003CEE84 /* SysinfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F090520A1FFB4A08003CEE84 /* SysinfoView.m */; };
 		F09052341FFB4D81003CEE84 /* BaseVersionViewPages.m in Sources */ = {isa = PBXBuildFile; fileRef = F09052271FFB4D80003CEE84 /* BaseVersionViewPages.m */; };
@@ -584,6 +543,12 @@
 		F0C37C63200D907200C4BAFA /* ModeSet31View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C37C62200D907200C4BAFA /* ModeSet31View.xib */; };
 		F0C37C66200DE8E500C4BAFA /* ValveSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C37C65200DE8E500C4BAFA /* ValveSetView.m */; };
 		F0C37C68200DEA0900C4BAFA /* ValveSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C37C67200DEA0900C4BAFA /* ValveSetView.xib */; };
+		F0D21C2321884A9F008A93FB /* ColorAlgViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D21C2221884A9F008A93FB /* ColorAlgViewModel.m */; };
+		F0D21C2421884A9F008A93FB /* ColorAlgViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D21C2221884A9F008A93FB /* ColorAlgViewModel.m */; };
+		F0D21C2821885525008A93FB /* TableViewCellRebuild.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D21C2521885524008A93FB /* TableViewCellRebuild.m */; };
+		F0D21C2921885525008A93FB /* TableViewCellRebuild.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D21C2521885524008A93FB /* TableViewCellRebuild.m */; };
+		F0D21C2A21885525008A93FB /* TableViewCellRebuild.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D21C2721885525008A93FB /* TableViewCellRebuild.xib */; };
+		F0D21C2B21885525008A93FB /* TableViewCellRebuild.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D21C2721885525008A93FB /* TableViewCellRebuild.xib */; };
 		F0E5A3951FFC66230056E946 /* DeviceListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3941FFC66230056E946 /* DeviceListViewModel.m */; };
 		F0E5A3B21FFC74D70056E946 /* CBTableViewSectionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3A81FFC74D60056E946 /* CBTableViewSectionMaker.m */; };
 		F0E5A3B31FFC74D70056E946 /* UITableView+CBTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3AA1FFC74D60056E946 /* UITableView+CBTableViewDataSource.m */; };
@@ -610,9 +575,6 @@
 		F0E5A3F81FFC86CF0056E946 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3F21FFC86CE0056E946 /* MJRefreshFooter.m */; };
 		F0E5A3F91FFC86CF0056E946 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3F31FFC86CE0056E946 /* MJRefreshHeader.m */; };
 		F0E5A3FC1FFCC7840056E946 /* UIBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E5A3FB1FFCC7840056E946 /* UIBaseViewModel.m */; };
-		F0EA2AAD200890AC000FD052 /* DiffAdvanced31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EA2AAC200890AC000FD052 /* DiffAdvanced31View.m */; };
-		F0EA2AB0200890C7000FD052 /* IRDiffAdvanced31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EA2AAF200890C7000FD052 /* IRDiffAdvanced31View.m */; };
-		F0EA2AB3200890EB000FD052 /* IRColorAdvanced31View.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EA2AB2200890EB000FD052 /* IRColorAdvanced31View.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -641,7 +603,6 @@
 		EC3359023CD977DD7A927BF8 /* Pods-thColorSort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thColorSort.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thColorSort/Pods-thColorSort.debug.xcconfig"; sourceTree = "<group>"; };
 		F01492F4201EFCE800E946F8 /* IRAlgorithmView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRAlgorithmView.h; sourceTree = "<group>"; };
 		F01492F5201EFCE800E946F8 /* IRAlgorithmView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRAlgorithmView.m; sourceTree = "<group>"; };
-		F01492F7201F148E00E946F8 /* IRDiffAdvancedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRDiffAdvancedView.xib; sourceTree = "<group>"; };
 		F01811112178951E00EEF95C /* SelectLoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectLoginView.xib; sourceTree = "<group>"; };
 		F01811142178953600EEF95C /* SelectLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectLoginView.h; sourceTree = "<group>"; };
 		F01811152178953600EEF95C /* SelectLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectLoginView.m; sourceTree = "<group>"; };
@@ -663,18 +624,6 @@
 		F01E7E8A2005D578002769DE /* CleanSetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CleanSetView.m; sourceTree = "<group>"; };
 		F01E7E8F2005DD6E002769DE /* SenseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SenseViewModel.h; sourceTree = "<group>"; };
 		F01E7E902005DD6E002769DE /* SenseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SenseViewModel.m; sourceTree = "<group>"; };
-		F02C82482009900F003A5A43 /* DiffAdvancedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiffAdvancedView.h; sourceTree = "<group>"; };
-		F02C82492009900F003A5A43 /* DiffAdvancedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiffAdvancedView.m; sourceTree = "<group>"; };
-		F02C824B20099052003A5A43 /* DiffAdvanced31View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiffAdvanced31View.xib; sourceTree = "<group>"; };
-		F02C824D20099541003A5A43 /* IRAdvanced31View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRAdvanced31View.xib; sourceTree = "<group>"; };
-		F02C824F2009A0F2003A5A43 /* IRDiffAdvanced31View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRDiffAdvanced31View.xib; sourceTree = "<group>"; };
-		F02C82522009AB88003A5A43 /* RestrainAreaAdvancedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestrainAreaAdvancedView.xib; sourceTree = "<group>"; };
-		F02C82542009ABAD003A5A43 /* RestrainAdvancedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestrainAdvancedView.h; sourceTree = "<group>"; };
-		F02C82552009ABAD003A5A43 /* RestrainAdvancedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestrainAdvancedView.m; sourceTree = "<group>"; };
-		F02C82572009ACCB003A5A43 /* IRDiffAdvancedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRDiffAdvancedView.h; sourceTree = "<group>"; };
-		F02C82582009ACCB003A5A43 /* IRDiffAdvancedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRDiffAdvancedView.m; sourceTree = "<group>"; };
-		F02C825A2009ACDA003A5A43 /* IRColorAdvancedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRColorAdvancedView.h; sourceTree = "<group>"; };
-		F02C825B2009ACDA003A5A43 /* IRColorAdvancedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRColorAdvancedView.m; sourceTree = "<group>"; };
 		F03206FF200EEADA003EDF83 /* HsvView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HsvView.xib; sourceTree = "<group>"; };
 		F0320701200EEAF5003EDF83 /* SvmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SvmView.xib; sourceTree = "<group>"; };
 		F0320703200EEB09003EDF83 /* SvmGroup31View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SvmGroup31View.xib; sourceTree = "<group>"; };
@@ -697,8 +646,6 @@
 		F032072420107929003EDF83 /* CornView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CornView.xib; sourceTree = "<group>"; };
 		F032072620107941003EDF83 /* HorseBeanView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorseBeanView.xib; sourceTree = "<group>"; };
 		F03207282010795E003EDF83 /* GreenTeaShortStemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreenTeaShortStemView.xib; sourceTree = "<group>"; };
-		F032072A20107983003EDF83 /* PeanutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeanutView.xib; sourceTree = "<group>"; };
-		F032072E201079A5003EDF83 /* Peanut31View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Peanut31View.xib; sourceTree = "<group>"; };
 		F032073020107A32003EDF83 /* CashewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashewView.h; sourceTree = "<group>"; };
 		F032073120107A32003EDF83 /* CashewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashewView.m; sourceTree = "<group>"; };
 		F032073320107A3F003EDF83 /* RiceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RiceView.h; sourceTree = "<group>"; };
@@ -725,10 +672,6 @@
 		F032075220107AFF003EDF83 /* HorseBeanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorseBeanView.m; sourceTree = "<group>"; };
 		F032075420107B15003EDF83 /* GreenTeaShortStemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GreenTeaShortStemView.h; sourceTree = "<group>"; };
 		F032075520107B15003EDF83 /* GreenTeaShortStemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GreenTeaShortStemView.m; sourceTree = "<group>"; };
-		F032075720107B45003EDF83 /* PeanutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeanutView.h; sourceTree = "<group>"; };
-		F032075820107B45003EDF83 /* PeanutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeanutView.m; sourceTree = "<group>"; };
-		F032075A20107B52003EDF83 /* Peanut31View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Peanut31View.h; sourceTree = "<group>"; };
-		F032075B20107B52003EDF83 /* Peanut31View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Peanut31View.m; sourceTree = "<group>"; };
 		F045DF6A20070D4D00C82CA8 /* ModeListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModeListView.h; sourceTree = "<group>"; };
 		F045DF6B20070D4D00C82CA8 /* ModeListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModeListView.m; sourceTree = "<group>"; };
 		F045DF6D20070D6A00C82CA8 /* ModeSetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModeSetView.h; sourceTree = "<group>"; };
@@ -937,32 +880,24 @@
 		F09051841FFB49FA003CEE84 /* WaveDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveDataTableViewCell.h; sourceTree = "<group>"; };
 		F09051851FFB49FA003CEE84 /* ColorTypeSenseAndReverseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorTypeSenseAndReverseTableViewCell.xib; sourceTree = "<group>"; };
 		F09051861FFB49FA003CEE84 /* AlgorithmTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlgorithmTableViewCell.xib; sourceTree = "<group>"; };
-		F09051DF1FFB49FC003CEE84 /* ColorAdvanced31View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorAdvanced31View.xib; sourceTree = "<group>"; };
 		F09051E01FFB49FC003CEE84 /* SenseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SenseView.xib; sourceTree = "<group>"; };
 		F09051E11FFB49FC003CEE84 /* deviceListUi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = deviceListUi.xib; sourceTree = "<group>"; };
 		F09051E21FFB49FC003CEE84 /* SettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		F09051E31FFB49FC003CEE84 /* SysinfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SysinfoView.xib; sourceTree = "<group>"; };
-		F09051E41FFB49FD003CEE84 /* DiffAdvancedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiffAdvancedView.xib; sourceTree = "<group>"; };
 		F09051E51FFB49FD003CEE84 /* IRAlgorithmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IRAlgorithmView.xib; sourceTree = "<group>"; };
 		F09051E61FFB49FD003CEE84 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
-		F09051E71FFB49FD003CEE84 /* ColorAdvancedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorAdvancedView.xib; sourceTree = "<group>"; };
 		F09051E81FFB49FD003CEE84 /* ColorAlgorithmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorAlgorithmView.xib; sourceTree = "<group>"; };
 		F09051E91FFB49FD003CEE84 /* loginUi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginUi.xib; sourceTree = "<group>"; };
-		F09051EA1FFB49FE003CEE84 /* IRAdvancedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IRAdvancedView.xib; sourceTree = "<group>"; };
 		F09051F91FFB4A06003CEE84 /* SysinfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysinfoView.h; sourceTree = "<group>"; };
 		F09051FA1FFB4A06003CEE84 /* DeviceListUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListUI.m; sourceTree = "<group>"; };
 		F09051FB1FFB4A06003CEE84 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
-		F09051FC1FFB4A06003CEE84 /* ColorAdvancedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorAdvancedView.h; sourceTree = "<group>"; };
 		F09051FD1FFB4A07003CEE84 /* LoginUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginUI.m; sourceTree = "<group>"; };
 		F09051FE1FFB4A07003CEE84 /* DeviceListUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListUI.h; sourceTree = "<group>"; };
 		F09051FF1FFB4A07003CEE84 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
-		F09052001FFB4A07003CEE84 /* ColorAdvanced31View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorAdvanced31View.m; sourceTree = "<group>"; };
 		F09052011FFB4A07003CEE84 /* SenseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseView.h; sourceTree = "<group>"; };
 		F09052021FFB4A07003CEE84 /* SenseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenseView.m; sourceTree = "<group>"; };
-		F09052031FFB4A07003CEE84 /* ColorAdvanced31View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorAdvanced31View.h; sourceTree = "<group>"; };
 		F09052041FFB4A07003CEE84 /* ColorAlgorithmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorAlgorithmView.h; sourceTree = "<group>"; };
 		F09052051FFB4A07003CEE84 /* ColorAlgorithmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorAlgorithmView.m; sourceTree = "<group>"; };
-		F09052061FFB4A07003CEE84 /* ColorAdvancedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorAdvancedView.m; sourceTree = "<group>"; };
 		F09052071FFB4A07003CEE84 /* LoginUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginUI.h; sourceTree = "<group>"; };
 		F09052081FFB4A07003CEE84 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 		F09052091FFB4A08003CEE84 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
@@ -1084,6 +1019,12 @@
 		F0C37C64200DE8E500C4BAFA /* ValveSetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValveSetView.h; sourceTree = "<group>"; };
 		F0C37C65200DE8E500C4BAFA /* ValveSetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ValveSetView.m; sourceTree = "<group>"; };
 		F0C37C67200DEA0900C4BAFA /* ValveSetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ValveSetView.xib; sourceTree = "<group>"; };
+		F0D21C2121884A9F008A93FB /* ColorAlgViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorAlgViewModel.h; sourceTree = "<group>"; };
+		F0D21C2221884A9F008A93FB /* ColorAlgViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorAlgViewModel.m; sourceTree = "<group>"; };
+		F0D21C2521885524008A93FB /* TableViewCellRebuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellRebuild.m; sourceTree = "<group>"; };
+		F0D21C2621885524008A93FB /* TableViewCellRebuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCellRebuild.h; sourceTree = "<group>"; };
+		F0D21C2721885525008A93FB /* TableViewCellRebuild.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCellRebuild.xib; sourceTree = "<group>"; };
+		F0D21C2C2188682A008A93FB /* common_struct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common_struct.h; sourceTree = "<group>"; };
 		F0E5A3931FFC66230056E946 /* DeviceListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceListViewModel.h; sourceTree = "<group>"; };
 		F0E5A3941FFC66230056E946 /* DeviceListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceListViewModel.m; sourceTree = "<group>"; };
 		F0E5A3A71FFC74D60056E946 /* CBDataSourceSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBDataSourceSection.h; path = thColorSort/third/CBTableViewDataSource/CBDataSourceSection.h; sourceTree = SOURCE_ROOT; };
@@ -1138,12 +1079,6 @@
 		F0E5A3F41FFC86CE0056E946 /* MJRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
 		F0E5A3FA1FFCC7840056E946 /* UIBaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBaseViewModel.h; sourceTree = "<group>"; };
 		F0E5A3FB1FFCC7840056E946 /* UIBaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIBaseViewModel.m; sourceTree = "<group>"; };
-		F0EA2AAB200890AC000FD052 /* DiffAdvanced31View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiffAdvanced31View.h; sourceTree = "<group>"; };
-		F0EA2AAC200890AC000FD052 /* DiffAdvanced31View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiffAdvanced31View.m; sourceTree = "<group>"; };
-		F0EA2AAE200890C7000FD052 /* IRDiffAdvanced31View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRDiffAdvanced31View.h; sourceTree = "<group>"; };
-		F0EA2AAF200890C7000FD052 /* IRDiffAdvanced31View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRDiffAdvanced31View.m; sourceTree = "<group>"; };
-		F0EA2AB1200890EB000FD052 /* IRColorAdvanced31View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRColorAdvanced31View.h; sourceTree = "<group>"; };
-		F0EA2AB2200890EB000FD052 /* IRColorAdvanced31View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRColorAdvanced31View.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1332,38 +1267,6 @@
 				F0668E6F205A339A00F2EF15 /* CaterpillarView.xib */,
 			);
 			path = machineSetting;
-			sourceTree = "<group>";
-		};
-		F02C824720098FBB003A5A43 /* 2-1version */ = {
-			isa = PBXGroup;
-			children = (
-				F09051FC1FFB4A06003CEE84 /* ColorAdvancedView.h */,
-				F09052061FFB4A07003CEE84 /* ColorAdvancedView.m */,
-				F02C82482009900F003A5A43 /* DiffAdvancedView.h */,
-				F02C82492009900F003A5A43 /* DiffAdvancedView.m */,
-				F02C82542009ABAD003A5A43 /* RestrainAdvancedView.h */,
-				F02C82552009ABAD003A5A43 /* RestrainAdvancedView.m */,
-				F02C82572009ACCB003A5A43 /* IRDiffAdvancedView.h */,
-				F02C82582009ACCB003A5A43 /* IRDiffAdvancedView.m */,
-				F02C825A2009ACDA003A5A43 /* IRColorAdvancedView.h */,
-				F02C825B2009ACDA003A5A43 /* IRColorAdvancedView.m */,
-				F032075720107B45003EDF83 /* PeanutView.h */,
-				F032075820107B45003EDF83 /* PeanutView.m */,
-			);
-			name = "2-1version";
-			sourceTree = "<group>";
-		};
-		F02C82512009A13D003A5A43 /* 2-1version */ = {
-			isa = PBXGroup;
-			children = (
-				F09051EA1FFB49FE003CEE84 /* IRAdvancedView.xib */,
-				F09051E71FFB49FD003CEE84 /* ColorAdvancedView.xib */,
-				F09051E41FFB49FD003CEE84 /* DiffAdvancedView.xib */,
-				F02C82522009AB88003A5A43 /* RestrainAreaAdvancedView.xib */,
-				F032072A20107983003EDF83 /* PeanutView.xib */,
-				F01492F7201F148E00E946F8 /* IRDiffAdvancedView.xib */,
-			);
-			name = "2-1version";
 			sourceTree = "<group>";
 		};
 		F032070E201077F5003EDF83 /* shape */ = {
@@ -1829,6 +1732,7 @@
 				F09052721FFB500D003CEE84 /* InternationalControl.h */,
 				F09052741FFB500D003CEE84 /* InternationalControl.m */,
 				F09052701FFB500D003CEE84 /* types.h */,
+				F0D21C2C2188682A008A93FB /* common_struct.h */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -1863,23 +1767,6 @@
 				F09052171FFB4BF0003CEE84 /* login */,
 			);
 			name = mainversion;
-			sourceTree = "<group>";
-		};
-		F09052151FFB4A6A003CEE84 /* 3-1version */ = {
-			isa = PBXGroup;
-			children = (
-				F09052031FFB4A07003CEE84 /* ColorAdvanced31View.h */,
-				F09052001FFB4A07003CEE84 /* ColorAdvanced31View.m */,
-				F0EA2AAB200890AC000FD052 /* DiffAdvanced31View.h */,
-				F0EA2AAC200890AC000FD052 /* DiffAdvanced31View.m */,
-				F0EA2AAE200890C7000FD052 /* IRDiffAdvanced31View.h */,
-				F0EA2AAF200890C7000FD052 /* IRDiffAdvanced31View.m */,
-				F0EA2AB1200890EB000FD052 /* IRColorAdvanced31View.h */,
-				F0EA2AB2200890EB000FD052 /* IRColorAdvanced31View.m */,
-				F032075A20107B52003EDF83 /* Peanut31View.h */,
-				F032075B20107B52003EDF83 /* Peanut31View.m */,
-			);
-			name = "3-1version";
 			sourceTree = "<group>";
 		};
 		F09052161FFB4AA1003CEE84 /* riceversion */ = {
@@ -1929,6 +1816,8 @@
 			children = (
 				F032070E201077F5003EDF83 /* shape */,
 				F09052051FFB4A07003CEE84 /* ColorAlgorithmView.m */,
+				F0D21C2121884A9F008A93FB /* ColorAlgViewModel.h */,
+				F0D21C2221884A9F008A93FB /* ColorAlgViewModel.m */,
 				F09052041FFB4A07003CEE84 /* ColorAlgorithmView.h */,
 				F01492F4201EFCE800E946F8 /* IRAlgorithmView.h */,
 				F01492F5201EFCE800E946F8 /* IRAlgorithmView.m */,
@@ -1940,8 +1829,6 @@
 				F0320709200EEB49003EDF83 /* SvmView.m */,
 				F032070B200EEB5B003EDF83 /* SvmGroup31View.h */,
 				F032070C200EEB5B003EDF83 /* SvmGroup31View.m */,
-				F02C824720098FBB003A5A43 /* 2-1version */,
-				F09052151FFB4A6A003CEE84 /* 3-1version */,
 			);
 			name = sense;
 			sourceTree = "<group>";
@@ -2033,8 +1920,6 @@
 				F09051E51FFB49FD003CEE84 /* IRAlgorithmView.xib */,
 				F09051E01FFB49FC003CEE84 /* SenseView.xib */,
 				F09051E81FFB49FD003CEE84 /* ColorAlgorithmView.xib */,
-				F02C82512009A13D003A5A43 /* 2-1version */,
-				F09052251FFB4D33003CEE84 /* 3-1version */,
 				F03206FF200EEADA003EDF83 /* HsvView.xib */,
 				F0320701200EEAF5003EDF83 /* SvmView.xib */,
 				F0320703200EEB09003EDF83 /* SvmGroup31View.xib */,
@@ -2063,18 +1948,6 @@
 				F09051E21FFB49FC003CEE84 /* SettingView.xib */,
 			);
 			path = setting;
-			sourceTree = "<group>";
-		};
-		F09052251FFB4D33003CEE84 /* 3-1version */ = {
-			isa = PBXGroup;
-			children = (
-				F09051DF1FFB49FC003CEE84 /* ColorAdvanced31View.xib */,
-				F02C824B20099052003A5A43 /* DiffAdvanced31View.xib */,
-				F02C824D20099541003A5A43 /* IRAdvanced31View.xib */,
-				F02C824F2009A0F2003A5A43 /* IRDiffAdvanced31View.xib */,
-				F032072E201079A5003EDF83 /* Peanut31View.xib */,
-			);
-			path = "3-1version";
 			sourceTree = "<group>";
 		};
 		F09052641FFB4E9F003CEE84 /* resource */ = {
@@ -2118,6 +1991,9 @@
 		F0A9A3F72049011600685AA5 /* sense */ = {
 			isa = PBXGroup;
 			children = (
+				F0D21C2621885524008A93FB /* TableViewCellRebuild.h */,
+				F0D21C2521885524008A93FB /* TableViewCellRebuild.m */,
+				F0D21C2721885525008A93FB /* TableViewCellRebuild.xib */,
 				F090513E1FFB49F3003CEE84 /* TableViewCellWith2Button.h */,
 				F09051581FFB49F4003CEE84 /* TableViewCellWith2Button.m */,
 				F09051211FFB49F2003CEE84 /* TableViewCellWith2Button.xib */,
@@ -2523,7 +2399,6 @@
 				F05E5A3F2047CD9300181528 /* RegisterView.xib in Resources */,
 				F05E5A402047CD9300181528 /* ModeListView.xib in Resources */,
 				F05E5A412047CD9300181528 /* TableViewCellWithDefaultLabelAnd1UIImageView.xib in Resources */,
-				F05E5A422047CD9300181528 /* IRAdvancedView.xib in Resources */,
 				F05E5A432047CD9300181528 /* ColorAlgorithmView.xib in Resources */,
 				F05E5A442047CD9300181528 /* RiceSharpenTableViewCell.xib in Resources */,
 				F05E5A452047CD9300181528 /* BottomView.xib in Resources */,
@@ -2542,12 +2417,10 @@
 				F05E5A512047CD9300181528 /* AlgorithmTableViewCell.xib in Resources */,
 				F05E5A522047CD9300181528 /* TableViewCellWith2Button.xib in Resources */,
 				F05E5A532047CD9300181528 /* Rice20SenseView.xib in Resources */,
-				F05E5A542047CD9300181528 /* IRDiffAdvanced31View.xib in Resources */,
 				F05E5A552047CD9300181528 /* ColorTypeSenseValueTableViewCell.xib in Resources */,
 				F05E5A562047CD9300181528 /* TableViewCellWith4Label.xib in Resources */,
 				F05E5A572047CD9300181528 /* combobox_down_highlighed@2x.png in Resources */,
 				F05E5A582047CD9300181528 /* TableViewCellWith1Label1Switch.xib in Resources */,
-				F05E5A592047CD9300181528 /* Peanut31View.xib in Resources */,
 				F05E5A5A2047CD9300181528 /* RiceBrokenView.xib in Resources */,
 				F05E5A5B2047CD9300181528 /* HsvView.xib in Resources */,
 				F05E5A5C2047CD9300181528 /* MainLightTableViewCell.xib in Resources */,
@@ -2555,16 +2428,14 @@
 				F05E5A5E2047CD9300181528 /* TableViewCellWith2Label.xib in Resources */,
 				F05E5A5F2047CD9300181528 /* BackgroundLightTableViewCell.xib in Resources */,
 				F05E5A602047CD9300181528 /* CornView.xib in Resources */,
-				F05E5A612047CD9300181528 /* ColorAdvanced31View.xib in Resources */,
 				F05E5A622047CD9300181528 /* FeedSet.xib in Resources */,
+				F0D21C2B21885525008A93FB /* TableViewCellRebuild.xib in Resources */,
 				F05E5A632047CD9300181528 /* SvmView.xib in Resources */,
 				F05E5A642047CD9300181528 /* combobox_up@2x.png in Resources */,
 				F05E5A652047CD9300181528 /* Rice20SenseSizeTableViewCell.xib in Resources */,
 				F05E5A662047CD9300181528 /* combobox_down@2x.png in Resources */,
 				F05E5A672047CD9300181528 /* SettingView.xib in Resources */,
 				F05E5A682047CD9300181528 /* CleanSetView.xib in Resources */,
-				F05E5A692047CD9300181528 /* IRDiffAdvancedView.xib in Resources */,
-				F05E5A6A2047CD9300181528 /* PeanutView.xib in Resources */,
 				F05E5A6B2047CD9300181528 /* CashewView.xib in Resources */,
 				F05E5A6C2047CD9300181528 /* Rice1RColorAdvancedView.xib in Resources */,
 				F05E5A6D2047CD9300181528 /* TableViewCellWithDefaultTitleLabelAndUICombobox.xib in Resources */,
@@ -2576,7 +2447,6 @@
 				F05E5A732047CD9300181528 /* CameraGainSettingTableViewCell.xib in Resources */,
 				F05E5A742047CD9300181528 /* TableViewCellWith7Label.xib in Resources */,
 				F05E5A752047CD9300181528 /* CalibrationView.xib in Resources */,
-				F05E5A762047CD9300181528 /* ColorAdvancedView.xib in Resources */,
 				F05E5A772047CD9300181528 /* valveTitleTableViewCell.xib in Resources */,
 				F05E5A782047CD9300181528 /* loginUi.xib in Resources */,
 				F05E5A792047CD9300181528 /* TipsView.xib in Resources */,
@@ -2596,7 +2466,6 @@
 				F05E5A872047CD9300181528 /* SetSenseSizeTableViewCell.xib in Resources */,
 				F05E5A882047CD9300181528 /* combobox_up_highlighed@2x.png in Resources */,
 				F05E5A892047CD9300181528 /* SyscheckInfoView.xib in Resources */,
-				F05E5A8A2047CD9300181528 /* DiffAdvanced31View.xib in Resources */,
 				F05E5A8B2047CD9300181528 /* WaveDataTableViewCell.xib in Resources */,
 				F05E5A8C2047CD9300181528 /* IRMainLightTableViewCell.xib in Resources */,
 				F05E5A8D2047CD9300181528 /* IRSharpenTableViewCell.xib in Resources */,
@@ -2623,9 +2492,7 @@
 				F05E5AA12047CD9300181528 /* valveTableViewCell.xib in Resources */,
 				F05E5AA22047CD9300181528 /* GreenTeaShortStemView.xib in Resources */,
 				F05E5AA32047CD9300181528 /* FeedSettingTitleTableViewCell.xib in Resources */,
-				F05E5AA42047CD9300181528 /* RestrainAreaAdvancedView.xib in Resources */,
 				F05E5AA52047CD9300181528 /* LayerChangedView.xib in Resources */,
-				F05E5AA62047CD9300181528 /* IRAdvanced31View.xib in Resources */,
 				F05E5AA72047CD9300181528 /* SunflowerView.xib in Resources */,
 				F05E5AA82047CD9300181528 /* ColorTypeSenseAndReverseTitleTableViewCell.xib in Resources */,
 				F05E5AA92047CD9300181528 /* TableViewCellWith1button.xib in Resources */,
@@ -2636,7 +2503,6 @@
 				F05E5AAE2047CD9300181528 /* ColorDiffTypeAndReverseTableViewCell.xib in Resources */,
 				F05E5AAF2047CD9300181528 /* CameraGainTableViewCell.xib in Resources */,
 				F05E5AB02047CD9300181528 /* DownloadTableViewCell.xib in Resources */,
-				F05E5AB12047CD9300181528 /* DiffAdvancedView.xib in Resources */,
 				F05E5AB22047CD9300181528 /* DeviceTableViewCell.xib in Resources */,
 				F05E5AB32047CD9300181528 /* Rice20CalibrationView.xib in Resources */,
 				F05E5AB42047CD9300181528 /* LicoriceView.xib in Resources */,
@@ -2653,7 +2519,6 @@
 				F0ACB103200C6E72005B538D /* RegisterView.xib in Resources */,
 				F045DF7320070F7C00C82CA8 /* ModeListView.xib in Resources */,
 				F09051D31FFB49FB003CEE84 /* TableViewCellWithDefaultLabelAnd1UIImageView.xib in Resources */,
-				F09051F71FFB49FE003CEE84 /* IRAdvancedView.xib in Resources */,
 				F09051F51FFB49FE003CEE84 /* ColorAlgorithmView.xib in Resources */,
 				F09051891FFB49FA003CEE84 /* RiceSharpenTableViewCell.xib in Resources */,
 				F09052361FFB4D81003CEE84 /* BottomView.xib in Resources */,
@@ -2672,12 +2537,10 @@
 				F09051DE1FFB49FB003CEE84 /* AlgorithmTableViewCell.xib in Resources */,
 				F090519C1FFB49FA003CEE84 /* TableViewCellWith2Button.xib in Resources */,
 				F068B8922029942B00D4E406 /* Rice20SenseView.xib in Resources */,
-				F02C82502009A0F2003A5A43 /* IRDiffAdvanced31View.xib in Resources */,
 				F09051BC1FFB49FA003CEE84 /* ColorTypeSenseValueTableViewCell.xib in Resources */,
 				F09051B61FFB49FA003CEE84 /* TableViewCellWith4Label.xib in Resources */,
 				F09052A31FFB6C06003CEE84 /* combobox_down_highlighed@2x.png in Resources */,
 				F09051AE1FFB49FA003CEE84 /* TableViewCellWith1Label1Switch.xib in Resources */,
-				F032072F201079A5003EDF83 /* Peanut31View.xib in Resources */,
 				F0537FED20455D3C00E16C03 /* RiceBrokenView.xib in Resources */,
 				F0320700200EEADA003EDF83 /* HsvView.xib in Resources */,
 				F09051D21FFB49FB003CEE84 /* MainLightTableViewCell.xib in Resources */,
@@ -2685,16 +2548,14 @@
 				F09051B01FFB49FA003CEE84 /* TableViewCellWith2Label.xib in Resources */,
 				F09051A11FFB49FA003CEE84 /* BackgroundLightTableViewCell.xib in Resources */,
 				F032072520107929003EDF83 /* CornView.xib in Resources */,
-				F09051EC1FFB49FE003CEE84 /* ColorAdvanced31View.xib in Resources */,
 				F01E7E8620049524002769DE /* FeedSet.xib in Resources */,
+				F0D21C2A21885525008A93FB /* TableViewCellRebuild.xib in Resources */,
 				F0320702200EEAF5003EDF83 /* SvmView.xib in Resources */,
 				F09052A21FFB6C06003CEE84 /* combobox_up@2x.png in Resources */,
 				F06186E420412BE8001BBFE3 /* Rice20SenseSizeTableViewCell.xib in Resources */,
 				F09052A01FFB6C06003CEE84 /* combobox_down@2x.png in Resources */,
 				F09051EF1FFB49FE003CEE84 /* SettingView.xib in Resources */,
 				F01E7E882005D2BD002769DE /* CleanSetView.xib in Resources */,
-				F01492F8201F148E00E946F8 /* IRDiffAdvancedView.xib in Resources */,
-				F032072B20107983003EDF83 /* PeanutView.xib in Resources */,
 				F032071120107885003EDF83 /* CashewView.xib in Resources */,
 				F0537FE32045265700E16C03 /* Rice1RColorAdvancedView.xib in Resources */,
 				F09051A61FFB49FA003CEE84 /* TableViewCellWithDefaultTitleLabelAndUICombobox.xib in Resources */,
@@ -2706,7 +2567,6 @@
 				F09051C01FFB49FB003CEE84 /* CameraGainSettingTableViewCell.xib in Resources */,
 				F09051901FFB49FA003CEE84 /* TableViewCellWith7Label.xib in Resources */,
 				F0ACB0FF200C53FE005B538D /* CalibrationView.xib in Resources */,
-				F09051F41FFB49FE003CEE84 /* ColorAdvancedView.xib in Resources */,
 				F09051941FFB49FA003CEE84 /* valveTitleTableViewCell.xib in Resources */,
 				F09051F61FFB49FE003CEE84 /* loginUi.xib in Resources */,
 				F09052951FFB6AE5003CEE84 /* TipsView.xib in Resources */,
@@ -2726,7 +2586,6 @@
 				F09051C51FFB49FB003CEE84 /* SetSenseSizeTableViewCell.xib in Resources */,
 				F09052A11FFB6C06003CEE84 /* combobox_up_highlighed@2x.png in Resources */,
 				F0ACB123200C87B2005B538D /* SyscheckInfoView.xib in Resources */,
-				F02C824C20099052003A5A43 /* DiffAdvanced31View.xib in Resources */,
 				F09051BB1FFB49FA003CEE84 /* WaveDataTableViewCell.xib in Resources */,
 				F09051CF1FFB49FB003CEE84 /* IRMainLightTableViewCell.xib in Resources */,
 				F09051A81FFB49FA003CEE84 /* IRSharpenTableViewCell.xib in Resources */,
@@ -2753,9 +2612,7 @@
 				F09051981FFB49FA003CEE84 /* valveTableViewCell.xib in Resources */,
 				F03207292010795E003EDF83 /* GreenTeaShortStemView.xib in Resources */,
 				F09051881FFB49FA003CEE84 /* FeedSettingTitleTableViewCell.xib in Resources */,
-				F02C82532009AB88003A5A43 /* RestrainAreaAdvancedView.xib in Resources */,
 				F09052931FFB6AE5003CEE84 /* LayerChangedView.xib in Resources */,
-				F02C824E20099541003A5A43 /* IRAdvanced31View.xib in Resources */,
 				F03207232010791D003EDF83 /* SunflowerView.xib in Resources */,
 				F09051961FFB49FA003CEE84 /* ColorTypeSenseAndReverseTitleTableViewCell.xib in Resources */,
 				F090518D1FFB49FA003CEE84 /* TableViewCellWith1button.xib in Resources */,
@@ -2766,7 +2623,6 @@
 				F09051B31FFB49FA003CEE84 /* ColorDiffTypeAndReverseTableViewCell.xib in Resources */,
 				F09051A41FFB49FA003CEE84 /* CameraGainTableViewCell.xib in Resources */,
 				F090519A1FFB49FA003CEE84 /* DownloadTableViewCell.xib in Resources */,
-				F09051F11FFB49FE003CEE84 /* DiffAdvancedView.xib in Resources */,
 				F09051A51FFB49FA003CEE84 /* DeviceTableViewCell.xib in Resources */,
 				F06186DA20410387001BBFE3 /* Rice20CalibrationView.xib in Resources */,
 				F032071F201078FD003EDF83 /* LicoriceView.xib in Resources */,
@@ -2933,7 +2789,6 @@
 				F05E59AD2047CD9300181528 /* TopManager.m in Sources */,
 				F05E59AE2047CD9300181528 /* RiceLengthView.m in Sources */,
 				F05E59AF2047CD9300181528 /* WheatView.m in Sources */,
-				F05E59B02047CD9300181528 /* Peanut31View.m in Sources */,
 				F05E59B12047CD9300181528 /* TableViewCellWith1Label1Switch.m in Sources */,
 				F05E59B22047CD9300181528 /* SysinfoView.m in Sources */,
 				F05E59B32047CD9300181528 /* FeedSettingTableViewCell.m in Sources */,
@@ -2949,7 +2804,6 @@
 				F05E59BD2047CD9300181528 /* DownloadTableViewCell.m in Sources */,
 				F05E59BE2047CD9300181528 /* MJRefreshBackNormalFooter.m in Sources */,
 				F05E59BF2047CD9300181528 /* LanguageSettingView.m in Sources */,
-				F05E59C02047CD9300181528 /* ColorAdvanced31View.m in Sources */,
 				F05E59C12047CD9300181528 /* Network.m in Sources */,
 				F0668E78205A619900F2EF15 /* Version30ViewPages.m in Sources */,
 				F05E59C22047CD9300181528 /* RiceUserAlgorithmTableViewCell.m in Sources */,
@@ -2959,12 +2813,12 @@
 				F05E59C62047CD9300181528 /* RiceView.m in Sources */,
 				F05E59C72047CD9300181528 /* LoginUI.m in Sources */,
 				F05E59C82047CD9300181528 /* Rice20ValveSetView.m in Sources */,
-				F05E59C92047CD9300181528 /* DiffAdvancedView.m in Sources */,
 				F05E59CA2047CD9300181528 /* RedTeaView.m in Sources */,
 				F05E59CB2047CD9300181528 /* SenseView.m in Sources */,
 				F05E59CC2047CD9300181528 /* MJRefreshConst.m in Sources */,
 				F05E59CD2047CD9300181528 /* TableViewCellWithDefaultLabel2Button.m in Sources */,
 				F05E59CE2047CD9300181528 /* GreenTeaView.m in Sources */,
+				F0D21C2921885525008A93FB /* TableViewCellRebuild.m in Sources */,
 				F05E59CF2047CD9300181528 /* BackgroundLightTableViewCell.m in Sources */,
 				F05E59D02047CD9300181528 /* MJRefreshAutoNormalFooter.m in Sources */,
 				F05E59D12047CD9300181528 /* StandardShapeView.m in Sources */,
@@ -2980,15 +2834,12 @@
 				F05E59DB2047CD9300181528 /* Device.m in Sources */,
 				F05E59DC2047CD9300181528 /* LicoriceView.m in Sources */,
 				F05E59DD2047CD9300181528 /* FeedSetView.m in Sources */,
-				F05E59DE2047CD9300181528 /* IRColorAdvancedView.m in Sources */,
 				F05E59DF2047CD9300181528 /* WaveDataTableViewCell.m in Sources */,
 				F05E59E02047CD9300181528 /* valveTitleTableViewCell.m in Sources */,
 				F05E59E12047CD9300181528 /* RunningLogView.m in Sources */,
-				F05E59E22047CD9300181528 /* DiffAdvanced31View.m in Sources */,
 				F05E59E32047CD9300181528 /* MJRefreshBackFooter.m in Sources */,
 				F05E59E42047CD9300181528 /* TableViewCellWith2SegmentControl.m in Sources */,
 				F05E59E52047CD9300181528 /* CBTableViewSectionMaker.m in Sources */,
-				F05E59E62047CD9300181528 /* PeanutView.m in Sources */,
 				F05E59E72047CD9300181528 /* TCPNetwork.m in Sources */,
 				F05E59E82047CD9300181528 /* TableViewCellWith7Label.m in Sources */,
 				F05E59E92047CD9300181528 /* DataModel.m in Sources */,
@@ -2999,13 +2850,11 @@
 				F05E59EE2047CD9300181528 /* Rice20SenseSizeTableViewCell.m in Sources */,
 				F05E59EF2047CD9300181528 /* TableViewCellWithDefaultTitleLabel1Switch.m in Sources */,
 				F05E59F02047CD9300181528 /* TableViewCellWith2RadioButton.m in Sources */,
-				F05E59F12047CD9300181528 /* IRColorAdvanced31View.m in Sources */,
 				F05E59F22047CD9300181528 /* MJRefreshBackGifFooter.m in Sources */,
 				F05E59F32047CD9300181528 /* UIScrollView+MJExtension.m in Sources */,
 				F05E59F42047CD9300181528 /* TableViewCellWith2Button.m in Sources */,
 				F05E59F52047CD9300181528 /* NSBundle+MJRefresh.m in Sources */,
 				F05E59F62047CD9300181528 /* CameraGainTableViewCell.m in Sources */,
-				F05E59F72047CD9300181528 /* ColorAdvancedView.m in Sources */,
 				F05E59F82047CD9300181528 /* ColorType0TitleTableViewCell.m in Sources */,
 				F05E59F92047CD9300181528 /* TabBarItem.m in Sources */,
 				F05E59FA2047CD9300181528 /* CashewView.m in Sources */,
@@ -3047,13 +2896,11 @@
 				F05E5A1E2047CD9300181528 /* ViewController.m in Sources */,
 				F05E5A1F2047CD9300181528 /* MJRefreshBackStateFooter.m in Sources */,
 				F05E5A202047CD9300181528 /* UIView+MJExtension.m in Sources */,
-				F05E5A212047CD9300181528 /* IRDiffAdvanced31View.m in Sources */,
 				F05E5A222047CD9300181528 /* Version21ViewPages.m in Sources */,
 				F05E5A232047CD9300181528 /* TableViewCellWith2Label.m in Sources */,
 				F05E5A242047CD9300181528 /* ColorTypeSenseValueTableViewCell.m in Sources */,
-				F05E5A252047CD9300181528 /* IRDiffAdvancedView.m in Sources */,
+				F0D21C2421884A9F008A93FB /* ColorAlgViewModel.m in Sources */,
 				F05E5A262047CD9300181528 /* CornView.m in Sources */,
-				F05E5A272047CD9300181528 /* RestrainAdvancedView.m in Sources */,
 				F05E5A282047CD9300181528 /* IRMainLightTableViewCell.m in Sources */,
 				F05E5A292047CD9300181528 /* MJRefreshFooter.m in Sources */,
 				F05E5A2A2047CD9300181528 /* ValveShowInfoView.m in Sources */,
@@ -3118,7 +2965,6 @@
 				F09052371FFB4D81003CEE84 /* TopManager.m in Sources */,
 				F0537FF12045647800E16C03 /* RiceLengthView.m in Sources */,
 				F032074420107AA0003EDF83 /* WheatView.m in Sources */,
-				F032075C20107B52003EDF83 /* Peanut31View.m in Sources */,
 				F09051CE1FFB49FB003CEE84 /* TableViewCellWith1Label1Switch.m in Sources */,
 				F09052131FFB4A08003CEE84 /* SysinfoView.m in Sources */,
 				F09051CA1FFB49FB003CEE84 /* FeedSettingTableViewCell.m in Sources */,
@@ -3134,7 +2980,6 @@
 				F09051BE1FFB49FA003CEE84 /* DownloadTableViewCell.m in Sources */,
 				F0E5A3E81FFC86C30056E946 /* MJRefreshBackNormalFooter.m in Sources */,
 				F0ACB10B200C7523005B538D /* LanguageSettingView.m in Sources */,
-				F090520E1FFB4A08003CEE84 /* ColorAdvanced31View.m in Sources */,
 				F09052521FFB4DCA003CEE84 /* Network.m in Sources */,
 				F0668E77205A619900F2EF15 /* Version30ViewPages.m in Sources */,
 				F0C0EB0C202AAA180091F265 /* RiceUserAlgorithmTableViewCell.m in Sources */,
@@ -3144,12 +2989,12 @@
 				F032073520107A3F003EDF83 /* RiceView.m in Sources */,
 				F090520D1FFB4A08003CEE84 /* LoginUI.m in Sources */,
 				F01C786E203FAE1000E8E572 /* Rice20ValveSetView.m in Sources */,
-				F02C824A2009900F003A5A43 /* DiffAdvancedView.m in Sources */,
 				F032073E20107A6C003EDF83 /* RedTeaView.m in Sources */,
 				F090520F1FFB4A08003CEE84 /* SenseView.m in Sources */,
 				F0E5A3CC1FFC847D0056E946 /* MJRefreshConst.m in Sources */,
 				F09051DA1FFB49FB003CEE84 /* TableViewCellWithDefaultLabel2Button.m in Sources */,
 				F032073B20107A5D003EDF83 /* GreenTeaView.m in Sources */,
+				F0D21C2821885525008A93FB /* TableViewCellRebuild.m in Sources */,
 				F09051C81FFB49FB003CEE84 /* BackgroundLightTableViewCell.m in Sources */,
 				F0E5A3DF1FFC86B80056E946 /* MJRefreshAutoNormalFooter.m in Sources */,
 				F032074120107A91003EDF83 /* StandardShapeView.m in Sources */,
@@ -3165,15 +3010,12 @@
 				F09052631FFB4DFF003CEE84 /* Device.m in Sources */,
 				F032074720107AAF003EDF83 /* LicoriceView.m in Sources */,
 				F01E7E83200494F8002769DE /* FeedSetView.m in Sources */,
-				F02C825C2009ACDA003A5A43 /* IRColorAdvancedView.m in Sources */,
 				F09051DC1FFB49FB003CEE84 /* WaveDataTableViewCell.m in Sources */,
 				F09051A31FFB49FA003CEE84 /* valveTitleTableViewCell.m in Sources */,
 				F0ACB11F200C86CD005B538D /* RunningLogView.m in Sources */,
-				F0EA2AAD200890AC000FD052 /* DiffAdvanced31View.m in Sources */,
 				F0E5A3F51FFC86CF0056E946 /* MJRefreshBackFooter.m in Sources */,
 				F090519D1FFB49FA003CEE84 /* TableViewCellWith2SegmentControl.m in Sources */,
 				F0E5A3B21FFC74D70056E946 /* CBTableViewSectionMaker.m in Sources */,
-				F032075920107B45003EDF83 /* PeanutView.m in Sources */,
 				F09052501FFB4DCA003CEE84 /* TCPNetwork.m in Sources */,
 				F09051DB1FFB49FB003CEE84 /* TableViewCellWith7Label.m in Sources */,
 				F09052621FFB4DFF003CEE84 /* DataModel.m in Sources */,
@@ -3184,13 +3026,11 @@
 				F06186E320412BE8001BBFE3 /* Rice20SenseSizeTableViewCell.m in Sources */,
 				F09051D41FFB49FB003CEE84 /* TableViewCellWithDefaultTitleLabel1Switch.m in Sources */,
 				F09051C41FFB49FB003CEE84 /* TableViewCellWith2RadioButton.m in Sources */,
-				F0EA2AB3200890EB000FD052 /* IRColorAdvanced31View.m in Sources */,
 				F0E5A3E91FFC86C30056E946 /* MJRefreshBackGifFooter.m in Sources */,
 				F0E5A3C81FFC847D0056E946 /* UIScrollView+MJExtension.m in Sources */,
 				F09051BD1FFB49FA003CEE84 /* TableViewCellWith2Button.m in Sources */,
 				F0E5A3CD1FFC847D0056E946 /* NSBundle+MJRefresh.m in Sources */,
 				F09051C71FFB49FB003CEE84 /* CameraGainTableViewCell.m in Sources */,
-				F09052111FFB4A08003CEE84 /* ColorAdvancedView.m in Sources */,
 				F09051AC1FFB49FA003CEE84 /* ColorType0TitleTableViewCell.m in Sources */,
 				F090526D1FFB5006003CEE84 /* TabBarItem.m in Sources */,
 				F032073220107A32003EDF83 /* CashewView.m in Sources */,
@@ -3232,13 +3072,11 @@
 				F09050C91FFB335D003CEE84 /* ViewController.m in Sources */,
 				F0E5A3EA1FFC86C30056E946 /* MJRefreshBackStateFooter.m in Sources */,
 				F0E5A3CA1FFC847D0056E946 /* UIView+MJExtension.m in Sources */,
-				F0EA2AB0200890C7000FD052 /* IRDiffAdvanced31View.m in Sources */,
 				F01E7E7E20046FDC002769DE /* Version21ViewPages.m in Sources */,
 				F09051871FFB49FA003CEE84 /* TableViewCellWith2Label.m in Sources */,
 				F09051AF1FFB49FA003CEE84 /* ColorTypeSenseValueTableViewCell.m in Sources */,
-				F02C82592009ACCB003A5A43 /* IRDiffAdvancedView.m in Sources */,
+				F0D21C2321884A9F008A93FB /* ColorAlgViewModel.m in Sources */,
 				F032075020107AED003EDF83 /* CornView.m in Sources */,
-				F02C82562009ABAD003A5A43 /* RestrainAdvancedView.m in Sources */,
 				F09051D71FFB49FB003CEE84 /* IRMainLightTableViewCell.m in Sources */,
 				F0E5A3F81FFC86CF0056E946 /* MJRefreshFooter.m in Sources */,
 				F0ACB12C200C8E46005B538D /* ValveShowInfoView.m in Sources */,

@@ -72,7 +72,6 @@ static NSString *longPressTimer = @"LongPressTimer";
     Device *device = kDataModel.currentDevice;
     if (device->machineData.layerNumber>1) {
         self.baseLayerLabel = self.currentLayerLabel;
-//        
     }else{
         self.currentLayerLabel.frame = CGRectZero;
         self.currentLayerLabelHeightConstraint.constant = 0.0f;
@@ -102,6 +101,11 @@ static NSString *longPressTimer = @"LongPressTimer";
     UILongPressGestureRecognizer *leftlongPressGR = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(LongPressGR:)];
     [self.leftBtn addGestureRecognizer:leftlongPressGR];
     return self;
+}
+
+-(void)refreshCurrentView{
+    Device *device = kDataModel.currentDevice;
+    [gNetwork getHsvParaWithGroup:device.currentGroupIndex View:device.currentViewIndex];
 }
 
 #pragma mark longPressGR
@@ -284,7 +288,7 @@ int temphsvSend;
 }
 -(void)updateWithHeader:(NSData *)headerData{
     const unsigned char *a = headerData.bytes;
-    if (a[0] == 0x30) {
+    if (a[0] == 0x09) {
         if(a[1]== 1){
             [self updateView];
         }else if (a[1] == 2){

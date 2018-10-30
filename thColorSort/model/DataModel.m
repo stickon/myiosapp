@@ -425,18 +425,6 @@ static DataModel *model = nil;
             self.offlineDeviceID = [[NSString alloc]initWithBytes:data.bytes+Socket_Header_Length length:data.length-Socket_Header_Length encoding:NSUTF8StringEncoding];
         }
             break;
-        case 0x07:
-        {
-            if (a[1]==0x03) {
-                Device *device = kDataModel.currentDevice;
-                memcpy(&device->cleanPara, a+2, 4);
-                DDLogInfo(@"clean data param get");
-            }
-            if (a[1] == 0x05) {
-                DDLogInfo(@"clean close valve return");
-            }
-        }
-            break;
         case 0x08:
         {
             Device *device = kDataModel.currentDevice;

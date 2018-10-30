@@ -17,12 +17,7 @@
 #import "SysinfoView.h"
 #import "SettingView.h"
 #import "ColorAlgorithmView.h"
-#import "ColorAdvancedView.h"
-#import "DiffAdvancedView.h"
-#import "RestrainAdvancedView.h"
 #import "IRAlgorithmView.h"
-#import "IRColorAdvancedView.h"
-#import "IRDiffAdvancedView.h"
 #import "FeedSetView.h"
 #import "CleanSetView.h"
 #import "ModeListView.h"
@@ -51,7 +46,6 @@
 #import "CornView.h"
 #import "HorseBeanView.h"
 #import "GreenTeaShortStemView.h"
-#import "PeanutView.h"
 @implementation BaseVersionViewPages
 -(instancetype)init{
     if (self = [super init]) {
@@ -71,12 +65,7 @@
     [self.VersionViewNameToClassDictionary setObject:[SysinfoView class] forKey:@"SysinfoView"];
     [self.VersionViewNameToClassDictionary setObject:[SettingView class] forKey:@"SettingView"];
     [self.VersionViewNameToClassDictionary setObject:[ColorAlgorithmView class] forKey:@"ColorAlgorithmView"];
-    [self.VersionViewNameToClassDictionary setObject:[ColorAdvancedView class] forKey:@"ColorAdvancedView"];
-    [self.VersionViewNameToClassDictionary setObject:[DiffAdvancedView class] forKey:@"DiffAdvancedView"];
-    [self.VersionViewNameToClassDictionary setObject:[RestrainAdvancedView class] forKey:@"RestrainAdvancedView"];
     [self.VersionViewNameToClassDictionary setObject:[IRAlgorithmView class] forKey:@"IRAlgorithmView"];
-    [self.VersionViewNameToClassDictionary setObject:[IRDiffAdvancedView class] forKey:@"IRDiffAdvancedView"];
-    [self.VersionViewNameToClassDictionary setObject:[IRColorAdvancedView class] forKey:@"IRColorAdvancedView"];
     [self.VersionViewNameToClassDictionary setObject:[ModeListView class] forKey:@"ModeListView"];
     [self.VersionViewNameToClassDictionary setObject:[ModeSetView class] forKey:@"ModeSetView"];
     [self.VersionViewNameToClassDictionary setObject:[CalibrationView class] forKey:@"CalibrationView"];
@@ -104,7 +93,6 @@
     [self.VersionViewNameToClassDictionary setObject:[CornView class] forKey:@"CornView"];
     [self.VersionViewNameToClassDictionary setObject:[HorseBeanView class] forKey:@"HorseBeanView"];
     [self.VersionViewNameToClassDictionary setObject:[GreenTeaShortStemView class] forKey:@"GreenTeaShortStemView"];
-    [self.VersionViewNameToClassDictionary setObject:[PeanutView class] forKey:@"PeanutView"];
     [self.VersionViewNameToClassDictionary setObject:[CaterpillarView class] forKey:@"CaterpillarView"];
 }
 

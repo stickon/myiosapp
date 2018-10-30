@@ -34,7 +34,6 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
 
 
 - (IBAction)useSwitchValueChanged:(UISwitch *)sender {
-    [gNetwork sendToChangeUseStateWithAlgorithm:self.type IsIR:0];
     if (sender.isOn) {
         [self.useLabel setText:kLanguageForKey(35)];
     }else{
@@ -405,10 +404,8 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
             [self.tableView reloadData];
         }else if (row == device->machineData.chuteNumber+1)//整体料槽调整
         {
-            [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:index Sorter:row data:value algorithmType:_type FirstSecond:0 ValueType:1 IsIR:0];
             
         }else{
-            [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:0 Sorter:row data:value algorithmType:_type FirstSecond:index ValueType:1 IsIR:0];
         }
     }else if (section == 1) {
         if(row == 0){
@@ -435,7 +432,6 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
         {
             if (tag == 1) {
                 if (bsend) {
-                    [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:1 Sorter:row data:value algorithmType:_type FirstSecond:0 ValueType:1 IsIR:0];
                 }else{
                     for (int i =0; i<device->machineData.chuteNumber; i++) {
                             if (device->data1[i] <99) {
@@ -448,7 +444,6 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
             }
             if (tag == 2) {
                 if (bsend) {
-                    [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:2 Sorter:row data:value algorithmType:_type FirstSecond:0 ValueType:1 IsIR:0];
                 }else{
                     for (int i =0; i<device->machineData.chuteNumber; i++) {
                             if (device->data1[i] <=1) {

@@ -35,7 +35,6 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
 @implementation Rice1RDiffAdvancedView
 
 - (IBAction)useSwitchValueChanged:(UISwitch *)sender {
-    [gNetwork sendToChangeUseStateWithAlgorithm:self.type IsIR:0];
     if (sender.isOn) {
         [self.useLabel setText:kLanguageForKey(35)];
     }else{
@@ -424,7 +423,6 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
             currentSelectColordiffType = value;
             [self.tableView reloadData];
         }else{
-            [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:0 Sorter:1 data:value algorithmType:_type FirstSecond:row-1 ValueType:index IsIR:0];
             
         }
     }else if (section == 1) {

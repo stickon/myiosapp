@@ -7,8 +7,6 @@
 //
 
 #import "Version30ViewPages.h"
-#import "SvmGroup31View.h"
-#import "Peanut31View.h"
 
 @implementation Version30ViewPages
 -(instancetype)init{
@@ -18,7 +16,5 @@
 }
 -(void)createPage{
     [super createPage];
-    [self.VersionViewNameToClassDictionary setObject:[SvmGroup31View class] forKey:@"SvmView"];
-    [self.VersionViewNameToClassDictionary setObject:[Peanut31View class] forKey:@"PeanutView"];
 }
 @end

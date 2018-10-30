@@ -74,7 +74,8 @@ static NSString *FeedCellTitleIdentifier = @"FeedSettingTitleTableViewCell";
 }
 -(void)initLanguage{
     self.FeedAllLabel.text = kLanguageForKey(333);
-    
+    [self.chuteTypeChange setTitle:kLanguageForKey(405) forSegmentAtIndex:0];
+    [self.chuteTypeChange setTitle:kLanguageForKey(406) forSegmentAtIndex:1];
 }
 -(void)updateWithHeader:(NSData*)headerData
 {

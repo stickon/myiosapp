@@ -7,15 +7,18 @@
 //
 
 #import "ColorAlgorithmView.h"
-#import "TableViewCellWithDefaultTitleLabel1TextField.h"
-@interface ColorAlgorithmView()<UITableViewDelegate,UITableViewDataSource,TableViewCellChangedDelegate>
+#import "TableViewCellRebuild.h"
+#import "MyGroupView.h"
+#import "ColorAlgViewModel.h"
+#import "CBTableViewDataSource.h"
+@interface ColorAlgorithmView()<GroupBtnDelegate>
 
 @property (nonatomic,strong) NSIndexPath* selectIndexPath;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIButton *frontViewBtn;
-@property (strong, nonatomic) IBOutlet UIButton *rearViewBtn;
+@property (strong, nonatomic) IBOutlet MyGroupView *groupBtnsView;
 @property (strong, nonatomic) IBOutlet UILabel *currentLayerLabel;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *currentLayerLabelHeightConstraint;
+@property (strong, nonatomic) ColorAlgViewModel *model;
 @end
 @implementation ColorAlgorithmView
 
@@ -26,15 +29,12 @@
         UIView *subView=[[[NSBundle mainBundle] loadNibNamed:@"ColorAlgorithmView" owner:self options:nil] firstObject];
         [self addSubview:subView];
         [self autoLayout:subView superView:self];
-        self.tableView.mj_header = self.refreshHeader;
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
+//        self.tableView.mj_header = self.refreshHeader;
         self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        
+        self.groupBtnsView.delegate = self;
         Device *device = kDataModel.currentDevice;
         if (device->machineData.layerNumber>1) {
             self.baseLayerLabel = self.currentLayerLabel;
-            
         }else{
             self.currentLayerLabel.frame = CGRectZero;
             self.currentLayerLabelHeightConstraint.constant = 0.0f;
@@ -44,45 +44,118 @@
     
     return self;
 }
-
+- (ColorAlgViewModel *)model {
+    if(!_model) {
+        _model = [[ColorAlgViewModel alloc]init];
+    }
+    return _model;
+}
 -(UIView*)getViewWithPara:(NSDictionary *)para{
-    [[NetworkFactory sharedNetWork]sendToGetDataIsIR:0];
+    [self refreshCurrentView];
     return self;
 }
-- (void)initView{
+
+-(void)initView{
     [super initView];
+    __weak typeof(self) weakSelf = self;
+    self.model.dataUpdate = ^{
+        [weakSelf.tableView reloadData];
+    };
+    [_tableView cb_makeDataSource:^(CBTableViewDataSourceMaker * make) {
+        
+        [make makeSection:^(CBTableViewSectionMaker *section) {
+            section.headerTitle(kLanguageForKey(75));
+            section.cell([TableViewCellRebuild class])
+            .data(self.model.FrontDataArray)
+            .adapter(^(TableViewCellRebuild * cell,NSDictionary * data,NSUInteger index){
+                [cell.itemName setText:data[@"algName"]];
+                NSNumber *use = data[@"useState"];
+                if (use.intValue == 1) {
+                    cell.useBtn.selected = YES;
+                }else{
+                    cell.useBtn.selected = NO;
+                }
+                
+                NSNumber *sense = data[@"senseValue"];
+                [cell.itemSenseTextField setText:[NSString stringWithFormat:@"%d",sense.intValue]];
+                NSNumber *max = data[@"senseMax"];
+                NSNumber *min = data[@"senseMin"];
+                [cell setTextFieldMin:min.integerValue Max:max.integerValue];
+                cell.delegate = weakSelf;
+                cell.indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            })
+            .event(^(NSUInteger index,NSDictionary * data){
+        
+            })
+            .autoHeight;
+        }];
+        [make makeSection:^(CBTableViewSectionMaker *section) {
+            section.headerTitle(kLanguageForKey(76));
+            section.cell([TableViewCellRebuild class])
+            .data(self.model.RearDataArray)
+            .adapter(^(TableViewCellRebuild * cell,NSDictionary * data,NSUInteger index){
+                [cell.itemName setText:data[@"algName"]];
+                NSNumber *use = data[@"useState"];
+                if (use.intValue == 1) {
+                    cell.useBtn.selected = YES;
+                }else{
+                    cell.useBtn.selected = NO;
+                }
+                
+                NSNumber *sense = data[@"senseValue"];
+                [cell.itemSenseTextField setText:[NSString stringWithFormat:@"%d",sense.intValue]];
+                NSNumber *max = data[@"senseMax"];
+                NSNumber *min = data[@"senseMin"];
+                [cell setTextFieldMin:min.integerValue Max:max.integerValue];
+                cell.delegate = weakSelf;
+                cell.indexPath = [NSIndexPath indexPathForRow:index inSection:1];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            })
+            .event(^(NSUInteger index,id row){
+            })
+            .autoHeight;
+        }];
+    }];
+    [self updateGroupBtnHidden];
+}
+-(void)updateGroupBtnHidden{
     Device *device = kDataModel.currentDevice;
-    self->viewBtn[0] = self.frontViewBtn;
-    self->viewBtn[1] = self.rearViewBtn;
-    [super frontRearViewBtnAddTargetEvent];
-    if (device.currentViewIndex == 0) {
-        self.frontViewBtn.selected = true;
-        self.frontViewBtn.backgroundColor = [UIColor greenColor];
-        self.frontViewBtn.userInteractionEnabled = NO;
-        self.rearViewBtn.userInteractionEnabled = YES;
-        self.rearViewBtn.selected = false;
-        self.rearViewBtn.backgroundColor = [UIColor TaiheColor];
-    }else if (device.currentViewIndex == 1){
-        self.frontViewBtn.selected = false;
-        self.frontViewBtn.backgroundColor = [UIColor TaiheColor];
-        self.rearViewBtn.selected = true;
-        self.rearViewBtn.backgroundColor = [UIColor greenColor];
-        self.frontViewBtn.userInteractionEnabled = YES;
-        self.rearViewBtn.userInteractionEnabled = NO;
+    if (device->machineData.layerNumber>1) {
+    }else{
+        if (device->machineData.groupNum<=1) {
+            self.groupBtnsView.hidden = YES;
+        }else{
+            NSArray *arr = [NSArray array];
+            for (int i = 0; i < device->machineData.groupNum; i++) {
+                arr = [arr arrayByAddingObject:[NSString stringWithFormat:@"%@ %d",kLanguageForKey(372),i+1]];
+            }
+            if (self.groupBtnsView->groupNum != device->machineData.groupNum) {
+                [self.groupBtnsView setGroupNum:device->machineData.groupNum Title:arr SelectedIndex:0];
+            }
+            
+            self.groupBtnsView.hidden = NO;
+            
+        }
     }
 }
 
 -(void)refreshCurrentView{
- [[NetworkFactory sharedNetWork]sendToGetDataIsIR:0];
+    Device *device = kDataModel.currentDevice;
+    [gNetwork getAllAlgInfoWithGroup:device.currentGroupIndex Type:0];
 }
 
 -(void)updateWithHeader:(NSData *)headerData{
     const unsigned char* a = headerData.bytes;
-    if (a[0] == 0x04 && a[1] == 0x01) {
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
-    }else if (a[0] == 0x04 && a[1] == 0x02){
-        [self refreshCurrentView];
+    if (a[0] == 0x07) {
+        if (a[1] == 0x01) {
+            [self.model fetchData:headerData];
+        }else if (a[1] == 0x02){
+            [self refreshCurrentView];
+        }else if (a[1] == 0x03){
+            [self refreshCurrentView];
+        }
+        
     }
     else if (a[0] == 0x55){
         [super updateWithHeader:headerData];
@@ -90,125 +163,32 @@
         [self refreshCurrentView];
     }
 }
-- (void)initLanguage{
-    [self.frontViewBtn setTitle:kLanguageForKey(75) forState:UIControlStateNormal];
-    [self.rearViewBtn setTitle:kLanguageForKey(76) forState:UIControlStateNormal];
+-(void)cellValueChangedWithSection:(long)section row:(long)row tag:(long)index value:(NSInteger)value{
+    Device *device = kDataModel.currentDevice;
+    
+    Byte groupIndex = device.currentLayerIndex;
+    NSDictionary *dic = [[self.model.DataArray objectAtIndex:section] objectAtIndex:row];
+    NSNumber *type = dic[@"type"];
+    NSNumber *subType = dic[@"subType"];
+    NSNumber *extType = dic[@"extType"];
+    if (index == 0) {
+        [gNetwork setAlgSenseValueWithGroup:groupIndex View:section Type:type.intValue SubType:subType.intValue ExtType:extType.intValue Used:value];
+    }else{
+        [gNetwork setAlgSenseValueWithGroup:groupIndex View:section Type:type.intValue SubType:subType.intValue ExtType:extType.intValue Value:value];
+    }
+}
+
+- (void)groupBtnClicked:(Byte)index{
+    Device *device = kDataModel.currentDevice;
+    device.currentGroupIndex = index;
+    [self refreshCurrentView];
 }
 #pragma changeViewDelegate
 - (void)selectLayer:(NSUInteger)layer View:(NSUInteger)view
 {
     kDataModel.currentDevice.currentLayerIndex = layer;
     kDataModel.currentDevice.currentViewIndex = 0;
-    [[NetworkFactory sharedNetWork]sendToGetDataIsIR:0];
-}
-
-#pragma tableview data source
-
-- (NSInteger)numberOfSectionsInTableVeiw:(UITableView*)tableView
-{
-    Device *device = kDataModel.currentDevice;
-    if (device->machineData.useColor) {
-        return 1;
-    }
-    return 1;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
-}
--(NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
-{
-    Device *device = kDataModel.currentDevice;
-    if (device->machineData.useColor) {
-        return device.colorAlgorithmNums;
-    }
-    return 0;
-}
-
--(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    Device *device = kDataModel.currentDevice;
-    
-    if (device->machineData.useColor) {
-        if (indexPath.row<device.colorAlgorithmNums) {
-            static NSString *cellIdentifier = @"TableViewCellWithDefaultTitleLabel1TextField";
-            TableViewCellWithDefaultTitleLabel1TextField *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-            if (cell == nil) {
-                cell = [[[NSBundle mainBundle]loadNibNamed:cellIdentifier owner:self options:nil]lastObject];
-            }
-            cell.textLabel.font = SYSTEMFONT_14f;
-            if ((*(device->colorAlgorithm+indexPath.row)).used) {
-                cell.textLabel.textColor = [UIColor redColor];
-                cell.textField.enabled = YES;
-            }else{
-                cell.textLabel.textColor = [UIColor blackColor];
-                cell.textField.enabled = NO;
-            }
-            cell.textLabel.text =[NSString stringWithUTF8String:(*(device->colorAlgorithm+indexPath.row)).name];
-            NSInteger sense = ((*(device->colorAlgorithm+indexPath.row)).sense[0])*256+(*(device->colorAlgorithm+indexPath.row)).sense[1];
-            cell.textField.text = [NSString stringWithFormat:@"%lu",(long)sense];
-            cell.indexPath = indexPath;
-            cell.textField.tag = indexPath.section*1000+indexPath.row+1;
-            cell.textField.font = SYSTEMFONT_14f;
-            cell.delegate = self;
-            if ((*(device->colorAlgorithm+indexPath.row)).type < 4 || (*(device->colorAlgorithm+indexPath.row)).type == 6) {
-                cell.cellType = TableViewCellType_SenseType;
-            }else{
-                cell.cellType = TableViewCellType_ColorSense;
-            }
-            
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            return cell;
-        }
-    }
-    UITableViewCell *defaultCell = [[UITableViewCell alloc]init];
-    return defaultCell;
-}
-#pragma mark - tableviewdelegate
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    _selectIndexPath = indexPath;
-    Device *device = kDataModel.currentDevice;
-
-    [self.paraNextView setObject:[NSString stringWithUTF8String:(*(device->colorAlgorithm+_selectIndexPath.row)).name]forKey:@"title"];
-    [self.paraNextView setObject:[NSString stringWithFormat:@"%ld",(long)self.selectIndexPath.row] forKey:@"algorithmIndex"];
-    if((*(device->colorAlgorithm+_selectIndexPath.row)).type<4){
-        [[MiddleManager shareInstance] ChangeViewWithName:@"ColorAdvancedView" Para:self.paraNextView];
-        
-    }else if ((*(device->colorAlgorithm+_selectIndexPath.row)).type == 6){
-        [[MiddleManager shareInstance] ChangeViewWithName:@"RestrainAdvancedView" Para:self.paraNextView];
-    }else{
-       [[MiddleManager shareInstance] ChangeViewWithName:@"DiffAdvancedView"Para:self.paraNextView];
-    }
-}
-
-
-#pragma celldatachangeddelegate
-
--(void)cellValueChangedWithSection:(long)section row:(long)row tag:(long)index value:(NSInteger)value
-{
-    Device *device = kDataModel.currentDevice;
-    NSUInteger oldValue =((*(device->colorAlgorithm+row)).sense[0])*256+(*(device->colorAlgorithm+row)).sense[1];
-    if((NSUInteger)value >oldValue){
-        [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:1 Sorter:2 data:value-oldValue algorithmType:(*(device->colorAlgorithm+row)).type FirstSecond:0 ValueType:1 IsIR:0];
-    }else{
-        [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:2 Sorter:2 data:oldValue-value algorithmType:(*(device->colorAlgorithm+row)).type FirstSecond:0 ValueType:1 IsIR:0];
-    }
-    
-}
-
-
-#pragma mark 切换层
--(void)didSelectLayerIndex:(Byte)layerIndex{
-    [super didSelectLayerIndex:layerIndex];
-    [self initView];
-    [[NetworkFactory sharedNetWork]sendToGetDataIsIR:0];
-}
-
-- (void)frontRearViewChanged{
-    [[NetworkFactory sharedNetWork] changeLayerAndView];
-    [[NetworkFactory sharedNetWork]sendToGetDataIsIR:0];
+    [self refreshCurrentView];
 }
 
 @end

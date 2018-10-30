@@ -23,7 +23,7 @@
 23#Feeding settings
 24#Cleaning
 25#System is on
-26#System off
+26#System off 
 27#Change ...
 28#Failed to start
 29#Color
@@ -398,6 +398,8 @@
 402#Second
 403#Third
 404#Fourth
+405#Group
+406#Chute
 900#Green Tea stalks
 901#Length Rice
 902#Broken Rice

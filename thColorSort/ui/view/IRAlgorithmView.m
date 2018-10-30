@@ -79,7 +79,6 @@
 }
 
 -(void)refreshCurrentView{
-    [[NetworkFactory sharedNetWork]sendToGetDataIsIR:1];
 }
 
 -(void)updateWithHeader:(NSData *)headerData{
@@ -102,7 +101,6 @@
 {
     kDataModel.currentDevice.currentLayerIndex = layer;
     kDataModel.currentDevice.currentViewIndex = 0;
-    [[NetworkFactory sharedNetWork]sendToGetDataIsIR:1];
 }
 
 #pragma tableview data source
@@ -195,9 +193,7 @@
     Device *device = kDataModel.currentDevice;
     NSUInteger oldValue =((*(device->irAlgorithm+row)).sense[0])*256+(*(device->irAlgorithm+row)).sense[1];
     if((NSUInteger)value >oldValue){
-        [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:1 Sorter:0 data:value-oldValue algorithmType:(*(device->irAlgorithm+row)).type FirstSecond:0 ValueType:1 IsIR:1];
     }else{
-        [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:2 Sorter:0 data:oldValue-value algorithmType:(*(device->irAlgorithm+row)).type FirstSecond:0 ValueType:1 IsIR:1];
     }
     
 }
@@ -206,7 +202,6 @@
 #pragma mark 切换前后视
 - (void)frontRearViewChanged{
     [[NetworkFactory sharedNetWork] changeLayerAndView];
-    [[NetworkFactory sharedNetWork]sendToGetDataIsIR:1];
 }
 
 @end

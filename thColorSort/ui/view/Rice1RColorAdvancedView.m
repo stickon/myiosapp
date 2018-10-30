@@ -31,7 +31,6 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
 
 
 - (IBAction)useSwitchValueChanged:(UISwitch *)sender {
-    [gNetwork sendToChangeUseStateWithAlgorithm:self.type IsIR:0];
     if (sender.isOn) {
         [self.useLabel setText:kLanguageForKey(35)];
     }else{
@@ -346,7 +345,6 @@ static NSString *senseCellTitleIdentifier = @"TableViewCellWithDefaultTitleLabel
     Device *device = kDataModel.currentDevice;
     if (section == 0)
     {
-            [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:0 Sorter:1 data:value algorithmType:_type FirstSecond:row-1 ValueType:1 IsIR:0];
     }else if (section == 1) {
         if(row == 0){
             if (index < 9) {

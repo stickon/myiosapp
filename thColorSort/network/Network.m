@@ -179,8 +179,54 @@
     memcpy(socketHeader.data1, (const void*)cleanData, 4);
     [self netWorkSendData];
 }
-#pragma valveViewController
+#pragma mark SenseView 色选算法灵敏度 红外算法灵敏度
+-(void)getAllAlgInfoWithGroup:(Byte)group Type:(Byte)visiableOrIR{
+    [self initSocketHeader];
+    socketHeader.type = 0x07;
+    socketHeader.extendType = 0x01;
+    socketHeader.data1[0] = group;
+    socketHeader.data1[1] = visiableOrIR;
+    [self netWorkSendData];
+}
+-(void)setAlgSenseValueWithGroup:(Byte)group View:(Byte)view Type:(Byte)type SubType:(Byte)subType ExtType:(Byte)extType Value:(int)value{
+    [self initSocketHeader];
+    socketHeader.type = 0x07;
+    socketHeader.extendType = 0x02;
+    socketHeader.data1[0] = group;
+    socketHeader.data1[1] = view;
+    socketHeader.data1[2] = type;
+    socketHeader.data1[3] = subType;
+    socketHeader.data1[4] = extType;
+    socketHeader.data1[5] = value/256;
+    socketHeader.data1[6] = value%256;
+    [self netWorkSendData];
+}
+-(void)setAlgSenseValueWithGroup:(Byte)group View:(Byte)view Type:(Byte)type SubType:(Byte)subType ExtType:(Byte)extType Used:(Byte)used{
+    
+    [self initSocketHeader];
+    socketHeader.type = 0x07;
+    socketHeader.extendType = 0x03;
+    socketHeader.data1[0] = group;
+    socketHeader.data1[1] = view;
+    socketHeader.data1[2] = type;
+    socketHeader.data1[3] = subType;
+    socketHeader.data1[4] = extType;
+    socketHeader.data1[5] = used;
+    [self netWorkSendData];
+}
 
+#pragma mark hsv
+
+-(void)getHsvParaWithGroup:(Byte)group View:(Byte)view{
+    [self initSocketHeader];
+    socketHeader.type = 0x09;
+    socketHeader.extendType = 0x01;
+    socketHeader.data1[0] = group;
+    socketHeader.data1[1] = view;
+    [self netWorkSendData];
+}
+
+#pragma valveViewController
 -(void)getValvePara{
     Device *device = kDataModel.currentDevice;
     [self initSocketHeader];
@@ -216,74 +262,6 @@
     [self netWorkSendData];
 }
 
-#pragma secondViewController
-
--(void)sendToGetDataIsIR:(Byte)isIR
-{
-    Device *device = kDataModel.currentDevice;
-    [self initSocketHeader];
-    socketHeader.type = 0x4;
-    if (isIR) {
-        socketHeader.extendType = 0x11;
-    }else{
-        socketHeader.extendType = 0x1;
-    }
-    socketHeader.data1[0] = (Byte)device.currentLayerIndex;
-    socketHeader.data1[1] = (Byte)device.currentViewIndex;
-    [self netWorkSendData];
-}
-
--(void)sendAlgorithmSenseValueWithAjustType:(Byte)ajustType Sorter:(Byte)sorterIndex data:(Byte)dataValue algorithmType:(Byte)type FirstSecond:(Byte)index ValueType:(Byte)valueType IsIR:(Byte)isIR
-{
-    Device *device = kDataModel.currentDevice;
-    [self initSocketHeader];
-    socketHeader.type = 0x04;
-    if (isIR) {
-        socketHeader.extendType = 0x12;
-    }else{
-        socketHeader.extendType = 0x02;
-    }
-    SenseValue sense;
-    memset(&sense, 0, sizeof(SenseValue));
-    sense.Algorithm = type;
-    sense.adjustType = ajustType;
-    sense.layer = device.currentLayerIndex;
-    sense.ch = sorterIndex-1;
-    sense.view = device.currentViewIndex;
-    sense.frtSnd = index;
-    sense.type = valueType;
-    sense.data = dataValue;
-    memcpy(socketHeader.data1, (const void*)&sense,sizeof(SenseValue));
-    [self netWorkSendData];
-}
-
-
--(void)sendToGetRiceUserSense{
-    Device *device = kDataModel.currentDevice;
-    [self initSocketHeader];
-    socketHeader.type = 0x4;
-    socketHeader.extendType = 0x21;
-    socketHeader.data1[0] = (Byte)device.currentLayerIndex;
-    socketHeader.data1[1] = (Byte)device.currentViewIndex;
-    [self netWorkSendData];
-}
--(void)sendToSetRiceUserSenseWithType:(Byte)type GroupIndex:(Byte)group RowIndex:(Byte)index Value:(int)value{
-    Device *device = kDataModel.currentDevice;
-    [self initSocketHeader];
-    socketHeader.type = 0x04;
-    socketHeader.extendType = 0x22;
-    RiceUserSense sense;
-    memset(&sense, 0, sizeof(RiceUserSense));
-    sense.type = type;
-    sense.layer = device.currentLayerIndex;
-    sense.view = device.currentViewIndex;
-    sense.group = group;
-    sense.index = index;
-    sense.data[0] = value/256;
-    sense.data[1] = value%256;
-    memcpy(socketHeader.data1, (const void*)&sense,sizeof(RiceUserSense));
-    [self netWorkSendData];
-}
 -(void)sendToSetRiceUserSenseUseWithType:(Byte)type Value:(Byte)value{
     Device *device = kDataModel.currentDevice;
     [self initSocketHeader];

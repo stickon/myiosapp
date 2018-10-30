@@ -39,7 +39,6 @@ static NSString *irCellIdentifier = @"TableViewCellWithDefaultTitleLabel1TextFie
 @implementation RestrainAdvancedView
 
 - (IBAction)useSwitchValueChanged:(UISwitch *)sender {
-    [[NetworkFactory sharedNetWork]sendToChangeUseStateWithAlgorithm:_type IsIR:0];
     if (sender.isOn) {
         [self.useLabel setText:kLanguageForKey(35)];
     }else{
@@ -404,14 +403,11 @@ static NSString *irCellIdentifier = @"TableViewCellWithDefaultTitleLabel1TextFie
         }else if (row == device->machineData.chuteNumber+1)//整体料槽调整
         {
             if (index == 1) {
-                [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:1 Sorter:row data:value algorithmType:_type FirstSecond:currentSelectFrtsnd ValueType:1 IsIR:0];
             }
             if (index == 2) {
-                [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:2 Sorter:row data:value algorithmType:_type FirstSecond:currentSelectFrtsnd ValueType:1 IsIR:0];
             }
             
         }else{
-            [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:0 Sorter:row data:value algorithmType:_type FirstSecond:index ValueType:1 IsIR:0];
             
         }
         
@@ -446,7 +442,6 @@ static NSString *irCellIdentifier = @"TableViewCellWithDefaultTitleLabel1TextFie
         {
             if (tag == 1) {
                 if (bsend) {
-                    [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:1 Sorter:row data:value algorithmType:_type FirstSecond:currentSelectFrtsnd ValueType:1 IsIR:0];
                 }else{
                     for (int i =0; i<device->machineData.chuteNumber; i++) {
                         if (currentSelectFrtsnd == 0) {
@@ -466,7 +461,6 @@ static NSString *irCellIdentifier = @"TableViewCellWithDefaultTitleLabel1TextFie
             }
             if (tag == 2) {
                 if (bsend) {
-                    [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:2 Sorter:row data:value algorithmType:_type FirstSecond:currentSelectFrtsnd ValueType:1 IsIR:0];
                 }else{
                     for (int i =0; i<device->machineData.chuteNumber; i++) {
                         if (currentSelectFrtsnd == 0) {

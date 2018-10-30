@@ -38,7 +38,6 @@ static NSString *irCellIdentifier = @"TableViewCellWithDefaultTitleLabel1TextFie
 @implementation IRDiffAdvancedView
 
 - (IBAction)useSwitchValueChanged:(UISwitch *)sender {
-    [[NetworkFactory sharedNetWork]sendToChangeUseStateWithAlgorithm:_type IsIR:1];
     if (sender.isOn) {
         [self.useLabel setText:kLanguageForKey(35)];
     }else{
@@ -415,13 +414,10 @@ static NSString *irCellIdentifier = @"TableViewCellWithDefaultTitleLabel1TextFie
         if (row == device->machineData.chuteNumber+1)//整体料槽调整
         {
             if (index == 1) {
-                [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:1 Sorter:row data:value%256 algorithmType:_type FirstSecond:currentSelectFrtsnd ValueType:value/256 IsIR:1];
             }
             if (index == 2) {
-                [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:2 Sorter:row data:value%256 algorithmType:_type FirstSecond:currentSelectFrtsnd ValueType:value/256 IsIR:1];
             }
         }else{
-            [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:0 Sorter:row data:value%256 algorithmType:_type FirstSecond:0 ValueType:value/256 IsIR:1];
         }
     }else if (section == 1) {
         if(index == 5){
@@ -443,7 +439,6 @@ static NSString *irCellIdentifier = @"TableViewCellWithDefaultTitleLabel1TextFie
         {
             if (tag == 1) {
                 if (bsend) {
-                    [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:1 Sorter:row data:value%256 algorithmType:_type FirstSecond:currentSelectFrtsnd ValueType:value/256 IsIR:1];
                 }else{
                     for (int i =0; i<device->machineData.chuteNumber; i++) {
                         NSInteger value = device->data1[i]+(device->data2[i])*256;
@@ -460,7 +455,6 @@ static NSString *irCellIdentifier = @"TableViewCellWithDefaultTitleLabel1TextFie
             }
             if (tag == 2) {
                 if (bsend) {
-                    [[NetworkFactory sharedNetWork]sendAlgorithmSenseValueWithAjustType:2 Sorter:row data:value%256 algorithmType:_type FirstSecond:currentSelectFrtsnd ValueType:value/256 IsIR:1];
                 }else{
                     for (int i =0; i<device->machineData.chuteNumber; i++) {
                         NSInteger value = device->data1[i]+(device->data2[i])*256;
