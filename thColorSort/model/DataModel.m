@@ -1077,15 +1077,6 @@ static DataModel *model = nil;
                 }else if (a[6] == 9){
                     device->hsv[a[5]].h[1][0] = a[7];
                     device->hsv[a[5]].h[1][1] = a[8];
-                }else if (a[6] == 10){
-                    device->hsv[a[5]].width = a[8];
-                }else if (a[6] == 11){
-                    device->hsv[a[5]].height = a[8];
-                }else if (a[6] == 12){
-                    device->hsv[a[5]].number[0] = a[7];
-                    device->hsv[a[5]].number[1] = a[8];
-                }else if (a[6] == 13){
-                    device->hsv[a[5]].hsvUse = a[8];
                 }
             }else if (a[1] == 3){
                 if (a[2] == 1) {

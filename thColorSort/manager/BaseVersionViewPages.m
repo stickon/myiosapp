@@ -33,19 +33,6 @@
 #import "ValveSetView.h"
 #import "HsvView.h"
 #import "SvmView.h"
-#import "CashewView.h"
-#import "RiceView.h"
-#import "TeaView.h"
-#import "GreenTeaView.h"
-#import "RedTeaView.h"
-#import "StandardShapeView.h"
-#import "WheatView.h"
-#import "LicoriceView.h"
-#import "SeedView.h"
-#import "SunflowerView.h"
-#import "CornView.h"
-#import "HorseBeanView.h"
-#import "GreenTeaShortStemView.h"
 @implementation BaseVersionViewPages
 -(instancetype)init{
     if (self = [super init]) {
@@ -80,19 +67,6 @@
     [self.VersionViewNameToClassDictionary setObject:[ValveSetView class] forKey:@"ValveSetView"];
     [self.VersionViewNameToClassDictionary setObject:[HsvView class] forKey:@"HsvView"];
     [self.VersionViewNameToClassDictionary setObject:[SvmView class] forKey:@"SvmView"];
-    [self.VersionViewNameToClassDictionary setObject:[CashewView class] forKey:@"CashewView"];
-    [self.VersionViewNameToClassDictionary setObject:[RiceView class] forKey:@"RiceView"];
-    [self.VersionViewNameToClassDictionary setObject:[TeaView class] forKey:@"TeaView"];
-    [self.VersionViewNameToClassDictionary setObject:[GreenTeaView class] forKey:@"GreenTeaView"];
-    [self.VersionViewNameToClassDictionary setObject:[RedTeaView class] forKey:@"RedTeaView"];
-    [self.VersionViewNameToClassDictionary setObject:[StandardShapeView class] forKey:@"StandardShapeView"];
-    [self.VersionViewNameToClassDictionary setObject:[WheatView class] forKey:@"WheatView"];
-    [self.VersionViewNameToClassDictionary setObject:[LicoriceView class] forKey:@"LicoriceView"];
-    [self.VersionViewNameToClassDictionary setObject:[SeedView class] forKey:@"SeedView"];
-    [self.VersionViewNameToClassDictionary setObject:[SunflowerView class] forKey:@"SunflowerView"];
-    [self.VersionViewNameToClassDictionary setObject:[CornView class] forKey:@"CornView"];
-    [self.VersionViewNameToClassDictionary setObject:[HorseBeanView class] forKey:@"HorseBeanView"];
-    [self.VersionViewNameToClassDictionary setObject:[GreenTeaShortStemView class] forKey:@"GreenTeaShortStemView"];
     [self.VersionViewNameToClassDictionary setObject:[CaterpillarView class] forKey:@"CaterpillarView"];
 }
 

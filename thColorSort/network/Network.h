@@ -81,6 +81,11 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 #pragma mark hsv hsv算法
 -(void)getHsvParaWithGroup:(Byte)group View:(Byte)view;
+
+
+#pragma mark svm 算法
+-(void)getSvmInfoWithGroup:(Byte)group;
+-(void)setSvmInfoWithGroup:(Byte)group View:(Byte)view Type:(Byte)type Value:(NSInteger)value;
 //大米用户版本灵敏度
 -(void)sendToGetRiceUserSense;
 -(void)sendToSetRiceUserSenseWithType:(Byte)type GroupIndex:(Byte)group RowIndex:(Byte)index Value:(int)value;

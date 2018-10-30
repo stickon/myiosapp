@@ -332,16 +332,16 @@ int temphsvSend;
     self.hsvHStartTextField.text = [NSString stringWithFormat:@"%d",hsvHstart];
     int hsvHEnd = device->hsv[hsvIndex].h[1][0]*256+device->hsv[hsvIndex].h[1][1];
     self.hsvHEndTextField.text = [NSString stringWithFormat:@"%d",hsvHEnd];
-    self.widthTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].width];
-    self.heightTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].height];
-    self.sizeTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].number[0]*256+device->hsv[hsvIndex].number[1]];
-    if (device->hsv[hsvIndex].hsvUse == 1) {
-        self.usedStateBtn.selected = YES;
-        self.usedStateBtn.backgroundColor = [UIColor greenColor];
-    }else{
-        self.usedStateBtn.selected = NO;
-        self.usedStateBtn.backgroundColor = [UIColor TaiheColor];
-    }
+//    self.widthTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].width];
+//    self.heightTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].height];
+//    self.sizeTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].number[0]*256+device->hsv[hsvIndex].number[1]];
+//    if (device->hsv[hsvIndex].hsvUse == 1) {
+//        self.usedStateBtn.selected = YES;
+//        self.usedStateBtn.backgroundColor = [UIColor greenColor];
+//    }else{
+//        self.usedStateBtn.selected = NO;
+//        self.usedStateBtn.backgroundColor = [UIColor TaiheColor];
+//    }
     
     self.colorPaletteView->hsvHstart[hsvIndex] = hsvHstart;
     self.colorPaletteView->hsvHend[hsvIndex] = hsvHEnd;
@@ -349,7 +349,7 @@ int temphsvSend;
     self.colorPaletteView->hsvSend[hsvIndex] = device->hsv[hsvIndex].s[1];
     self.colorPaletteView->hsvVstart[hsvIndex] = device->hsv[hsvIndex].v[0];
     self.colorPaletteView->hsvVend[hsvIndex] = device->hsv[hsvIndex].v[1];
-    self.colorPaletteView->hsvUsed[hsvIndex] = device->hsv[hsvIndex].hsvUse;
+//    self.colorPaletteView->hsvUsed[hsvIndex] = device->hsv[hsvIndex].hsvUse;
     [self.colorPaletteView setNeedsDisplay];
 }
 - (void)updateView{
@@ -364,7 +364,7 @@ int temphsvSend;
     self.colorPaletteView->hsvVstart[0] = device->hsv[0].v[0];
     self.colorPaletteView->hsvVend[0] = device->hsv[0].v[1];
     self.colorPaletteView->hashsv2 = device->hasHsv2;
-    self.colorPaletteView->hsvUsed[0] = device->hsv[0].hsvUse;
+//    self.colorPaletteView->hsvUsed[0] = device->hsv[0].hsvUse;
     self.colorPaletteView->currentHsvIndex = device->currentHsvIndex;
     self.colorPaletteView->lightColorIndex = device->currentHsvLightColorIndex;
     self.colorPaletteView.offset = device->hsvOffset;
@@ -382,7 +382,7 @@ int temphsvSend;
         self.colorPaletteView->hsvSend[1] = device->hsv[1].s[1];
         self.colorPaletteView->hsvVstart[1] = device->hsv[1].v[0];
         self.colorPaletteView->hsvVend[1] = device->hsv[1].v[1];
-        self.colorPaletteView->hsvUsed[1] = device->hsv[1].hsvUse;
+//        self.colorPaletteView->hsvUsed[1] = device->hsv[1].hsvUse;
     }
     if (device->currentHsvIndex == 0) {
         self.hsv1Btn.selected = YES;

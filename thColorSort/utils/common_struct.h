@@ -211,6 +211,15 @@ typedef struct
     Byte spotDiff_2[2];  //2次杂质比
     Byte sensor_2;   //2次灵敏度
 }Svm;
+typedef struct
+{
+    Byte view;
+    Byte used;
+    Byte blowSample;
+    Byte spotDiff[2];                      //杂质比        spotDiff[0]是高位
+    Byte spotDiffMax[2];              //杂质比上限  spotDiffMax[0]是高位
+    Byte spotSensor;                     //灵敏度
+}SvmInfo;
 
 typedef struct//腰果形选
 {

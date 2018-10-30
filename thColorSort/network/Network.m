@@ -225,7 +225,25 @@
     socketHeader.data1[1] = view;
     [self netWorkSendData];
 }
-
+#pragma mark svm
+-(void)getSvmInfoWithGroup:(Byte)group{
+    [self initSocketHeader];
+    socketHeader.type = 0x08;
+    socketHeader.extendType = 0x01;
+    socketHeader.data1[0]= group;
+    [self netWorkSendData];
+}
+-(void)setSvmInfoWithGroup:(Byte)group View:(Byte)view Type:(Byte)type Value:(NSInteger)value{
+    [self initSocketHeader];
+    socketHeader.type = 0x08;
+    socketHeader.extendType = 0x02;
+    socketHeader.data1[0] = group;
+    socketHeader.data1[1] = view;
+    socketHeader.data1[2] = type;
+    socketHeader.data1[3] = value/256;
+    socketHeader.data1[4] = value%256;
+    [self netWorkSendData];
+}
 #pragma valveViewController
 -(void)getValvePara{
     Device *device = kDataModel.currentDevice;
