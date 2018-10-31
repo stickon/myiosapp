@@ -7,6 +7,7 @@
 //
 
 #import "ResponderAuto.h"
+#import "common_struct.h"
 @interface SingleViewSvm : ResponderAuto
-
+-(void)updateViewWithData:(SvmInfo*)svminfo;
 @end

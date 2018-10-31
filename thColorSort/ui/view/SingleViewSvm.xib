@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SingleViewSvm"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SingleViewSvm">
+            <connections>
+                <outlet property="impurityEdit" destination="CAS-H3-D9S" id="dXO-2m-hMT"/>
+                <outlet property="impurityTitleLabel" destination="HZI-F1-krZ" id="ZPb-1R-jpL"/>
+                <outlet property="minus1" destination="q7u-A6-jvy" id="wOU-Xt-04U"/>
+                <outlet property="minus2" destination="AYG-Ow-nRx" id="sLg-Pq-aZs"/>
+                <outlet property="plus1" destination="qU4-Sv-bQ1" id="Wm6-1X-k1L"/>
+                <outlet property="plus2" destination="0Xs-3T-Lb9" id="vph-Hm-be4"/>
+                <outlet property="rejectBtn" destination="fdN-nf-q21" id="SMw-Fi-kdd"/>
+                <outlet property="senseEdit" destination="9I5-dy-3bM" id="Sty-TU-y3g"/>
+                <outlet property="senseValueTitleLabel" destination="Kek-YD-jpQ" id="a30-po-1YO"/>
+                <outlet property="useBtn" destination="b6r-fr-Qct" id="4yv-fM-Cc5"/>
+                <outlet property="viewTitle" destination="Tet-Xd-WTx" id="QQ2-nn-oQb"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="386" height="237"/>
@@ -26,15 +40,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdN-nf-q21">
-                    <rect key="frame" x="73" y="55" width="120" height="50"/>
+                    <rect key="frame" x="73" y="55" width="120" height="52"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="nat-hx-oxb"/>
                         <constraint firstAttribute="width" constant="120" id="qmS-vR-43V"/>
                     </constraints>
                     <state key="normal" title="剔除负样本"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6r-fr-Qct">
-                    <rect key="frame" x="193" y="55" width="120" height="50"/>
+                    <rect key="frame" x="193" y="56" width="120" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="WVG-3x-CDm"/>
                         <constraint firstAttribute="width" constant="120" id="dXL-zj-N6p"/>
@@ -42,7 +55,7 @@
                     <state key="normal" title="禁用"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZI-F1-krZ">
-                    <rect key="frame" x="73" y="115" width="80" height="20.5"/>
+                    <rect key="frame" x="73" y="117" width="80" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="GGO-na-S9a"/>
                         <constraint firstAttribute="width" constant="80" id="s69-ZE-SNC"/>
@@ -52,15 +65,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7u-A6-jvy">
-                    <rect key="frame" x="188" y="100.5" width="50" height="50"/>
+                    <rect key="frame" x="188" y="117" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="LxW-jw-aTF"/>
                         <constraint firstAttribute="height" constant="50" id="tGa-wY-5uh"/>
                     </constraints>
                     <state key="normal" image="minus"/>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CAS-H3-D9S" customClass="BaseUITextField">
-                    <rect key="frame" x="248" y="100.5" width="60" height="50"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CAS-H3-D9S" customClass="BaseUITextField">
+                    <rect key="frame" x="248" y="117" width="60" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="CC7-ty-cCT"/>
                         <constraint firstAttribute="width" constant="60" id="GsZ-ik-OVh"/>
@@ -68,9 +81,12 @@
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="editDidBegin:" destination="-1" eventType="editingDidBegin" id="WBr-df-qpK"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU4-Sv-bQ1">
-                    <rect key="frame" x="318" y="100.5" width="50" height="50"/>
+                    <rect key="frame" x="318" y="117" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="8S6-2g-et7"/>
                         <constraint firstAttribute="width" constant="50" id="KU3-6R-qea"/>
@@ -78,23 +94,26 @@
                     <state key="normal" image="plus"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kek-YD-jpQ">
-                    <rect key="frame" x="73" y="145.5" width="80" height="20.5"/>
+                    <rect key="frame" x="73" y="177" width="80" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYG-Ow-nRx">
-                    <rect key="frame" x="188" y="131" width="50" height="50"/>
+                    <rect key="frame" x="188" y="177" width="50" height="50"/>
                     <state key="normal" image="minus"/>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9I5-dy-3bM" customClass="BaseUITextField">
-                    <rect key="frame" x="248" y="131" width="60" height="50"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9I5-dy-3bM" customClass="BaseUITextField">
+                    <rect key="frame" x="248" y="177" width="60" height="50"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="editDidBegin:" destination="-1" eventType="editingDidBegin" id="UUd-ie-wnv"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Xs-3T-Lb9">
-                    <rect key="frame" x="318" y="131" width="50" height="50"/>
+                    <rect key="frame" x="318" y="177" width="50" height="50"/>
                     <state key="normal" image="plus"/>
                 </button>
             </subviews>
@@ -135,7 +154,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="178" y="-87.5"/>
+            <point key="canvasLocation" x="177.59999999999999" y="-87.706146926536732"/>
         </view>
     </objects>
     <resources>
