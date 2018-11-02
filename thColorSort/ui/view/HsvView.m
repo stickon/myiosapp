@@ -18,30 +18,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *currentLayerLabel;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *currentLayerLabelHeightConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *contentViewConstraintHeight;
-@property (strong, nonatomic) IBOutlet UIButton *hsv1Btn;
-@property (strong, nonatomic) IBOutlet UIButton *hsv2Btn;
-@property (strong, nonatomic) IBOutlet UILabel *startLabel;
-@property (strong, nonatomic) IBOutlet UILabel *endLabel;
-@property (strong, nonatomic) IBOutlet UILabel *hsvVLabel;//灰度
-@property (strong, nonatomic) IBOutlet UILabel *hsvSLabel;//饱和度
-@property (strong, nonatomic) IBOutlet UILabel *hsvHLabel;//颜色
-@property (strong, nonatomic) IBOutlet BaseUITextField *hsvVStartTextField;
-@property (strong, nonatomic) IBOutlet BaseUITextField *hsvVEndTextField;
-@property (strong, nonatomic) IBOutlet BaseUITextField *hsvSStartTextField;
-@property (strong, nonatomic) IBOutlet BaseUITextField *hsvSEndTextField;
-@property (strong, nonatomic) IBOutlet BaseUITextField *hsvHStartTextField;
-@property (strong, nonatomic) IBOutlet BaseUITextField *hsvHEndTextField;
 @property (strong, nonatomic) IBOutlet UIButton *offsetBtn;//图像偏移按钮
 @property (strong, nonatomic) IBOutlet UILabel *offsetTitleLabel;//图像偏移文字
 @property (strong, nonatomic) IBOutlet UILabel *chuteTitleLabel;//料槽文字
 @property (strong, nonatomic) IBOutlet BaseUITextField *chuteNumTextField;//料槽输入框
-@property (strong, nonatomic) IBOutlet UILabel *sizeSetTitleLabel;//尺寸设置
-@property (strong, nonatomic) IBOutlet UILabel *widthTitleLabel;//长度标题
-@property (strong, nonatomic) IBOutlet UILabel *heightTitleLabel;//宽度标题
-@property (strong, nonatomic) IBOutlet UILabel *sizeTitleLabel;//杂质大小标题
-@property (strong, nonatomic) IBOutlet BaseUITextField *widthTextField;//长度输入框
-@property (strong, nonatomic) IBOutlet BaseUITextField *heightTextField;//宽度输入框
-@property (strong, nonatomic) IBOutlet BaseUITextField *sizeTextField;//杂质大小输入框
 @property (strong, nonatomic) IBOutlet UIButton *usedStateBtn;//使能按钮
 @property (strong, nonatomic) IBOutlet UIButton *topBtn;
 @property (strong, nonatomic) IBOutlet UIButton *rightBtn;
@@ -207,29 +187,17 @@ int temphsvSend;
 }
 - (void)initView{
     [self initLanguage];
-    self.hsv1Btn.layer.cornerRadius = 3.0f;
-    self.hsv2Btn.layer.cornerRadius = 3.0f;
     self.usedStateBtn.layer.cornerRadius = 3.0f;
     self.offsetBtn.layer.cornerRadius=5;
     self.offsetBtn.layer.masksToBounds=YES;
     Device *device = kDataModel.currentDevice;
     self.usedStateBtn.tintColor = [UIColor clearColor];
-    self.hsv1Btn.tintColor = [UIColor clearColor];
-    self.hsv2Btn.tintColor = [UIColor clearColor];
-    self.hsv1Btn.tag = 301;
-    self.hsv2Btn.tag = 302;
     self->viewBtn[0] = self.frontViewBtn;
     self->viewBtn[1] = self.rearViewBtn;
     self.leftBtn.tag = 0;
     self.topBtn.tag = 1;
     self.rightBtn.tag = 2;
     self.bottomBtn.tag = 3;
-    self.hsvVStartTextField.tag = 4;
-    self.hsvVEndTextField.tag = 5;
-    self.hsvSStartTextField.tag = 6;
-    self.hsvSEndTextField.tag = 7;
-    self.hsvHStartTextField.tag = 8;
-    self.hsvHEndTextField.tag = 9;
     [super frontRearViewBtnAddTargetEvent];
     if (device.currentViewIndex == 0) {
         self.frontViewBtn.selected = true;
@@ -246,22 +214,6 @@ int temphsvSend;
         self.frontViewBtn.userInteractionEnabled = YES;
         self.rearViewBtn.userInteractionEnabled = NO;
     }
-    
-    if (device->currentHsvIndex == 0) {
-        self.hsv1Btn.selected = YES;
-        self.hsv1Btn.backgroundColor = [UIColor greenColor];
-        self.hsv1Btn.userInteractionEnabled = NO;
-        self.hsv2Btn.userInteractionEnabled = YES;
-        self.hsv2Btn.selected = NO;
-        self.hsv2Btn.backgroundColor = [UIColor TaiheColor];
-    }else{
-        self.hsv1Btn.selected = NO;
-        self.hsv1Btn.backgroundColor = [UIColor TaiheColor];
-        self.hsv1Btn.userInteractionEnabled = YES;
-        self.hsv2Btn.selected = YES;
-        self.hsv2Btn.backgroundColor = [UIColor greenColor];
-        self.hsv2Btn.userInteractionEnabled = NO;
-    }
 }
 - (void)initLanguage{
     [self.frontViewBtn setTitle:kLanguageForKey(75) forState:UIControlStateNormal];
@@ -270,21 +222,8 @@ int temphsvSend;
     self.offsetTitleLabel.text = kLanguageForKey(339);
     self.chuteTitleLabel.text = kLanguageForKey(41);
     
-    [self.hsv1Btn setTitle:[NSString stringWithFormat:@"%@1",kLanguageForKey(14)]
-                  forState:UIControlStateNormal];
-    
-    [self.hsv2Btn setTitle:[NSString stringWithFormat:@"%@2",kLanguageForKey(14)] forState:UIControlStateNormal];
     [self.usedStateBtn setTitle:kLanguageForKey(35) forState:UIControlStateSelected];
     [self.usedStateBtn setTitle:kLanguageForKey(36) forState:UIControlStateNormal];
-    self.startLabel.text = kLanguageForKey(340);
-    self.endLabel.text = kLanguageForKey(341);
-    self.hsvVLabel.text = kLanguageForKey(342);
-    self.hsvSLabel.text = kLanguageForKey(343);
-    self.hsvHLabel.text = kLanguageForKey(344);
-    self.sizeSetTitleLabel.text = kLanguageForKey(40);
-    self.widthTitleLabel.text = kLanguageForKey(37);
-    self.heightTitleLabel.text = kLanguageForKey(38);
-    self.sizeTitleLabel.text = kLanguageForKey(39);
 }
 -(void)updateWithHeader:(NSData *)headerData{
     const unsigned char *a = headerData.bytes;
@@ -324,14 +263,6 @@ int temphsvSend;
 - (void)updateCurrentHsvView{
     Device *device = kDataModel.currentDevice;
     Byte hsvIndex = device->currentHsvIndex;
-    self.hsvVStartTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].v[0]];
-    self.hsvVEndTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].v[1]];
-    self.hsvSStartTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].s[0]];
-    self.hsvSEndTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].s[1]];
-    int hsvHstart = device->hsv[hsvIndex].h[0][0]*256+device->hsv[hsvIndex].h[0][1];
-    self.hsvHStartTextField.text = [NSString stringWithFormat:@"%d",hsvHstart];
-    int hsvHEnd = device->hsv[hsvIndex].h[1][0]*256+device->hsv[hsvIndex].h[1][1];
-    self.hsvHEndTextField.text = [NSString stringWithFormat:@"%d",hsvHEnd];
 //    self.widthTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].width];
 //    self.heightTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].height];
 //    self.sizeTextField.text = [NSString stringWithFormat:@"%d",device->hsv[hsvIndex].number[0]*256+device->hsv[hsvIndex].number[1]];
@@ -343,8 +274,6 @@ int temphsvSend;
 //        self.usedStateBtn.backgroundColor = [UIColor TaiheColor];
 //    }
     
-    self.colorPaletteView->hsvHstart[hsvIndex] = hsvHstart;
-    self.colorPaletteView->hsvHend[hsvIndex] = hsvHEnd;
     self.colorPaletteView->HsvSstart[hsvIndex] = device->hsv[hsvIndex].s[0];
     self.colorPaletteView->hsvSend[hsvIndex] = device->hsv[hsvIndex].s[1];
     self.colorPaletteView->hsvVstart[hsvIndex] = device->hsv[hsvIndex].v[0];
@@ -354,7 +283,6 @@ int temphsvSend;
 }
 - (void)updateView{
     Device *device = kDataModel.currentDevice;
-    [self.hsv2Btn setHidden:!device->hasHsv2];
     int hsvHstart = device->hsv[0].h[0][0]*256+device->hsv[0].h[0][1];
     int hsvHEnd = device->hsv[0].h[1][0]*256+device->hsv[0].h[1][1];
     self.colorPaletteView->hsvHstart[0] = hsvHstart;
@@ -384,38 +312,11 @@ int temphsvSend;
         self.colorPaletteView->hsvVend[1] = device->hsv[1].v[1];
 //        self.colorPaletteView->hsvUsed[1] = device->hsv[1].hsvUse;
     }
-    if (device->currentHsvIndex == 0) {
-        self.hsv1Btn.selected = YES;
-        self.hsv1Btn.backgroundColor = [UIColor greenColor];
-        self.hsv1Btn.userInteractionEnabled = NO;
-        self.hsv2Btn.userInteractionEnabled = YES;
-        self.hsv2Btn.selected = NO;
-        self.hsv2Btn.backgroundColor = [UIColor TaiheColor];
-    }else{
-        self.hsv1Btn.selected = NO;
-        self.hsv1Btn.backgroundColor = [UIColor TaiheColor];
-        self.hsv1Btn.userInteractionEnabled = YES;
-        self.hsv2Btn.selected = YES;
-        self.hsv2Btn.backgroundColor = [UIColor greenColor];
-        self.hsv2Btn.userInteractionEnabled = NO;
-    }
-    
     [self updateCurrentHsvView];
     [self.colorPaletteView setNeedsDisplay];
 }
 
 - (IBAction)hsvIndexChanged:(UIButton *)sender {
-    sender.backgroundColor = [UIColor greenColor];
-    sender.userInteractionEnabled = NO;
-    if (sender.tag == 301) {
-        self.hsv2Btn.backgroundColor = [UIColor TaiheColor];
-        self.hsv2Btn.userInteractionEnabled = YES;
-        [[NetworkFactory sharedNetWork] changeHsvWithType:1 Index:0];
-    }else{
-        self.hsv1Btn.backgroundColor = [UIColor TaiheColor];
-        self.hsv1Btn.userInteractionEnabled = YES;
-        [[NetworkFactory sharedNetWork] changeHsvWithType:1 Index:1];
-    }
     
 }
 
@@ -498,26 +399,6 @@ int temphsvSend;
     [sender configInputView];
     sender.mydelegate = self;
     if (sender.tag == 4) {
-        [sender initKeyboardWithMax:self.hsvVEndTextField.text.integerValue-1 Min:0 Value:sender.text.integerValue];
-    }else if (sender.tag == 5){
-        [sender initKeyboardWithMax:255 Min:self.hsvVStartTextField.text.integerValue+1 Value:sender.text.integerValue];
-        
-    }else if (sender.tag == 6){
-        [sender initKeyboardWithMax:self.hsvSEndTextField.text.integerValue-1 Min:0 Value:sender.text.integerValue];
-        
-    }else if (sender.tag == 7){
-        [sender initKeyboardWithMax:255 Min:self.hsvSStartTextField.text.integerValue+1 Value:sender.text.integerValue];
-    }else if (sender.tag == 8){
-        [sender initKeyboardWithMax:359 Min:0 Value:sender.text.integerValue];
-        
-    }else if (sender.tag == 9){
-        [sender initKeyboardWithMax:359 Min:0 Value:sender.text.integerValue];
-    }else if (sender.tag == 10){
-        [sender initKeyboardWithMax:38 Min:1 Value:sender.text.integerValue];
-    }else if (sender.tag == 11){
-        [sender initKeyboardWithMax:38 Min:1 Value:sender.text.integerValue];
-    }else if (sender.tag == 12){
-        [sender initKeyboardWithMax:self.widthTextField.text.integerValue*self.heightTextField.text.integerValue Min:1 Value:sender.text.integerValue];
     }else if (sender.tag == 100){
         Device *device = kDataModel.currentDevice;
         [sender initKeyboardWithMax:device->machineData.chuteNumber Min:1 Value:sender.text.integerValue];
