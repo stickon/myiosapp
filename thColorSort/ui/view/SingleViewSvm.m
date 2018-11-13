@@ -46,6 +46,8 @@
     self.senseEdit.tag = 3;
     self.useBtn.tag = 0;
     self.rejectBtn.tag = 1;
+    self.useBtn.tintColor = [UIColor clearColor];
+    self.rejectBtn.tintColor = [UIColor clearColor];
         self.senseValueTitleLabel.text = kLanguageForKey(14);
         [self.rejectBtn setTitle:kLanguageForKey(183) forState:UIControlStateNormal];
         [self.rejectBtn setTitle:kLanguageForKey(182) forState:UIControlStateSelected];
@@ -126,9 +128,21 @@ static int valueTmp = 0;
 -(void)updateViewWithData:(SvmInfo*)svminfo{
     memcpy(&svmInfo, svminfo, sizeof(SvmInfo));
     if (svmInfo.view) {
-        self.viewTitle.text = kLanguageForKey(75);
-    }else{
         self.viewTitle.text = kLanguageForKey(76);
+    }else{
+        self.viewTitle.text = kLanguageForKey(75);
+    }
+    self.rejectBtn.selected = svmInfo.blowSample;
+    if (svmInfo.blowSample) {
+        self.rejectBtn.backgroundColor = [UIColor greenColor];
+    }else{
+        self.rejectBtn.backgroundColor = [UIColor NormalColor];
+    }
+    self.useBtn.selected = svmInfo.used;
+    if (svmInfo.used) {
+        self.useBtn.backgroundColor = [UIColor greenColor];
+    }else{
+        self.useBtn.backgroundColor = [UIColor NormalColor];
     }
     self.impurityEdit.text = [NSString stringWithFormat:@"%d",svmInfo.spotDiff[0]*256+svmInfo.spotDiff[1]];
     self.senseEdit.text = [NSString stringWithFormat:@"%d",svmInfo.spotSensor];
@@ -148,5 +162,43 @@ static int valueTmp = 0;
     Device *device = kDataModel.currentDevice;
     [gNetwork setSvmInfoWithGroup:device.currentGroupIndex View:svmInfo.view Type:sender.tag Value:sender.text.integerValue];
     
+}
+- (IBAction)singleClicked:(UIButton *)sender {
+    int value = 0;
+    if (sender.tag == 4) {
+       value = self.impurityEdit.text.intValue;
+        if (value > 0) {
+            value--;
+        }
+        self.impurityEdit.text = [NSString stringWithFormat:@"%d",value];
+    }else if (sender.tag == 5){
+        value = self.impurityEdit.text.intValue;
+        if (value < self->svmInfo.spotDiffMax[0]*256+self->svmInfo.spotDiffMax[1]) {
+            value++;
+        }
+        self.impurityEdit.text = [NSString stringWithFormat:@"%d",value];
+    }else if (sender.tag == 6){
+        value = self.senseEdit.text.intValue;
+        if (value > 0) {
+            value--;
+        }
+        self.senseEdit.text = [NSString stringWithFormat:@"%d",value];
+    }else if (sender.tag == 7){
+       value = self.senseEdit.text.intValue;
+        if (value < 100) {
+            value++;
+        }
+        self.senseEdit.text = [NSString stringWithFormat:@"%d",value];
+    }
+    Device *device = kDataModel.currentDevice;
+    if (sender.tag == 4 || sender.tag == 5) {
+        [gNetwork setSvmInfoWithGroup:device.currentGroupIndex View:svmInfo.view Type:2 Value:value];
+    }else if (sender.tag == 6 || sender.tag == 7){
+        [gNetwork setSvmInfoWithGroup:device.currentGroupIndex View:svmInfo.view Type:3 Value:value];
+    }
+}
+- (IBAction)btnClicked:(UIButton *)sender {
+    Device *device = kDataModel.currentDevice;
+    [gNetwork setSvmInfoWithGroup:device.currentGroupIndex View:svmInfo.view Type:sender.tag Value:0];
 }
 @end
