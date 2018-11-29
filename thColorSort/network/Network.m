@@ -244,6 +244,15 @@
     socketHeader.data1[4] = value%256;
     [self netWorkSendData];
 }
+
+#pragma shape
+-(void)getShapeWithGroup:(Byte)group{
+    [self initSocketHeader];
+    socketHeader.type = 0x11;
+    socketHeader.extendType = 0x01;
+    socketHeader.data1[0]= group;
+    [self netWorkSendData];
+}
 #pragma valveViewController
 -(void)getValvePara{
     Device *device = kDataModel.currentDevice;

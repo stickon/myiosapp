@@ -8,10 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		52D55018B7CB4FDCA4D34B19 /* libPods-thColorSortPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8CE56C597872DCE60B6B592 /* libPods-thColorSortPro.a */; };
+		5616489421A6DC8900BF992A /* ShapeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5616489321A6DC8900BF992A /* ShapeViewModel.m */; };
+		5616489521A6DC8900BF992A /* ShapeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5616489321A6DC8900BF992A /* ShapeViewModel.m */; };
+		56501554219AF761005AC6F8 /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56501553219AF761005AC6F8 /* ShapeView.m */; };
+		56501555219AF761005AC6F8 /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56501553219AF761005AC6F8 /* ShapeView.m */; };
+		56501557219AF774005AC6F8 /* ShapeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56501556219AF774005AC6F8 /* ShapeView.xib */; };
+		56501558219AF774005AC6F8 /* ShapeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56501556219AF774005AC6F8 /* ShapeView.xib */; };
 		568AA59B2188972D005DC22E /* SingleViewSvm.m in Sources */ = {isa = PBXBuildFile; fileRef = 568AA59A2188972D005DC22E /* SingleViewSvm.m */; };
 		568AA59C2188972D005DC22E /* SingleViewSvm.m in Sources */ = {isa = PBXBuildFile; fileRef = 568AA59A2188972D005DC22E /* SingleViewSvm.m */; };
 		568AA59E21889744005DC22E /* SingleViewSvm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568AA59D21889744005DC22E /* SingleViewSvm.xib */; };
 		568AA59F21889744005DC22E /* SingleViewSvm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568AA59D21889744005DC22E /* SingleViewSvm.xib */; };
+		56DC611421AAD47500EC196F /* ShapeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC611321AAD47500EC196F /* ShapeItemView.m */; };
+		56DC611521AAD47500EC196F /* ShapeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC611321AAD47500EC196F /* ShapeItemView.m */; };
+		56DC611721AAD48B00EC196F /* ShapeItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC611621AAD48B00EC196F /* ShapeItemView.xib */; };
+		56DC611821AAD48B00EC196F /* ShapeItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC611621AAD48B00EC196F /* ShapeItemView.xib */; };
+		56DC611A21AAD74300EC196F /* ShapeMiniItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC611921AAD74300EC196F /* ShapeMiniItemView.xib */; };
+		56DC611B21AAD74300EC196F /* ShapeMiniItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC611921AAD74300EC196F /* ShapeMiniItemView.xib */; };
+		56DC611E21AAD75600EC196F /* ShapeMiniItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC611D21AAD75600EC196F /* ShapeMiniItemView.m */; };
+		56DC611F21AAD75600EC196F /* ShapeMiniItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC611D21AAD75600EC196F /* ShapeMiniItemView.m */; };
 		CB9DC0CF95095071A36E0991 /* libPods-thColorSort.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 552FA10B75EA3CFB134803A6 /* libPods-thColorSort.a */; };
 		F01492F6201EFCE800E946F8 /* IRAlgorithmView.m in Sources */ = {isa = PBXBuildFile; fileRef = F01492F5201EFCE800E946F8 /* IRAlgorithmView.m */; };
 		F01811122178951E00EEF95C /* SelectLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01811112178951E00EEF95C /* SelectLoginView.xib */; };
@@ -514,9 +528,20 @@
 		1C787226318C715C90FCB2EB /* Pods-thColorSortPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thColorSortPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thColorSortPro/Pods-thColorSortPro.debug.xcconfig"; sourceTree = "<group>"; };
 		551E1BE6D4AF82B20C898612 /* Pods-thColorSort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thColorSort.release.xcconfig"; path = "Pods/Target Support Files/Pods-thColorSort/Pods-thColorSort.release.xcconfig"; sourceTree = "<group>"; };
 		552FA10B75EA3CFB134803A6 /* libPods-thColorSort.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-thColorSort.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5616489221A6DC8900BF992A /* ShapeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeViewModel.h; sourceTree = "<group>"; };
+		5616489321A6DC8900BF992A /* ShapeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeViewModel.m; sourceTree = "<group>"; };
+		56501552219AF761005AC6F8 /* ShapeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeView.h; sourceTree = "<group>"; };
+		56501553219AF761005AC6F8 /* ShapeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeView.m; sourceTree = "<group>"; };
+		56501556219AF774005AC6F8 /* ShapeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShapeView.xib; sourceTree = "<group>"; };
 		568AA5992188972D005DC22E /* SingleViewSvm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleViewSvm.h; sourceTree = "<group>"; };
 		568AA59A2188972D005DC22E /* SingleViewSvm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleViewSvm.m; sourceTree = "<group>"; };
 		568AA59D21889744005DC22E /* SingleViewSvm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleViewSvm.xib; sourceTree = "<group>"; };
+		56DC611221AAD47500EC196F /* ShapeItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeItemView.h; sourceTree = "<group>"; };
+		56DC611321AAD47500EC196F /* ShapeItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeItemView.m; sourceTree = "<group>"; };
+		56DC611621AAD48B00EC196F /* ShapeItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShapeItemView.xib; sourceTree = "<group>"; };
+		56DC611921AAD74300EC196F /* ShapeMiniItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShapeMiniItemView.xib; sourceTree = "<group>"; };
+		56DC611C21AAD75600EC196F /* ShapeMiniItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeMiniItemView.h; sourceTree = "<group>"; };
+		56DC611D21AAD75600EC196F /* ShapeMiniItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeMiniItemView.m; sourceTree = "<group>"; };
 		963DF852053993B406D1340D /* Pods-thColorSortPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thColorSortPro.release.xcconfig"; path = "Pods/Target Support Files/Pods-thColorSortPro/Pods-thColorSortPro.release.xcconfig"; sourceTree = "<group>"; };
 		D8CE56C597872DCE60B6B592 /* libPods-thColorSortPro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-thColorSortPro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3359023CD977DD7A927BF8 /* Pods-thColorSort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thColorSort.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thColorSort/Pods-thColorSort.debug.xcconfig"; sourceTree = "<group>"; };
@@ -979,6 +1004,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		56DC611121AAD42100EC196F /* shapeItemsUi */ = {
+			isa = PBXGroup;
+			children = (
+				56DC611221AAD47500EC196F /* ShapeItemView.h */,
+				56DC611321AAD47500EC196F /* ShapeItemView.m */,
+				56DC611621AAD48B00EC196F /* ShapeItemView.xib */,
+				56DC611921AAD74300EC196F /* ShapeMiniItemView.xib */,
+				56DC611C21AAD75600EC196F /* ShapeMiniItemView.h */,
+				56DC611D21AAD75600EC196F /* ShapeMiniItemView.m */,
+			);
+			path = shapeItemsUi;
+			sourceTree = "<group>";
+		};
 		C752C159E8210E6DA15D38B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1257,6 +1295,7 @@
 		F09050F91FFB36D3003CEE84 /* third */ = {
 			isa = PBXGroup;
 			children = (
+				56DC611121AAD42100EC196F /* shapeItemsUi */,
 				F0E5A3B71FFC845D0056E946 /* MJRefresh */,
 				F0E5A3A61FFC749D0056E946 /* tableViewDataSource */,
 				F09052811FFB6AE3003CEE84 /* DirectionHandleView.h */,
@@ -1438,6 +1477,11 @@
 				568AA5992188972D005DC22E /* SingleViewSvm.h */,
 				568AA59A2188972D005DC22E /* SingleViewSvm.m */,
 				568AA59D21889744005DC22E /* SingleViewSvm.xib */,
+				56501552219AF761005AC6F8 /* ShapeView.h */,
+				56501553219AF761005AC6F8 /* ShapeView.m */,
+				56501556219AF774005AC6F8 /* ShapeView.xib */,
+				5616489221A6DC8900BF992A /* ShapeViewModel.h */,
+				5616489321A6DC8900BF992A /* ShapeViewModel.m */,
 			);
 			name = sense;
 			sourceTree = "<group>";
@@ -1993,6 +2037,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F05E5A3D2047CD9300181528 /* SysworkTimeView.xib in Resources */,
+				56DC611821AAD48B00EC196F /* ShapeItemView.xib in Resources */,
 				F05E5A3E2047CD9300181528 /* valveOpenTimeTableViewCell.xib in Resources */,
 				F05E5A3F2047CD9300181528 /* RegisterView.xib in Resources */,
 				F05E5A402047CD9300181528 /* ModeListView.xib in Resources */,
@@ -2014,12 +2059,14 @@
 				F05E5A552047CD9300181528 /* ColorTypeSenseValueTableViewCell.xib in Resources */,
 				F05E5A562047CD9300181528 /* TableViewCellWith4Label.xib in Resources */,
 				F05E5A572047CD9300181528 /* combobox_down_highlighed@2x.png in Resources */,
+				56501558219AF774005AC6F8 /* ShapeView.xib in Resources */,
 				F05E5A582047CD9300181528 /* TableViewCellWith1Label1Switch.xib in Resources */,
 				F05E5A5B2047CD9300181528 /* HsvView.xib in Resources */,
 				F05E5A5C2047CD9300181528 /* MainLightTableViewCell.xib in Resources */,
 				F05E5A5D2047CD9300181528 /* IRAlgorithmView.xib in Resources */,
 				F05E5A5E2047CD9300181528 /* TableViewCellWith2Label.xib in Resources */,
 				F05E5A5F2047CD9300181528 /* BackgroundLightTableViewCell.xib in Resources */,
+				56DC611B21AAD74300EC196F /* ShapeMiniItemView.xib in Resources */,
 				F05E5A622047CD9300181528 /* FeedSet.xib in Resources */,
 				F0D21C2B21885525008A93FB /* TableViewCellRebuild.xib in Resources */,
 				F05E5A632047CD9300181528 /* SvmView.xib in Resources */,
@@ -2092,6 +2139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0ACB125200C87C3005B538D /* SysworkTimeView.xib in Resources */,
+				56DC611721AAD48B00EC196F /* ShapeItemView.xib in Resources */,
 				F09051BF1FFB49FB003CEE84 /* valveOpenTimeTableViewCell.xib in Resources */,
 				F0ACB103200C6E72005B538D /* RegisterView.xib in Resources */,
 				F045DF7320070F7C00C82CA8 /* ModeListView.xib in Resources */,
@@ -2113,12 +2161,14 @@
 				F09051BC1FFB49FA003CEE84 /* ColorTypeSenseValueTableViewCell.xib in Resources */,
 				F09051B61FFB49FA003CEE84 /* TableViewCellWith4Label.xib in Resources */,
 				F09052A31FFB6C06003CEE84 /* combobox_down_highlighed@2x.png in Resources */,
+				56501557219AF774005AC6F8 /* ShapeView.xib in Resources */,
 				F09051AE1FFB49FA003CEE84 /* TableViewCellWith1Label1Switch.xib in Resources */,
 				F0320700200EEADA003EDF83 /* HsvView.xib in Resources */,
 				F09051D21FFB49FB003CEE84 /* MainLightTableViewCell.xib in Resources */,
 				F09051F21FFB49FE003CEE84 /* IRAlgorithmView.xib in Resources */,
 				F09051B01FFB49FA003CEE84 /* TableViewCellWith2Label.xib in Resources */,
 				F09051A11FFB49FA003CEE84 /* BackgroundLightTableViewCell.xib in Resources */,
+				56DC611A21AAD74300EC196F /* ShapeMiniItemView.xib in Resources */,
 				F01E7E8620049524002769DE /* FeedSet.xib in Resources */,
 				F0D21C2A21885525008A93FB /* TableViewCellRebuild.xib in Resources */,
 				F0320702200EEAF5003EDF83 /* SvmView.xib in Resources */,
@@ -2335,6 +2385,7 @@
 				F05E59A42047CD9300181528 /* MJRefreshAutoGifFooter.m in Sources */,
 				F05E59A52047CD9300181528 /* HsvView.m in Sources */,
 				F05E59A62047CD9300181528 /* SvmView.m in Sources */,
+				56DC611521AAD47500EC196F /* ShapeItemView.m in Sources */,
 				F05E59A72047CD9300181528 /* SysworkTimeView.m in Sources */,
 				F05E59A82047CD9300181528 /* TableViewCellWith1button.m in Sources */,
 				F05E59AA2047CD9300181528 /* UITableView+CBTableViewDataSource.m in Sources */,
@@ -2434,6 +2485,7 @@
 				F05E5A1A2047CD9300181528 /* HsvColorPaletteView.m in Sources */,
 				F05E5A1C2047CD9300181528 /* SetSenseSizeTableViewCell.m in Sources */,
 				F05E5A1E2047CD9300181528 /* ViewController.m in Sources */,
+				5616489521A6DC8900BF992A /* ShapeViewModel.m in Sources */,
 				F05E5A1F2047CD9300181528 /* MJRefreshBackStateFooter.m in Sources */,
 				F05E5A202047CD9300181528 /* UIView+MJExtension.m in Sources */,
 				F05E5A222047CD9300181528 /* Version21ViewPages.m in Sources */,
@@ -2446,6 +2498,7 @@
 				F05E5A2B2047CD9300181528 /* ModeSetView.m in Sources */,
 				F05E5A2C2047CD9300181528 /* Version31ViewPages.m in Sources */,
 				F05E5A2D2047CD9300181528 /* SelectItemTableView.m in Sources */,
+				56501555219AF761005AC6F8 /* ShapeView.m in Sources */,
 				F05E5A302047CD9300181528 /* RegisterView.m in Sources */,
 				F05E5A312047CD9300181528 /* UIComboBox.m in Sources */,
 				F05E5A332047CD9300181528 /* UIScrollView+MJRefresh.m in Sources */,
@@ -2453,6 +2506,7 @@
 				F05E5A362047CD9300181528 /* TableViewCellWith1Segment1Label.m in Sources */,
 				F05E5A372047CD9300181528 /* DirectionHandleView.m in Sources */,
 				F05E5A382047CD9300181528 /* Rice1RVersion1ViewPages.m in Sources */,
+				56DC611F21AAD75600EC196F /* ShapeMiniItemView.m in Sources */,
 				F05E5A392047CD9300181528 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2490,6 +2544,7 @@
 				F0E5A3E01FFC86B80056E946 /* MJRefreshAutoGifFooter.m in Sources */,
 				F0320707200EEB34003EDF83 /* HsvView.m in Sources */,
 				F032070A200EEB49003EDF83 /* SvmView.m in Sources */,
+				56DC611421AAD47500EC196F /* ShapeItemView.m in Sources */,
 				F0ACB119200C86A7005B538D /* SysworkTimeView.m in Sources */,
 				F090518F1FFB49FA003CEE84 /* TableViewCellWith1button.m in Sources */,
 				F0E5A3B31FFC74D70056E946 /* UITableView+CBTableViewDataSource.m in Sources */,
@@ -2589,6 +2644,7 @@
 				F09052901FFB6AE5003CEE84 /* HsvColorPaletteView.m in Sources */,
 				F09051C21FFB49FB003CEE84 /* SetSenseSizeTableViewCell.m in Sources */,
 				F09050C91FFB335D003CEE84 /* ViewController.m in Sources */,
+				5616489421A6DC8900BF992A /* ShapeViewModel.m in Sources */,
 				F0E5A3EA1FFC86C30056E946 /* MJRefreshBackStateFooter.m in Sources */,
 				F0E5A3CA1FFC847D0056E946 /* UIView+MJExtension.m in Sources */,
 				F01E7E7E20046FDC002769DE /* Version21ViewPages.m in Sources */,
@@ -2601,6 +2657,7 @@
 				F045DF6F20070D6A00C82CA8 /* ModeSetView.m in Sources */,
 				F09052421FFB4DBC003CEE84 /* Version31ViewPages.m in Sources */,
 				F0ACB133200CA288005B538D /* SelectItemTableView.m in Sources */,
+				56501554219AF761005AC6F8 /* ShapeView.m in Sources */,
 				F0ACB106200C6E96005B538D /* RegisterView.m in Sources */,
 				F090529F1FFB6C06003CEE84 /* UIComboBox.m in Sources */,
 				F0E5A3C91FFC847D0056E946 /* UIScrollView+MJRefresh.m in Sources */,
@@ -2608,6 +2665,7 @@
 				F09051921FFB49FA003CEE84 /* TableViewCellWith1Segment1Label.m in Sources */,
 				F09052921FFB6AE5003CEE84 /* DirectionHandleView.m in Sources */,
 				F0537FD92045215500E16C03 /* Rice1RVersion1ViewPages.m in Sources */,
+				56DC611E21AAD75600EC196F /* ShapeMiniItemView.m in Sources */,
 				F09050C61FFB335D003CEE84 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

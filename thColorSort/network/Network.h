@@ -86,6 +86,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 #pragma mark svm 算法
 -(void)getSvmInfoWithGroup:(Byte)group;
 -(void)setSvmInfoWithGroup:(Byte)group View:(Byte)view Type:(Byte)type Value:(NSInteger)value;
+
+
+-(void)getShapeWithGroup:(Byte)group;
 //大米用户版本灵敏度
 -(void)sendToGetRiceUserSense;
 -(void)sendToSetRiceUserSenseWithType:(Byte)type GroupIndex:(Byte)group RowIndex:(Byte)index Value:(int)value;
