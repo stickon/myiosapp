@@ -179,7 +179,8 @@
         [gMiddeUiManager ChangeViewWithName:@"IRAlgorithmView" Para:self.paraNextView];
     }
     if (indexPath.row == 2) {
-        
+        [self.paraNextView setObject:kLanguageForKey(30) forKey:@"title"];
+        [gMiddeUiManager ChangeViewWithName:@"ShapeView" Para:self.paraNextView];
     }
     if (indexPath.row == 3) {
         [self.paraNextView setObject:kLanguageForKey(31) forKey:@"title"];

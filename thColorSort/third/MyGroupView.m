@@ -24,7 +24,7 @@
         UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(i*(self.frame.size.width-(num-1)*2)/num+i*2,0, (self.frame.size.width-(num-1)*2)/num, self.frame.size.height)];
         [btn setTitle:[titleArr objectAtIndex:i] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
-        btn.layer.cornerRadius = 3.0f;
+        btn.layer.cornerRadius = 0.0f;
         [btn addTarget:self action:@selector(groupBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
         if (i == selectIndex) {
             btn.backgroundColor = [UIColor greenColor];
@@ -61,7 +61,7 @@
     NSArray<UIButton*> *layerBtns = [self subviews];
 
     for (int i = 0; i < groupNum; i++) {
-        layerBtns[i].frame = CGRectMake(i*(self.frame.size.width-(groupNum-1)*2)/groupNum+i*2,0, (self.frame.size.width-(groupNum-1)*2)/groupNum, self.frame.size.height);
+        layerBtns[i].frame = CGRectMake(i*(self.frame.size.width)/groupNum,0, (self.frame.size.width)/groupNum, self.frame.size.height);
     }
 }
 @end

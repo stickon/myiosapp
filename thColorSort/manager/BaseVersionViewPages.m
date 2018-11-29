@@ -33,6 +33,7 @@
 #import "ValveSetView.h"
 #import "HsvView.h"
 #import "SvmView.h"
+#import "ShapeView.h"
 @implementation BaseVersionViewPages
 -(instancetype)init{
     if (self = [super init]) {
@@ -68,6 +69,7 @@
     [self.VersionViewNameToClassDictionary setObject:[HsvView class] forKey:@"HsvView"];
     [self.VersionViewNameToClassDictionary setObject:[SvmView class] forKey:@"SvmView"];
     [self.VersionViewNameToClassDictionary setObject:[CaterpillarView class] forKey:@"CaterpillarView"];
+    [self.VersionViewNameToClassDictionary setObject:[ShapeView class] forKey:@"ShapeView"];
 }
 
 @end

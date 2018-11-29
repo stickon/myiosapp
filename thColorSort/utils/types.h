@@ -14,6 +14,7 @@
 #define CalibrationWaveLength 512
 #define Socket_Header_Length 15
 #define TaiheColor colorWithRed:46.0/255.0 green:135.0/255.0 blue:255.0/255.0 alpha:1.0
+#define NormalColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0
 #define TabColor colorWithRed:25.0/255.0 green:119.0/255.0 blue:204.0/255.0 alpha:1.0
 #define Group1Color colorWithRed:255.0/255.0 green:153.0/255.0 blue:18.0/255.0 alpha:1.0
 #define Group2Color colorWithRed:6.0/255.0 green:128.0/255.0 blue:67.0/255.0 alpha:1.0

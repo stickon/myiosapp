@@ -9,7 +9,7 @@
 #import "SvmView.h"
 #import "MyGroupView.h"
 #import "SingleViewSvm.h"
-@interface SvmView ()
+@interface SvmView ()<GroupBtnDelegate>
 @property (strong, nonatomic) IBOutlet MyGroupView *groupBtnsView;
 @property (strong, nonatomic) IBOutlet SingleViewSvm *frontSvm;
 @property (strong, nonatomic) IBOutlet SingleViewSvm *rearSvm;
@@ -56,6 +56,7 @@
     [self initLanguage];
     self.viewSvmArray = [NSArray arrayWithObjects:self.frontSvm,self.rearSvm, nil];
     [self updateGroupBtnHidden];
+    self.groupBtnsView.delegate = self;
 }
 -(void)updateGroupBtnHidden{
     Device *device = kDataModel.currentDevice;
@@ -102,5 +103,11 @@
 //
 }
 
+#pragma mark GroupBtnDelegate
+- (void)groupBtnClicked:(Byte)index{
+    Device *device = kDataModel.currentDevice;
+    device.currentGroupIndex = index;
+    [self refreshCurrentView];
+}
 
 @end
