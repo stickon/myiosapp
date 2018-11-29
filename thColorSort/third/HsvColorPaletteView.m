@@ -19,8 +19,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
     int m_hsv_offset[2][7];
     Byte m_pixel_hsv[256][360][3];
     UIImage *image;
-    CGRect CurrentRect[2];//当前的矩形
-    BOOL CurrentRectHasTwoRect;//当前矩形是否有两个
+    CGRect CurrentRect[6][2];//当前的矩形
+    BOOL CurrentRectHasTwoRect[6];
 }
 @end
 @implementation HsvColorPaletteView
@@ -41,29 +41,33 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 - (void)singleClickHsvPaletteView:(UIGestureRecognizer*)sender{
     CGPoint point = [sender locationInView:self];
     if (CGRectContainsPoint(CGRectMake(ColorPaletteOriginX, ColorPaletteOriginY, ColorPaletteWidth, ColorPaletteHeight), point)) {
-        if (hashsv2) {
-            BOOL containsPoint = NO;
-            if (CGRectContainsPoint(CurrentRect[0], point)) {
-                containsPoint = YES;
+        BOOL findHsvIndex = false;
+        for (int i = 0; i<hsvCount; i++) {
+            if (CGRectContainsPoint(CurrentRect[i][0], point)) {
+                currentHsvIndex = i;
+                findHsvIndex = true;
+                break;
             }
-            if (CurrentRectHasTwoRect) {
-                if (CGRectContainsPoint(CurrentRect[1], point)) {
-                    containsPoint = YES;
-                }
-            }
-            if (containsPoint == NO) {
-                int index = currentHsvIndex?0:1;
-                if (self.delegate && [self.delegate respondsToSelector:@selector(hsvColorPaletteSetIndex:)]) {
-                    [self.delegate hsvColorPaletteSetIndex:index];
+            if (CurrentRectHasTwoRect[i]) {
+                if (CGRectContainsPoint(CurrentRect[i][1], point)) {
+                    currentHsvIndex = i;
+                    findHsvIndex = true;
+                    break;
                 }
             }
         }
-        
+        if (findHsvIndex) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(hsvColorPaletteSetIndex:)]) {
+                [self.delegate hsvColorPaletteSetIndex:currentHsvIndex];
+            }
+            [self setNeedsDisplay];
+        }
     }
 }
+
 - (void)initHsvOffsetArray{
     m_hsv_offset[0][0] = 0;		m_hsv_offset[0][1] = 60;	m_hsv_offset[0][2] = 120;
-    m_hsv_offset[0][3] = 180;	m_hsv_offset[0][4] = 240;	m_hsv_offset[0][5] = 300; m_hsv_offset[0][6] = 360;
+    m_hsv_offset[0][3] = 180;	m_hsv_offset[0][4] = 240;	m_hsv_offset[0][5] = 300;   m_hsv_offset[0][6] = 360;
     m_hsv_offset[1][0] = 180;	m_hsv_offset[1][1] = 240;	m_hsv_offset[1][2] = 300;
     m_hsv_offset[1][3] = 0;		m_hsv_offset[1][4] = 60;	m_hsv_offset[1][5] = 120;   m_hsv_offset[1][6] = 180;
 }
@@ -174,15 +178,16 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
     
     CGContextSetLineWidth(context, 0.8);
     //矩形
-    if (hashsv2) {
-        if (currentHsvIndex == 0) {
-            [self drawHsvRectWithIndex:1];
-        }else{
-            [self drawHsvRectWithIndex:0];
-        }
+//    if (hashsv2) {
+//        if (currentHsvIndex == 0) {
+//            [self drawHsvRectWithIndex:1];
+//        }else{
+//            [self drawHsvRectWithIndex:0];
+//        }
+//    }
+    for (int i = 0; i<hsvCount; i++) {
+        [self drawHsvRectWithIndex:i];
     }
-    [self drawHsvRectWithIndex:currentHsvIndex];
-
     
     //亮度线
     CGContextBeginPath(context);
@@ -228,39 +233,43 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
     CGContextSetLineWidth(context,0.8);
     CGContextSetRGBStrokeColor(context, 0.1, 0.1, 0.1, 1.0);//线条颜色
 
-    const CGPoint points[] = {CGPointMake(ColorPaletteOriginX, ColorPaletteHeight-hsvVstart[currentHsvIndex]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY),CGPointMake(ColorPaletteOriginX+ColorPaletteWidth,ColorPaletteHeight-hsvVstart[currentHsvIndex]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY)};
+    const CGPoint points[] = {CGPointMake(ColorPaletteOriginX, ColorPaletteHeight-hsv[currentHsvIndex].v[0]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY),CGPointMake(ColorPaletteOriginX+ColorPaletteWidth,ColorPaletteHeight-hsv[currentHsvIndex].v[0]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY)};
     CGContextStrokeLineSegments(context,points,2);
     CGContextStrokePath(context);
     
 //    灰度线 上限
     CGContextBeginPath(context);
     CGContextSetRGBStrokeColor(context, 0.1, 0.1, 0.1, 1.0);//线条颜色
-    CGContextMoveToPoint(context, ColorPaletteOriginX, ColorPaletteHeight-hsvVend[currentHsvIndex]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY);
-    CGContextAddLineToPoint(context, ColorPaletteOriginX+ColorPaletteWidth,ColorPaletteHeight-hsvVend[currentHsvIndex]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY);
+    CGContextMoveToPoint(context, ColorPaletteOriginX, ColorPaletteHeight-hsv[currentHsvIndex].v[1]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY);
+    CGContextAddLineToPoint(context, ColorPaletteOriginX+ColorPaletteWidth,ColorPaletteHeight-hsv[currentHsvIndex].v[1]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY);
     CGContextStrokePath(context);
 }
 - (void)drawHsvRectWithIndex:(Byte)index{
     CGContextRef context = UIGraphicsGetCurrentContext();
-    int hsvX1=hsvHstart[index],hsvX2=hsvHend[index];
+    static int hsvX1,hsvX2,hsvY1,hsvY2;
+    hsvX1=hsv[index].h[0][0]*256+hsv[index].h[0][1];
+    hsvX2=hsv[index].h[1][0]*256+hsv[index].h[1][1];
+    hsvY1= hsv[index].s[0];
+    hsvY2= hsv[index].s[1];
     if (self.offset == 1) {
-        hsvX1 = hsvHstart[index] + 180;
+        hsvX1 += 180;
         if (hsvX1>=360) {
             hsvX1 -= 360;
         }
-        hsvX2 = hsvHend[index] +180;
+        hsvX2 += 180;
         if (hsvX2 >= 360) {
             hsvX2 -=360;
         }
     }
     
     if (hsvX1 < hsvX2) {//没跨界
-        CGRect hsv1rect = CGRectMake(hsvX1/360.0*(CGFloat)ColorPaletteWidth+ColorPaletteOriginX, ColorPaletteHeight-hsvSend[index]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY, (hsvX2-hsvX1)/360.0*(CGFloat)ColorPaletteWidth, (hsvSend[index]-HsvSstart[index])/256.0*(CGFloat)ColorPaletteHeight);
+        CGRect hsv1rect = CGRectMake(hsvX1/360.0*(CGFloat)ColorPaletteWidth+ColorPaletteOriginX, ColorPaletteHeight-hsvY2/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY, (hsvX2-hsvX1)/360.0*(CGFloat)ColorPaletteWidth, (hsvY2-hsvY1)/256.0*(CGFloat)ColorPaletteHeight);
         
+        CurrentRect[index][0] = hsv1rect;
+        CurrentRectHasTwoRect[index]= NO;
         CGContextSaveGState(context);
-        if (hsvUsed[index]) {
+        if (self.used) {
             if (index == currentHsvIndex) {
-                CurrentRect[0] = hsv1rect;
-                CurrentRectHasTwoRect = NO;
                 CGContextSetFillColorWithColor(context, [UIColor greenColor].CGColor);
             }else{
                 CGContextSetFillColorWithColor(context, [UIColor grayColor].CGColor);
@@ -270,8 +279,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
             CGFloat dashArray[] = {3,1};
             CGContextSetLineDash(context, 0, dashArray, 2);
             if (index == currentHsvIndex) {
-                CurrentRect[0] = hsv1rect;
-                CurrentRectHasTwoRect = NO;
                 CGContextSetStrokeColorWithColor(context, [UIColor greenColor].CGColor);
             }else{
                 CGContextSetStrokeColorWithColor(context, [UIColor grayColor].CGColor);
@@ -283,14 +290,15 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
         
     }else{
         CGContextSetRGBFillColor(context, 0, 1.0, 0, 1.0);
-        CGRect hsvRect1 = CGRectMake(hsvX1/360.0*(CGFloat)ColorPaletteWidth+ColorPaletteOriginX, ColorPaletteHeight-hsvSend[index]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY, (360-hsvX1)/360.0*(CGFloat)ColorPaletteWidth, (hsvSend[index]-HsvSstart[index])/256.0*(CGFloat)ColorPaletteHeight);
-        CGRect hsvRect2 = CGRectMake(ColorPaletteOriginX, ColorPaletteHeight-hsvSend[index]/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY, hsvX2/360.0*(CGFloat)ColorPaletteWidth, (hsvSend[index]-HsvSstart[index])/256.0*(CGFloat)ColorPaletteHeight);
+        CGRect hsvRect1 = CGRectMake(hsvX1/360.0*(CGFloat)ColorPaletteWidth+ColorPaletteOriginX, ColorPaletteHeight-hsvY2/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY, (360-hsvX1)/360.0*(CGFloat)ColorPaletteWidth, (hsvY2-hsvY1)/256.0*(CGFloat)ColorPaletteHeight);
+        CGRect hsvRect2 = CGRectMake(ColorPaletteOriginX, ColorPaletteHeight-hsvY2/256.0*(CGFloat)ColorPaletteHeight+ColorPaletteOriginY, hsvX2/360.0*(CGFloat)ColorPaletteWidth, (hsvY2-hsvY1)/256.0*(CGFloat)ColorPaletteHeight);
         CGContextSaveGState(context);
-        if (hsvUsed[index]) {
+        
+        CurrentRect[index][0] = hsvRect1;
+        CurrentRect[index][1] = hsvRect2;
+        CurrentRectHasTwoRect[index] = YES;
+        if (self.used) {
             if (index == currentHsvIndex) {
-                CurrentRect[0] = hsvRect1;
-                CurrentRect[1] = hsvRect2;
-                CurrentRectHasTwoRect = YES;
                 CGContextSetFillColorWithColor(context, [UIColor greenColor].CGColor);
             }else{
                 CGContextSetFillColorWithColor(context, [UIColor grayColor].CGColor);
@@ -302,9 +310,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
             CGFloat dashArray[] = {3,1};
             CGContextSetLineDash(context, 0, dashArray, 2);
             if (index == currentHsvIndex) {
-                CurrentRect[0] = hsvRect1;
-                CurrentRect[1] = hsvRect2;
-                CurrentRectHasTwoRect = YES;
                 CGContextSetStrokeColorWithColor(context, [UIColor greenColor].CGColor);
             }else{
                 CGContextSetStrokeColorWithColor(context, [UIColor grayColor].CGColor);
@@ -315,6 +320,20 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
         }
         CGContextRestoreGState(context);
     }
+}
+
+
+-(int)getHsvH1{
+    return hsv[currentHsvIndex].h[0][0]*256+hsv[currentHsvIndex].h[0][1];
+}
+-(int)getHsvH2{
+    return hsv[currentHsvIndex].h[1][0]*256+hsv[currentHsvIndex].h[1][0];
+}
+-(int)getHsvS1{
+    return hsv[currentHsvIndex].s[0];
+}
+-(int)getHsvS2{
+    return hsv[currentHsvIndex].s[1];
 }
 - (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
     // 创建一个bitmap的context

@@ -153,7 +153,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 #pragma mark hsv
 -(void)getHsvPara;
--(void)setHsvParaWithType:(Byte)type AndData:(NSInteger)data;
+-(void)setHsvParaWithHsvIndex:(Byte)index Type:(Byte)type AndData:(NSInteger)data;
 -(void)changeHsvWithType:(Byte)type Index:(Byte)index;//灵敏度1、2切换 偏移切换 料槽切换
 
 #pragma mark 腰果

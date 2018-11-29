@@ -345,7 +345,7 @@ typedef struct{
     Byte  v[2];           //v上限下限,2个字节
     Byte  s[2];           //s上限下限
     Byte  h[2][2];        //h上限下限
-    int index;
+    Byte index;
 }HsvSense;
 
 

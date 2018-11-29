@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "common_struct.h"
 @protocol HsvColorPaletteChangeHsvDelegate<NSObject>
 - (void) hsvColorPaletteSetIndex:(int)index;
 @end
@@ -18,15 +19,21 @@
     int hsvVend[2];
     int hsvHstart[2];
     int hsvHend[2];
-    BOOL hashsv2;
     int currentHsvIndex;
     int lightColorIndex;
     Byte hsvUsed[2];
     Byte pointX[1024];
     Byte pointY[1024];
     Byte lightY[256];
+    HsvSense hsv[6];
+    int hsvCount;
 }
 @property (nonatomic,assign) int offset;
+@property (nonatomic,assign) Byte used;
 @property (nonatomic,weak) id<HsvColorPaletteChangeHsvDelegate> delegate;
 -(void)setIsoffset:(int)offset;
+-(int)getHsvH1;
+-(int)getHsvH2;
+-(int)getHsvS1;
+-(int)getHsvS2;
 @end

@@ -11,6 +11,7 @@
 #import "JX_GCDTimerManager.h"
 @interface HsvView ()<MyTextFieldDelegate,HsvColorPaletteChangeHsvDelegate,UIGestureRecognizerDelegate>{
     NSTimer *longPressTimer;//长按定时器
+
 }
 @property (strong, nonatomic) IBOutlet HsvColorPaletteView *colorPaletteView;
 @property (strong, nonatomic) IBOutlet UIButton *frontViewBtn;
@@ -170,20 +171,20 @@ int temphsvSend;
         if(longPressTimer!=nil){
             [longPressTimer invalidate];
             longPressTimer=nil;
-            if (btn.tag == 0 ||btn.tag == 2) {
-                [[NetworkFactory sharedNetWork] setHsvParaWithType:8 AndData:temphsvHstart];
-                [[NetworkFactory sharedNetWork] setHsvParaWithType:9 AndData:temphsvHend];
-            }else if (btn.tag == 1 || btn.tag == 3){
-                [[NetworkFactory sharedNetWork] setHsvParaWithType:6 AndData:temphsvSstart];
-                [[NetworkFactory sharedNetWork] setHsvParaWithType:7 AndData:temphsvSend];
-            }
+//            if (btn.tag == 0 ||btn.tag == 2) {
+//                [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:0 Type:8 AndData:temphsvHstart];
+//                [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:0 Type:9 AndData:temphsvHend];
+//            }else if (btn.tag == 1 || btn.tag == 3){
+//                [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:0 Type:6 AndData:temphsvSstart];
+//                [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:0 Type:7 AndData:temphsvSend];
+//            }
         }
         
     }
 }
 
 - (void)hsvWaveTimerOut{
-    [[NetworkFactory sharedNetWork] sendToGetWaveDataWithAlgorithmType:0 AndWaveType:wave_hsv AndDataType:0 Position:0];
+//    [[NetworkFactory sharedNetWork] sendToGetWaveDataWithAlgorithmType:0 AndWaveType:wave_hsv AndDataType:0 Position:0];
 }
 - (void)initView{
     [self initLanguage];
@@ -229,15 +230,11 @@ int temphsvSend;
     const unsigned char *a = headerData.bytes;
     if (a[0] == 0x09) {
         if(a[1]== 1){
-            [self updateView];
+            [self updateViewWithData:headerData];
         }else if (a[1] == 2){
-            [self updateCurrentHsvView];
+            [[NetworkFactory sharedNetWork] getHsvPara];
         }else if (a[1] == 3){
-            if (a[2] == 3) {
-                [[NetworkFactory sharedNetWork] getHsvPara];
-            }else{
-                [self updateView];
-            }
+           [[NetworkFactory sharedNetWork] getHsvPara];
         }
     }else if (a[0] == 0x5){
         if (a[1] == wave_hsv) {
@@ -281,38 +278,14 @@ int temphsvSend;
 //    self.colorPaletteView->hsvUsed[hsvIndex] = device->hsv[hsvIndex].hsvUse;
     [self.colorPaletteView setNeedsDisplay];
 }
-- (void)updateView{
-    Device *device = kDataModel.currentDevice;
-    int hsvHstart = device->hsv[0].h[0][0]*256+device->hsv[0].h[0][1];
-    int hsvHEnd = device->hsv[0].h[1][0]*256+device->hsv[0].h[1][1];
-    self.colorPaletteView->hsvHstart[0] = hsvHstart;
-    self.colorPaletteView->hsvHend[0] = hsvHEnd;
-    self.colorPaletteView->HsvSstart[0] = device->hsv[0].s[0];
-    self.colorPaletteView->hsvSend[0] = device->hsv[0].s[1];
-    self.colorPaletteView->hsvVstart[0] = device->hsv[0].v[0];
-    self.colorPaletteView->hsvVend[0] = device->hsv[0].v[1];
-    self.colorPaletteView->hashsv2 = device->hasHsv2;
-//    self.colorPaletteView->hsvUsed[0] = device->hsv[0].hsvUse;
-    self.colorPaletteView->currentHsvIndex = device->currentHsvIndex;
-    self.colorPaletteView->lightColorIndex = device->currentHsvLightColorIndex;
-    self.colorPaletteView.offset = device->hsvOffset;
-    if (device->hsvOffset) {
-        self.offsetBtn.selected = YES;
-    }else{
-        self.offsetBtn.selected = NO;
-    }
-    if (device->hasHsv2) {
-        int hsv2Hstart = device->hsv[1].h[0][0]*256+device->hsv[1].h[0][1];
-        int hsv2HEnd = device->hsv[1].h[1][0]*256+device->hsv[1].h[1][1];
-        self.colorPaletteView->hsvHstart[1] = hsv2Hstart;
-        self.colorPaletteView->hsvHend[1] = hsv2HEnd;
-        self.colorPaletteView->HsvSstart[1] = device->hsv[1].s[0];
-        self.colorPaletteView->hsvSend[1] = device->hsv[1].s[1];
-        self.colorPaletteView->hsvVstart[1] = device->hsv[1].v[0];
-        self.colorPaletteView->hsvVend[1] = device->hsv[1].v[1];
-//        self.colorPaletteView->hsvUsed[1] = device->hsv[1].hsvUse;
-    }
-    [self updateCurrentHsvView];
+- (void)updateViewWithData:(NSData*)data{
+    SocketHeader header;
+    memcpy(&header, data.bytes, Socket_Header_Length);
+    self.colorPaletteView.used = header.data1[2];
+    self.colorPaletteView.offset = header.data1[3];
+    self.colorPaletteView->hsvCount = (int)(data.length-Socket_Header_Length)/sizeof(HsvSense);
+    memcpy(&self.colorPaletteView->hsv[0], data.bytes+Socket_Header_Length, self.colorPaletteView->hsvCount*sizeof(HsvSense));
+
     [self.colorPaletteView setNeedsDisplay];
 }
 
@@ -324,10 +297,10 @@ int temphsvSend;
     sender.selected = !sender.selected;
     if (sender.selected) {
         sender.backgroundColor = [UIColor greenColor];
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:13 AndData:1];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:0 Type:13 AndData:1];
     }else{
         sender.backgroundColor = [UIColor TaiheColor];
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:13 AndData:0];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:0 Type:13 AndData:0];
     }
 }
 
@@ -345,53 +318,59 @@ int temphsvSend;
 - (IBAction)directionBtnClicked:(UIButton *)sender {
     int index = self.colorPaletteView->currentHsvIndex;
     if (sender.tag == 0) {
-        int temphsvHstart = --self.colorPaletteView->hsvHstart[index];
-        int temphsvHend = --self.colorPaletteView->hsvHend[index];
-        
+        int temphsvHstart = [self.colorPaletteView getHsvH1];
+        int temphsvHend = [self.colorPaletteView getHsvH2];
+        temphsvHstart--;
+        temphsvHend--;
         if (temphsvHstart < 0) {
             temphsvHstart+=360;
         }
         if (temphsvHend < 0) {
             temphsvHend+=360;
         }
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:8 AndData:temphsvHstart];
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:9 AndData:temphsvHend];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:index Type:0 AndData:temphsvHstart];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:index Type:1 AndData:temphsvHend];
     }else if (sender.tag == 1){
-        int temphsvSstart = ++self.colorPaletteView->HsvSstart[index];
-        int temphsvSend = ++self.colorPaletteView->hsvSend[index];
-        
+        int temphsvSstart = [self.colorPaletteView getHsvS1];
+        int temphsvSend = [self.colorPaletteView getHsvS2];
+        temphsvSstart--;
+        temphsvSend--;
         if (temphsvSstart>255) {
             temphsvSstart = 255;
         }
         if (temphsvSend >255) {
             temphsvSend = 255;
         }
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:6 AndData:temphsvSstart];
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:7 AndData:temphsvSend];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:index Type:2 AndData:temphsvSstart];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:index Type:3 AndData:temphsvSend];
         
     }else if (sender.tag == 2){
-        int temphsvHstart = ++self.colorPaletteView->hsvHstart[index];
-        int temphsvHend = ++self.colorPaletteView->hsvHend[index];
+        int temphsvHstart = [self.colorPaletteView getHsvH1];
+        int temphsvHend = [self.colorPaletteView getHsvH2];
+        temphsvHstart++;
+        temphsvHend++;
         if (temphsvHstart > 360) {
             temphsvHstart-=360;
         }
         if (temphsvHend > 360) {
             temphsvHend-=360;
         }
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:8 AndData:temphsvHstart];
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:9 AndData:temphsvHend];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:index Type:0 AndData:temphsvHstart];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:index Type:1 AndData:temphsvHend];
         
     }else if (sender.tag == 3){
-        int temphsvSstart = --self.colorPaletteView->HsvSstart[index];
-        int temphsvSend = --self.colorPaletteView->hsvSend[index];
+        int temphsvSstart = [self.colorPaletteView getHsvS1];
+        int temphsvSend = [self.colorPaletteView getHsvS2];
+        temphsvSstart++;
+        temphsvSend++;
         if (temphsvSstart < 0) {
             temphsvSstart = 0;
         }
         if (temphsvSend < 0) {
             temphsvSend = 0;
         }
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:6 AndData:temphsvSstart];
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:7 AndData:temphsvSend];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:index Type:2 AndData:temphsvSstart];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:index Type:3 AndData:temphsvSend];
         
     }
 }
@@ -418,7 +397,7 @@ int temphsvSend;
         device.currentSorterIndex = sender.text.integerValue;
         [[NetworkFactory sharedNetWork] changeHsvWithType:3 Index:device.currentSorterIndex-1];
     }else{
-        [[NetworkFactory sharedNetWork] setHsvParaWithType:sender.tag AndData:sender.text.integerValue];
+        [[NetworkFactory sharedNetWork] setHsvParaWithHsvIndex:0 Type:sender.tag AndData:sender.text.integerValue];
     }
 }
 #pragma mark -baseviewcontroller

@@ -782,30 +782,28 @@
 -(void)getHsvPara{
     Device *device = kDataModel.currentDevice;
     [self initSocketHeader];
-    socketHeader.type = 0x30;
+    socketHeader.type = 0x9;
     socketHeader.extendType = 1;
-    socketHeader.data1[0] = device.currentLayerIndex;
-    socketHeader.data1[1] = device.currentSorterIndex-1;
+    socketHeader.data1[0] = device.currentGroupIndex;
     socketHeader.data1[2] = device.currentViewIndex;
     [self netWorkSendData];
 }
--(void)setHsvParaWithType:(Byte)type AndData:(NSInteger)data{
+-(void)setHsvParaWithHsvIndex:(Byte)index Type:(Byte)type AndData:(NSInteger)data{
     Device *device = kDataModel.currentDevice;
     [self initSocketHeader];
-    socketHeader.type = 0x30;
+    socketHeader.type = 0x9;
     socketHeader.extendType = 0x02;
-    socketHeader.data1[0] = device.currentLayerIndex;
-    socketHeader.data1[1] = device.currentSorterIndex-1;
-    socketHeader.data1[2] = device.currentViewIndex;
-    socketHeader.data1[3] = device->currentHsvIndex;
-    socketHeader.data1[4] = type;
-    socketHeader.data1[5] = data/256;
-    socketHeader.data1[6] = data%256;
+    socketHeader.data1[0] = device.currentGroupIndex;
+    socketHeader.data1[1] = device.currentViewIndex;
+    socketHeader.data1[2] = index;
+    socketHeader.data1[3] = type;
+    socketHeader.data1[4] = data/256;
+    socketHeader.data1[5] = data%256;
     [self netWorkSendData];
 }
 -(void)changeHsvWithType:(Byte)type Index:(Byte)index{
     [self initSocketHeader];
-    socketHeader.type = 0x30;
+    socketHeader.type = 0x9;
     socketHeader.extendType = 0x03;
     socketHeader.data1[0] = type;
     socketHeader.data1[1] = index;
